@@ -11,7 +11,7 @@ page_id: home
 		<li class="clearfix">
 			<h2>
 				<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-				<span class="date">{{ post.date | date:"%B %d, %Y" }}</span>
+				<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 			</h2>
 			{{ post.content | split:"<!-- more -->" | first }}
 			<ul class="inline block">

@@ -20,6 +20,7 @@ p            { margin-bottom: 1em; }
 p:last-child { margin-bottom: 0; }
 strong       { font-weight: 600; }
 em           { font-style: italic; }
+small        { font-size: 80%; }
 
 p > code {
 	background-color: #ddd;
@@ -261,11 +262,7 @@ body.home #content > ul > li {
 body.home #content > ul > li:first-child {
 	border-top: none;
 }
-/*
-body.home > ul > li:hover {
-	background-color: #eee;
-}
-*/
+
 body.home #content > ul > li > p {
 	text-align: justify;
 	padding: 0 2em 0 1em;
@@ -276,10 +273,9 @@ body.home #content > ul > li > h2 {
 }
 
 body.home #content > ul > li .date {
-	font-size: 60%;
 	font-weight: 300;
 	margin-left: 1em;
-	color: #aaa;
+	color: #888;
 }
 
 body.home #content > ul > li > ul.inline {
@@ -364,6 +360,20 @@ body.publications #content ul {
 
 body.publications #content ul > li:hover {
 	color: #579;
+}
+
+/*
+ * Post archive
+ */
+body.post_archive #content ul > li > ul {
+	margin: 0;
+}
+
+body.post_archive #content ul .date {
+	color: #888;
+	margin-left: 0.5em;
+	padding-left: 0.5em;
+	border-left: 1px solid #333;
 }
 
 /*

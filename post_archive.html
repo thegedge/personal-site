@@ -14,12 +14,12 @@ page_id: post_archive
 			</ul></li>
 		{% endif %}
 		{% assign year = year_to_test" %}
-		<li>{{ year_to_test }}
+		<li><strong>{{ year_to_test }}</strong>
 		<ul>
 	{% endif %}
 	<li>
 		<a href="{{ post.url }}">{{ post.title }}</a>
-		<span class="date">{{ post.date | date:"%B %d, %Y" }}</span>
+		<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 	</li>
 {% endfor %}
 </ul></li></ul>
