@@ -23,12 +23,15 @@ em           { font-style: italic; }
 small        { font-size: 80%; }
 
 p > code {
-	background-color: #ddd;
-	padding: 0.2em 0.4em;
+	background-color: #eee;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	padding: 0 0.2em;
+	margin: 0 0.2em;
 	color: #000;
-	border-radius: 10px;
 	font-family: source-code-pro, 'Courier New', monospace;
-	font-size: 80%;
+	font-size: 70%;
+	white-space: nowrap;
 }
 
 /*

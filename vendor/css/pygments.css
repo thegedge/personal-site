@@ -1,13 +1,22 @@
-.highlighttable {
+.highlighttable, div.highlight {
 	display: block;
 	box-sizing: border-box;
-	margin: 1em;
 	background-color: #272822;
 	color: #f8f8f2;
 }
 
-.highlight {
-	padding-right: 1em;
+div.highlight {
+	margin: 1em;
+	padding: 0.5em 1em;
+}
+
+.highlighttable {
+	margin: 1em 1em;
+}
+
+.highlighttable .highlight {
+	margin: 0;
+	padding: 0 1em;
 }
 
 .highlighttable td {
@@ -16,11 +25,11 @@
 
 .highlight pre, .highlight code, .highlight span, .linenos {
 	font-family: source-code-pro, 'Courier New', monospace;
-	font-size: 90%;
+	font-size: 10pt !important;
 	line-height: 130%;
 }
 
-.highlighttable .linenos {
+.linenos {
 	background-color: #32332b;
 	border-right: 1px solid #4b4d41;
 	padding: 0 10px;
