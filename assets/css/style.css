@@ -180,7 +180,6 @@ img.bordered { border: 1px solid #555; }
 	text-align: right;
 }
 
-
 /* Lists that are descendants, but not children, of #content get bullets by default */
 #content ul   { list-style-type: square; padding-left: 2em; margin: 1em 0; }
 #content ol   { list-style-type: decimal; padding-left: 2em; margin: 1em 0; }
@@ -285,6 +284,7 @@ body.home #content > ul > li .date {
 
 body.home #content > ul > li > ul.inline {
 	float: right;
+	margin: 0;
 }
 
 /*
