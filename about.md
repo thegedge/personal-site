@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: Jason Gedge - About Me
 group: navigation
 page_id: about 
 ---
