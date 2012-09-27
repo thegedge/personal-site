@@ -1,6 +1,7 @@
 # Jekyll config
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
+safe: true
 pygments: true
 markdown: maruku
 
