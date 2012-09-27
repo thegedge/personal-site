@@ -36,22 +36,20 @@
 	<script src="{{ site.production_url }}vendor/js/jquery.colorbox-min.js"></script>
 	<script src="{{ site.production_url }}assets/js/site.js"></script>
 
-	{% comment %}
 	<!-- Analytics -->
 	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-34893540-1']);
-	  _gaq.push(['_setDomainName', 'gedge.ca']);
-	  _gaq.push(['_setAllowLinker', true]);
-	  _gaq.push(['_trackPageview']);
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-34893540-1']);
+		_gaq.push(['_setDomainName', 'gedge.ca']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_trackPageview']);
 
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+		(function() {
+		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		 })();
     </script>
-	{% endcomment %}
 </head>
 <body class="{{ page.page_id }}">
 	<div class="container">
