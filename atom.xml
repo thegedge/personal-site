@@ -26,7 +26,7 @@ title: Atom Feed
 		<category term="{{ tag }}"/>
 		{% endfor %}
 		
-		<summary>{{ post.content | split:"<!-- more -->" | first | xml_escape }}</summary>
+		<summary type="html">{{ post.content | split:"<!-- more -->" | first | xml_escape }}</summary>
 		<content type="html">{{ post.content | remove_first:"<!-- more -->" | xml_escape }}</content>
 	</entry>
 	{% endfor %}
