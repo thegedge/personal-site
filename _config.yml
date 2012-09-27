@@ -1,0 +1,19 @@
+# Jekyll config
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+auto: true
+pygments: true
+markdown: maruku
+
+# Site configuration
+permalink: /:categories/:year/:month/:day/:title 
+production_url: http://www.gedge.ca/
+
+show_only_this_years_posts: true
+
+# Site data
+title: Jason Gedge
+author:
+  name: Jason Gedge
+  github: thegedge
+  twitter: thegedge
+
