@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Jason Gedge - About Me
-group: navigation
+title: About Me
 page_id: about 
 ---
 The name's __Jason Gedge__, but you've probably already figured that out.

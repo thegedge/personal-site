@@ -5,7 +5,7 @@ markdown: maruku
 
 # Site configuration
 permalink: /:categories/:year/:month/:day/:title 
-production_url: http://www.gedge.ca/
+production_url: http://localhost:4000/
 
 show_only_this_years_posts: true
 

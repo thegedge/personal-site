@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Jason Gedge - About Me
-group: navigation
+title: Publications
 page_id: publications
 ---
 Refereed Conference Publications

@@ -408,3 +408,9 @@ body.post #content > p {
 	text-align: justify;
 }
 
+body.post #post_comments {
+	background-color: #ddd;
+	padding: 1em;
+	margin-bottom: -1em;
+}
+

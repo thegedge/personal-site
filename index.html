@@ -1,7 +1,7 @@
 ---
 layout: index
 page_id: home
-title: Jason Gedge - Home
+title: Home
 ---
 {% capture current_year %}{{ site.time | date:"%Y" }}{% endcapture %}
 <ul>
@@ -14,15 +14,13 @@ title: Jason Gedge - Home
 				<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 				<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 			</h2>
-			{% if post.content contains "<!-- more -->" %}
-				{{ post.content | split:"<!-- more -->" | first }}
-				<ul class="inline block">
-					<li><a href="{{ post.url }}" title="Read More" class="readmore">Read More</a></li>
-				</ul>
-			{% else %}
-				{{ post.content }}
-				<ul class="inline block"></ul>
-			{% endif %}
+			{{ post.content | split:"<!-- more -->" | first }}
+			<ul class="inline block">
+				<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
+				{% if post.content contains "<!-- more -->" %}
+				<li><a href="{{ post.url }}" title="Read More" class="readmore">Read More</a></li>
+				{% endif %}
+			</ul>
 			{% comment %}
 			{% if post.tags != empty %}
 			<ul class="inline tagged dotted">
