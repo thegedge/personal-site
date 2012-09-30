@@ -7,7 +7,6 @@ tags: [java]
 This is an announcement of a new project I'm proud to release: __OpGraph__.
 Check out my portfolio for a summary, or visit the [project page](http://thegedge.github.com/opgraph).
 
-<!-- more -->
 The OpGraph project is all about providing a foundation for creating complex
 operations from simple ones. One creates a set of simple operations which can
 then be linked together to create a more complex operation.

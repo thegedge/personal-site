@@ -9,7 +9,6 @@ There's not much to see yet, but feel free to browse around. Some [things](/abou
 some [things](/portfolio.html) I've worked on, and some [things](/publications.html) I've
 published.
 
-<!-- more -->
 Be sure to check back from time to time to see any interesting things I may post. Over time I
 hope to migrate posts from my [old blog](http://gedgedev.blogspot.com) to this site for your for
 your viewing pleasure.
