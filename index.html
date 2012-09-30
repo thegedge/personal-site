@@ -14,13 +14,18 @@ title: Home
 				<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 				<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 			</h2>
-			{{ post.content | split:"<!-- more -->" | first }}
-			<ul class="inline block">
-				<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
-				{% if post.content contains "<!-- more -->" %}
-				<li><a href="{{ post.url }}" title="Read More" class="readmore">Read More</a></li>
-				{% endif %}
-			</ul>
+			{% if post.content contains "<!-- more -->" %}
+				{{ post.content | split:"<!-- more -->" | first }}
+				<ul class="inline block">
+					<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
+					<li><a href="{{ post.url }}" title="Read More" class="readmore">Read More</a></li>
+				</ul>
+			{% else %}
+				{{ post.content }}
+				<ul class="inline block">
+					<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
+				</ul>
+			{% endif %}
 			{% comment %}
 			{% if post.tags != empty %}
 			<ul class="inline tagged dotted">
