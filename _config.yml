@@ -7,7 +7,7 @@ markdown: maruku
 permalink: /:categories/:year/:month/:day/:title 
 production_url: http://www.gedge.ca/
 
-show_only_this_years_posts: true
+show_only_this_years_posts: false
 
 # Site data
 title: Jason Gedge
