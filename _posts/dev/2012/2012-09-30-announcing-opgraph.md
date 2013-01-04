@@ -2,7 +2,7 @@
 layout: post
 title: Announcing OpGraph
 category: dev
-tags: [java]
+tags: [java, opgraph]
 ---
 This is an announcement of a new project I'm proud to release: __OpGraph__.
 Check out my portfolio for a summary, or visit the [project page](http://thegedge.github.com/opgraph).

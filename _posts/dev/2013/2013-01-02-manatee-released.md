@@ -1,8 +1,8 @@
 ---           
 layout: post
-title: Manatee Release
+title: Manatee Released
 category: dev
-tags: [java]
+tags: [java, manatee]
 ---
 When I was digging through some of my old Java code I came across a messaging
 system I developed for an old application I was working on. I decided to pick
