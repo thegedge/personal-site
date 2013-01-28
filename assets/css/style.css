@@ -5,8 +5,8 @@ html {
 	overflow-y: scroll; /* always show scrollbar */
 }
 
-html, body {
-	background-color: #eee;
+body {
+	background: #eee url(../img/bg.jpg);
 	color: #444;
 	font: 300 110%/150% source-sans-pro, 'Helvetica Neue', Helvetica, sans-serif;
 }
