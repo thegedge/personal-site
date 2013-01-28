@@ -76,7 +76,7 @@ img.bordered { border: 1px solid #555; }
 	padding: 0;
 	width: 1000px;
 	background-color: #fff;
-	/*border: 1px solid #ddd;*/
+	box-shadow: 0 0 25px 5px #ccc; 
 }
 
 .container > .content {
