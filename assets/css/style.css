@@ -45,9 +45,12 @@ a {
 a:hover {
 	text-decoration: underline;
 	color: #6af;
-	/*transition: color .25s ease-in-out;
-	-moz-transition: color .25s ease-in-out;
-	-webkit-transition: color .25s ease-in-out;*/
+}
+
+p > a {
+	display: inline-block;
+	background-color: #eef5ff;
+	padding: 0 0.3em;
 }
 
 h1 > a, h1 > a:hover {
