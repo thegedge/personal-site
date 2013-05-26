@@ -11,7 +11,7 @@ Why? Well I'm not trying to create a core music library that can be reused by ot
 
 As another teaser, here's how far I've gotten so far in the rendering process:
 
-[http://www.cs.mun.ca/~gedge/pics/scoreeditor/score_and_tab2.png](http://www.cs.mun.ca/~gedge/pics/scoreeditor/score_and_tab2.png)
+![http://www.cs.mun.ca/~gedge/pics/scoreeditor/score_and_tab2.png](http://www.cs.mun.ca/~gedge/pics/scoreeditor/score_and_tab2.png)
 
 There's a lot of work to be done, but I was getting close to something presentable. The need to tackle the display properties of elements and somehow integrate this into the data model is my next step, and unfortunately that will take time. Right now I model only the very basic elements:
 

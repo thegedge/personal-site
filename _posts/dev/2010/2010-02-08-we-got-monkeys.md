@@ -6,7 +6,7 @@ tags: [graphics, software engineering, c++]
 ---
 Yep, we do have monkeys. Blender monkeys, to be exact. I whipped up a simple loader for Wavefront OBJ models. Only loads the basic geometry now, so I have to work on the material stuff. One problem is my lack of a shader that does more advanced illumination, so that's something I have to work on. The two screenshots I've posted only do per-pixel lighting with Lambertian reflectance. I also want to make it so that my OBJ loader doesn't reproduce vertices with the same position + normal + texture coordinates.
 
-[http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg](http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg)
+![http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg](http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg)
 
 <!-- more -->
 I have also gotten things working with Cocoa. I do the event loop myself to make things easier, but it's all good. Full screen mode works in Cocoa too, but not in X11/Win32 because I haven't had the chance to do so yet. And with Cocoa I'm briefly gonna bring up the PIMPL pattern and how I made use of it.
