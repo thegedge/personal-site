@@ -47,7 +47,7 @@ a:hover {
 	color: #6af;
 }
 
-p > a {
+#content .post-body a {
 	display: inline-block;
 	background-color: #eef5ff;
 	padding: 0 0.3em;
@@ -187,16 +187,21 @@ img.bordered { border: 1px solid #555; }
 	text-align: right;
 }
 
+#content img {
+	max-width: 950px;
+}
+
 /* Lists that are descendants, but not children, of #content get bullets by default */
-#content ul   { list-style-type: square; padding-left: 2em; margin: 1em 0; }
-#content ol   { list-style-type: decimal; padding-left: 2em; margin: 1em 0; }
+#content ul   { list-style-type: square; padding-left: 2em; margin: 0.5em 0; }
+#content ol   { list-style-type: decimal; padding-left: 2em; margin: 0.5em 0; }
 
 /*
  * List styles
  */
 ul.inline > li {
-	display: inline;
+	display: inline-block;
 	margin: 0;
+	margin-right: -1px;
 	padding: 0;
 }
 

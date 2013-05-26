@@ -15,7 +15,9 @@ page_id: post
 	<div class="date">Posted on <span class="date">{{ page.date | date:"%B %d, %Y" }}</span></div>
 </div>
 <div id="content" class="clearfix post">
-	{{ content | replace:"<!-- more -->","<hr/>" }}
+	<div class="post-body">
+		{{ content | replace:"<!-- more -->","<hr/>" }}
+	</div>
 </div>
 <div id="post_comments">
 	<div id="disqus_thread"></div>

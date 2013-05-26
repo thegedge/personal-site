@@ -15,13 +15,17 @@ title: Home
 				<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 			</h1>
 			{% if post.content contains "<!-- more -->" %}
-				{{ post.content | split:"<!-- more -->" | first }}
+				<div class="post-body">
+					{{ post.content | split:"<!-- more -->" | first }}
+				</div>
 				<ul class="inline block">
 					<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
 					<li><a href="{{ post.url }}" title="Read More" class="readmore">Read More</a></li>
 				</ul>
 			{% else %}
-				{{ post.content }}
+				<div class="post-body">
+					{{ post.content }}
+				</div>
 				<ul class="inline block">
 					<li><a href="{{ post.url }}#post_comments" title="Leave a Comment" class="comments">Leave a Comment</a></li>
 				</ul>
