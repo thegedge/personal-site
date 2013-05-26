@@ -1,7 +1,7 @@
 # Jekyll config
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
-markdown: maruku
+markdown: rdiscount
 
 # Site configuration
 permalink: /:categories/:year/:month/:day/:title 
