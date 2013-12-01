@@ -165,10 +165,13 @@ img.bordered { border: 1px solid #555; }
 	margin: 1em 0;
 	padding: 1em;
 	border-top: 3px solid #eee;
+	background-color: #eee;
 }
 
 .container > footer p {
-	margin: 0;
+	font-size: 75%;
+	padding: 0;
+	margin: -10px;
 	text-align: center;
 	color: #888;
 }
@@ -226,10 +229,10 @@ ul.inline.block > li > * {
 	background: #ddd;
 	color: #000;
 	padding: 0.2em 1em;
+	transition: all 0.5s ease-out;
 }
 
 ul.inline.block > li > *:hover {
-	cursor: pointer;
 	background: #555;
 	text-decoration: none;
 	color: #fff;
@@ -260,18 +263,13 @@ body.home div#sub-header > p {
 
 body.home #content > ul {
 	list-style-type: none;
-	padding-left: 0;
+	padding: 0;
 	margin: 0;
 }
 
 body.home #content > ul > li {
+	font-weight: 600;
 	clear: both;
-	padding: 1em 0 0 0.5em;
-	border-top: 3px solid #ddd;
-}
-
-body.home #content > ul > li:first-child {
-	border-top: none;
 }
 
 body.home #content > ul > li > p {
@@ -279,14 +277,14 @@ body.home #content > ul > li > p {
 	padding: 0 2em 0 1em;
 }
 
-body.home #content > ul > li > h1 {
-	margin: 0;
-}
-
 body.home #content > ul > li .date {
+	display: inline-box;
+	width: 10em;
 	font-weight: 300;
-	margin-left: 1em;
+	margin-right: 1em;
 	color: #888;
+	float: left;
+	text-align: right;
 }
 
 body.home #content > ul > li > ul.inline {
@@ -305,7 +303,12 @@ body.about #content img.me {
 	float: right;
 	width: 45%;
 	margin-left: 1.5em;
-	margin-bottom: 1em;
+	opacity: 0.5;
+	transition: all 0.5s ease-out;
+}
+
+body.about #content img.me:hover {
+	opacity: 1.0;
 }
 
 /*
