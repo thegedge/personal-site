@@ -195,8 +195,8 @@ img.bordered { border: 1px solid #555; }
 }
 
 /* Lists that are descendants, but not children, of #content get bullets by default */
-#content ul   { list-style-type: square; padding-left: 2em; margin: 0.5em 0; }
-#content ol   { list-style-type: decimal; padding-left: 2em; margin: 0.5em 0; }
+#content ul   { list-style-type: square; padding: 0 2em; margin: 0.5em 0; }
+#content ol   { list-style-type: decimal; padding: 0 2em; margin: 0.5em 0; }
 
 /*
  * List styles
@@ -227,6 +227,7 @@ ul.inline.dotted > li:first-child:before {
 /* Items are blocks */
 ul.inline.block > li > * {
 	background: #ddd;
+	font-size: 10pt;
 	color: #000;
 	padding: 0.2em 1em;
 	transition: all 0.5s ease-out;

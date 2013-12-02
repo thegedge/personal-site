@@ -9,9 +9,9 @@ title: Home
 		<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
 		<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 		<ul class="inline block">
-			<li><small>{{ post.category }}</small></li>
+			<li><a href="#">{{ post.category }}</a></li>
 			{% for tag in post.tags %}
-				<li><small>{{ tag }}</small></li>
+				<li><a href="#">{{ tag }}</a></li>
 			{% endfor %}
 		</ul>
 	</li>
