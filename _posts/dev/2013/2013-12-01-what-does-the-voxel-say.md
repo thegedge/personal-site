@@ -2,7 +2,7 @@
 layout: post
 title: What Does the Vox(el) Say?
 category: dev
-tags: [c++, graphics]
+tags: [c++, graphics, voxels]
 images: ['2013_11_28_1', '2013_11_28_2', '2013_11_29', '2013_11_30']
 ---
 As always, I've started a new project. I really need to start sticking with my
@@ -16,7 +16,7 @@ and [Cube World](https://picroma.com/cubeworld).
 	{% for img in page.images %}
 		{% capture imgurl %}{{ site.production_url }}assets/img/voxels/{{ img }}.png{% endcapture %}
 		<a href="{{ imgurl }}">
-			<img src="{{ imgurl }}" alt="Screenshot 1" width="200"/>
+			<img src="{{ imgurl }}" alt="Screenshot" width="200"/>
 		</a>
 	{% endfor %}
 	<br/>
