@@ -12,7 +12,7 @@ with a small optimization I made today and would like to share it.
 
 One aspect of performance when it comes to graphics is the number of triangles
 you're pushing to the GPU. If you're trying to draw 10k triangles, it's likely
-&emdash; but not necessarily &emdash; more performant than trying to draw a
+&mdash; but not necessarily &mdash; more performant than trying to draw a
 million triangles. Take all of this with a grain of salt though; you can draw
 10k triangles inefficiently. Another big aspect in performance is the number of
 fragments generated.
