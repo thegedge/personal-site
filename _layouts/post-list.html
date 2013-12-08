@@ -14,6 +14,22 @@ layout: default
 	</p>
 </div>
 {% endcomment %}
-<div id="content" class="clearfix home">
-	{{ content }}
+{{ content }}
+<div id="content" class="clearfix {{ page.page_id }}">
+	<ul class="posts">
+	{% for post in site.posts %}
+		{% if page.show_tag == 'all' or post.tags contains page.show_tag %}
+		<li class="clearfix">
+			<small class="date">{{ post.date | date:"%B %d, %Y" }}</small>
+			<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+			<ul class="inline block">
+				<li><a href="#">{{ post.category }}</a></li>
+				{% for tag in post.tags %}
+					<li><a href="#">{{ tag }}</a></li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endif %}
+	{% endfor %}
+	</ul>
 </div>

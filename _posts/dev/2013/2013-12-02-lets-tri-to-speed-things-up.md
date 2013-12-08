@@ -3,7 +3,6 @@ layout: post
 title: Let's Tri To Speed Things Up
 category: dev
 tags: [c++, graphics, voxels]
-images: ['']
 ---
 The second post in my voxel journey will just be a short one. I was pretty happy
 with a small optimization I made today and would like to share it.
