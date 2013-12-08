@@ -22,7 +22,7 @@ strong       { font-weight: 600; }
 em           { font-style: italic; }
 small        { font-size: 80%; }
 
-p > code {
+p > code, li > code {
 	background-color: #eee;
 	border-radius: 5px;
 	border: 1px solid #ddd;
@@ -421,11 +421,11 @@ body.post div#sub-header > ul.inline.block {
 body.post div#sub-header > ul.inline.block > li > * {
 	background-color: #eee;
 }
-
+/*
 body.post div#sub-header > ul.inline.block > li > *:hover {
 	background-color: #555;
 }
-
+*/
 body.post #content > p {
 	text-align: justify;
 }
@@ -436,3 +436,26 @@ body.post #post_comments {
 	margin-bottom: -1em;
 }
 
+/*
+ * Additional highlight table CSS.
+ */
+.highlighttable {
+	width: 90%;
+	margin: 1em auto;
+	font-size: 10pt;
+	line-height: 14pt;
+}
+
+.highlighttable .linenos {
+	font-weight: 600;
+	text-align: right;
+	padding: 5px 10px 5px 0;
+	width: 30px;
+	background: rgba(0, 0, 0, 0.1);
+	opacity: 0.3;
+}
+
+.highlighttable .code {
+	padding: 5px 10px;
+	font-family: source-code-pro, monospace;
+}
