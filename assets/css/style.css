@@ -444,6 +444,7 @@ body.post #post_comments {
 	margin: 1em auto;
 	font-size: 10pt;
 	line-height: 14pt;
+	border: 1px solid #e7e7d6;
 }
 
 .highlighttable .linenos {
