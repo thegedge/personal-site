@@ -351,6 +351,10 @@ body.portfolio #content > ul > li > div {
 	padding: 0 1em;
 }
 
+body.portfolio #content > ul > li > div > img {
+	float: right;
+}
+
 body.portfolio #content > ul > li > div > a {
 	display: block;
 	float: right;
