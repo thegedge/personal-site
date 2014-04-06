@@ -9,7 +9,11 @@ update on what I've been doing.
 
 <!-- more -->
 
-First, I've had a bug in my voxel iteration code for a few months now, and I
+First, I'll mention that I'll be headed to [PyCon](https://us.pycon.org/2014/)
+in Montreal next week. Ping me on Twitter if you'll be there too and we'll try
+to meet up.
+
+Second, I've had a bug in my voxel iteration code for a few months now, and I
 just kind of shrugged it off and focused on other things. Yesterday I decided
 it was time to take care of it. What would happen is that sometimes if you
 click on part of a voxel you'd end up picking the voxel to the left instead.
@@ -32,7 +36,7 @@ Other than that, there's been a few other changes:
    about these beasts a while back. At that time I was mostly trying to wrap
    my head around it all, but nowadays I have a pretty good idea what they're
    all about.
-   
+
    It seems to get a pretty good reception for gamedev, but like any
    architectural / design pattern, it has its own set of issues. One issue is
    communication between systems. Right now I'm taking the easy way out and
@@ -58,7 +62,7 @@ Other than that, there's been a few other changes:
    `-Weverything`, `-Wno-c++98-compat`, `-Wno-c++98-compat-pedantic`,
    `-Wno-padded`, and `-Wno-exit-time-destructors` enabled. I'm hoping to
    eventually get around to `padded` and `exit-time-destructors`.
-   
+
    I really should have been doing this from the start.
 
 Now if only I could have a game idea, or even just some kind of mechanic to
