@@ -1,6 +1,6 @@
 /*
  * Override some defaults
- */ 
+ */
 html {
 	overflow-y: scroll; /* always show scrollbar */
 }
@@ -32,6 +32,25 @@ p > code, li > code {
 	font-family: source-code-pro, 'Courier New', monospace;
 	font-size: 70%;
 	white-space: nowrap;
+}
+
+/*
+ * Definition lists
+ */
+dl {
+    margin: 1em;
+    border: 1px solid #eeeeee;
+}
+
+dl > dt {
+    color: #555555;
+    font-weight: 800;
+    background-color: #eeeeee;
+    text-align: center;
+}
+
+dl > dd {
+    margin: 0.5em 1.5em;
 }
 
 /*
