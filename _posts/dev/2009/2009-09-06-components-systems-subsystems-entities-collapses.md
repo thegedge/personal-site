@@ -4,6 +4,7 @@ title: Components, systems, subsystems, entities...*collapses*
 category: dev
 tags: [software engineering]
 ---
+
 So I've recently been reading into various articles and forum topics on
 Component-Based design, or Entity Systems (ES). This concept was probably first
 used in games when the first Dungeon Siege came out. Apparently it's closest

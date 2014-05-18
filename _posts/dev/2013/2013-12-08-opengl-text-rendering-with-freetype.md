@@ -2,7 +2,7 @@
 layout: post
 title: OpenGL Text Rendering With FreeType
 category: dev
-tags: [c++, graphics, voxels, freetype]
+tags: [c++, opengl, voxels, freetype]
 ---
 The latest post in my voxel dev journal is my work on rendering text using the
 [FreeType](//www.freetype.org) library. I was pleasantly surprised at how easy
