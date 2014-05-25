@@ -14,9 +14,7 @@ The result looks something like this:
 
 <p style="text-align: center;">
 	{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2014_05_24.png{% endcapture %}
-	<a href="{{ imgurl }}">
-		<img src="{{ imgurl }}" alt="Benchmark Graph" width="800"/>
-	</a>
+	<img src="{{ imgurl }}" alt="Benchmark Graph" width="800"/>
 </p>
 
 I know, I know. It's not particularly sexy, but it gets the job done. It's also
