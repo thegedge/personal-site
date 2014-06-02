@@ -22,6 +22,12 @@ strong       { font-weight: 600; }
 em           { font-style: italic; }
 small        { font-size: 80%; }
 
+pre {
+	font-family: source-code-pro, 'Courier New', monospace;
+	font-size: 70%;
+	white-space: pre;
+}
+
 p > code, li > code {
 	background-color: #eee;
 	border-radius: 5px;
@@ -29,9 +35,15 @@ p > code, li > code {
 	padding: 0 0.2em;
 	margin: 0 0.2em;
 	color: #000;
-	font-family: source-code-pro, 'Courier New', monospace;
-	font-size: 70%;
 	white-space: nowrap;
+}
+
+sup { vertical-align: super; font-size: smaller; }
+sub { vertical-align: sub; font-size: smaller; }
+
+blockquote {
+    margin: 0.5em 1em;
+    border-left: 10px solid #eee;
 }
 
 /*
@@ -222,6 +234,25 @@ img.bordered { border: 1px solid #555; }
 /* Lists that are descendants, but not children, of #content get bullets by default */
 #content ul   { list-style-type: square; padding: 0 2em; margin: 0.5em 0; }
 #content ol   { list-style-type: decimal; padding: 0 2em; margin: 0.5em 0; }
+
+/* Ordered lists go 1., 1.1., 1.1.1., ... for sub lists */
+#content ol {
+    counter-reset: item;
+}
+
+#content ol > li {
+    display: block;
+    position: relative;
+}
+
+#content ol > li:before {
+    font-weight: 600;
+    content: counters(item, ".") ".";
+    counter-increment: item;
+    margin-right: 100%;
+    right: 10px;
+    position: absolute;
+}
 
 /*
  * List styles
