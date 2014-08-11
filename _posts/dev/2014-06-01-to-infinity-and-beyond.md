@@ -87,7 +87,7 @@ The previous two were the big updates, but here's a few other small things in no
 particular order:
 
 * My text renderer now uses the texture builder code mentioned in
-  [last week's post]({% post_url /dev/2014/2014-05-17-unit-testing-and-texture-builder %}).
+  [last week's post]({% post_url /dev/2014-05-17-unit-testing-and-texture-builder %}).
 * Abstraction for sampler objects.
 * Sprinkled around some PIMPLs.
 * Added padding warnings back into my compilation. This will let me know whether
