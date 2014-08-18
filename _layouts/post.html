@@ -19,7 +19,9 @@ page_id: post
 		{{ content | replace:"<!-- more -->","" }}
 	</div>
 </div>
-{% if not (site.production_url contains 'localhost') %}
+{% if site.production_url contains 'localhost' %}
+<div id="post_comments">No comments locally</div>
+{% else %}
 <div id="post_comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">
