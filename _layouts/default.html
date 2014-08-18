@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Jason Gedge - {{ page.title }}</title>
-	{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-	<meta name="author" content="{{ site.author.name }}">
+  <meta charset="utf-8">
+  <title>Jason Gedge - {{ page.title }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <meta name="author" content="{{ site.author.name }}">
 
-	<!-- For IE6-8 support of HTML elements -->
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+  <!-- For IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-	<script src="http://use.edgefonts.net/source-sans-pro:n1,n2,n3,n4,n5,n6,n7,n8,n9.js"></script>
-	<script src="http://use.edgefonts.net/source-code-pro:n1,n2,n3,n4,n5,n6,n7,n8,n9.js"></script>
+  <script src="http://use.edgefonts.net/source-sans-pro:n1,n2,n3,n4,n5,n6,n7,n8,n9.js"></script>
+  <script src="http://use.edgefonts.net/source-code-pro:n1,n2,n3,n4,n5,n6,n7,n8,n9.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="{{ site.production_url }}assets/css/style.css">
-	<link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/pygments.css">
-	<link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/colorbox.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.production_url }}assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/colorbox.css">
 
-	<link rel="alternate" type="application/rss+xml"  href="http://www.gedge.ca/atom.xml" title="Jason Gedge's RSS Feed">
+  <link rel="alternate" type="application/rss+xml"  href="http://www.gedge.ca/atom.xml" title="Jason Gedge's RSS Feed">
 
-	<!-- Fav and touch icons -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{ site.production_url }}assets/img/favicon.ico">
-	{% comment %}
-	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
-	{% endcomment %}
+  <!-- Fav and touch icons -->
+  <link rel="shortcut icon" type="image/x-icon" href="{{ site.production_url }}assets/img/favicon.ico">
+  {% comment %}
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+  {% endcomment %}
 
-	<script src="{{ site.production_url }}vendor/js/jquery.min.js"></script>
-	<script src="{{ site.production_url }}vendor/js/jquery.colorbox-min.js"></script>
-	<script src="{{ site.production_url }}assets/js/site.js"></script>
+  <script src="{{ site.production_url }}vendor/js/jquery.min.js"></script>
+  <script src="{{ site.production_url }}vendor/js/jquery.colorbox-min.js"></script>
+  <script src="{{ site.production_url }}vendor/js/snap.svg-min.js"></script>
+  <script src="{{ site.production_url }}assets/js/site.js"></script>
 
-	<!-- Analytics -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-34893540-1']);
-		_gaq.push(['_setDomainName', 'gedge.ca']);
-		_gaq.push(['_setAllowLinker', true]);
-		_gaq.push(['_trackPageview']);
+  {% for additional_js in page.additional_js %}
+  <script src="{{ site.production_url }}assets/js/{{ additional_js }}"></script>
+  {% endfor %}
 
-		(function() {
-		 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		 })();
-	</script>
+  <!-- Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-34893540-1']);
+    _gaq.push(['_setDomainName', 'gedge.ca']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+  </script>
 </head>
 <body class="{{ page.page_id }}">
-	<div class="container">
-		<header class="clearfix">
-			<h1><a href="{{ site.production_url }}">
-				J<span class="light">ason</span>
-				G<span class="light">edge</span>
-			</a></h1>
-			<ul class="inline dotted page-list">
-				<li><a href="{{ site.production_url }}about.html">About</a></li>
-				<li><a href="{{ site.production_url }}index.html">Blog</a></li>
-				<li><a href="{{ site.production_url }}portfolio.html">Portfolio</a></li>
-				<li><a href="{{ site.production_url }}publications.html">Publications</a></li>
-				{% comment %}<li><a href="{{ site.production_url }}assets/jason_gedge_resume_web.pdf">Resumé</a></li>{% endcomment %}
-			</ul>
-			<ul class="inline social-icons">
-				<li><a class="icon twitter" href="http://www.twitter.com/{{ site.author.twitter }}" target="_blank"></a></li>
-				<li><a class="icon github" href="http://www.github.com/{{ site.author.github }}" target="_blank"></a></li>
-				<li><a class="icon linkedin" href="http://www.linkedin.com/pub/jason-gedge/32/484/863" target="_blank"></a></li>
-				<li><a class="icon rss" href="/atom.xml" target="_blank"></a></li>
-			</ul>
-		</header>
-		{{ content }}
-		<footer>
-			<p>Layout and design by Jason Gedge</p>
-			<p>Copyright &copy; 2008 {{ site.author.name }}</p>
-		</footer>
-	</div>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <div class="container">
+    <header class="clearfix">
+      <h1><a href="{{ site.production_url }}">
+        J<span class="light">ason</span>
+        G<span class="light">edge</span>
+      </a></h1>
+      <ul class="inline dotted page-list">
+        <li><a href="{{ site.production_url }}about.html">About</a></li>
+        <li><a href="{{ site.production_url }}index.html">Blog</a></li>
+        <li><a href="{{ site.production_url }}portfolio.html">Portfolio</a></li>
+        <li><a href="{{ site.production_url }}publications.html">Publications</a></li>
+        {% comment %}<li><a href="{{ site.production_url }}assets/jason_gedge_resume_web.pdf">Resumé</a></li>{% endcomment %}
+      </ul>
+      <ul class="inline social-icons">
+        <li><a class="icon twitter" href="http://www.twitter.com/{{ site.author.twitter }}" target="_blank"></a></li>
+        <li><a class="icon github" href="http://www.github.com/{{ site.author.github }}" target="_blank"></a></li>
+        <li><a class="icon linkedin" href="http://www.linkedin.com/pub/jason-gedge/32/484/863" target="_blank"></a></li>
+        <li><a class="icon rss" href="/atom.xml" target="_blank"></a></li>
+      </ul>
+    </header>
+    {{ content }}
+    <footer>
+      <p>Layout and design by Jason Gedge</p>
+      <p>Copyright &copy; 2008 {{ site.author.name }}</p>
+    </footer>
+  </div>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 </html>
