@@ -3,7 +3,7 @@ layout: post
 title: Greedy Voxel Meshing
 category: dev
 tags: [c++, opengl, voxels]
-additional_js: ['greedy_anim.js']
+additional_js: ['assets/js/greedy_anim.js']
 images: ['greedy', 'normal']
 ---
 

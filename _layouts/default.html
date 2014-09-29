@@ -19,7 +19,7 @@
   <link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="{{ site.production_url }}vendor/css/colorbox.css">
 
-  <link rel="alternate" type="application/rss+xml"  href="http://www.gedge.ca/atom.xml" title="Jason Gedge's RSS Feed">
+  <link rel="alternate" type="application/rss+xml"  href="{{ site.production_url }}/atom.xml" title="Jason Gedge's RSS Feed">
 
   <!-- Fav and touch icons -->
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.production_url }}assets/img/favicon.ico">
@@ -34,8 +34,12 @@
   <script src="{{ site.production_url }}vendor/js/snap.svg-min.js"></script>
   <script src="{{ site.production_url }}assets/js/site.js"></script>
 
-  {% for additional_js in page.additional_js %}
-  <script src="{{ site.production_url }}assets/js/{{ additional_js }}"></script>
+  {% for script in page.additional_js %}
+  {% if script contains '//' %}
+  <script src="{{ script }}"></script>
+  {% else %}
+  <script src="{{ site.production_url }}{{ script }}"></script>
+  {% endif %}
   {% endfor %}
 
   <!-- Analytics -->

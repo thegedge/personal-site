@@ -232,8 +232,8 @@ img.bordered { border: 1px solid #555; }
 }
 
 /* Lists that are descendants, but not children, of #content get bullets by default */
-#content ul   { list-style-type: square; padding: 0 2em; margin: 0.5em 0; }
-#content ol   { list-style-type: decimal; padding: 0 2em; margin: 0.5em 0; }
+#content ul { list-style-type: square; padding: 0 2em; margin: 1em 0; }
+#content ol { list-style-type: decimal; padding: 0 2em; margin: 1em 0; }
 
 /* Ordered lists go 1., 1.1., 1.1.1., ... for sub lists */
 #content ol {
@@ -488,6 +488,25 @@ body.post #post_comments {
 	background-color: #ddd;
 	padding: 1em;
 	margin-bottom: -1em;
+}
+
+/*
+ * Image overlay div
+ */
+div.img_overlay {
+    text-align: center;
+}
+
+div.img_overlay img:first-child {
+    display: none;
+}
+
+div.img_overlay:hover img:first-child {
+    display: inline;
+}
+
+div.img_overlay:hover img:last-child {
+    display: none;
 }
 
 /*
