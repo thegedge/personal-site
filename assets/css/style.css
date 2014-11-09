@@ -22,7 +22,7 @@ strong       { font-weight: 600; }
 em           { font-style: italic; }
 small        { font-size: 80%; }
 
-pre {
+.highlight > pre {
 	font-family: source-code-pro, 'Courier New', monospace;
 	font-size: 70%;
 	white-space: pre;
@@ -510,26 +510,60 @@ div.img_overlay:hover img:last-child {
 }
 
 /*
- * Additional highlight table CSS.
+ * Data table
  */
-.highlighttable {
-	width: 90%;
-	margin: 1em auto;
-	font-size: 10pt;
-	line-height: 14pt;
-	border: 1px solid #e7e7d6;
+table.data {
+    margin: 1em auto;
 }
 
-.highlighttable .linenos {
+table.data tbody tr:nth-child(2n + 1) {
+    background-color: #eee;
+}
+
+table.data th {
+    font-weight: bold;
+}
+
+table.data th, table.data td {
+    padding: 5px 25px;
+}
+
+table.data td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 25px;
+}
+
+/*
+ * Additional highlight table CSS.
+ */
+.highlighttable, .gist .gist-file {
+	width: 90% !important;
+	margin: 1em auto !important;
+	line-height: 14pt;
+	border: 1px solid #e7e7d6 !important;
+}
+
+.highlighttable .linenos, .gist .line-numbers {
 	font-weight: 600;
 	text-align: right;
 	padding: 5px 10px 5px 0;
 	width: 30px;
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.1) !important;
+	color: #444 !important;
 	opacity: 0.3;
 }
 
 .highlighttable .code {
 	padding: 5px 10px;
 	font-family: source-code-pro, monospace;
+}
+
+/*
+ * Gist configuration
+ */
+.gist .file-data {
+    max-height: 500px;
+    overflow: scroll;
+    background: #eeeedd;
 }
