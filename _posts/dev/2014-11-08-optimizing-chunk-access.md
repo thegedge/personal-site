@@ -2,7 +2,7 @@
 layout: post
 title: Optimizing Chunk Access
 category: dev
-tags: [c++, opengl, voxels]
+tags: [c++, voxels]
 ---
 
 In general, one should access memory in a contiguous manner, but sometimes it
