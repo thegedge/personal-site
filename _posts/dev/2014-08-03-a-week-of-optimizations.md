@@ -22,7 +22,7 @@ frustrum culling and what I'll call "chunk face" culling.
 <p style="float: right; margin-left: 10px; width: 353px; line-height: 100%;">
 	<img src="https://docs.google.com/drawings/d/1XlMlgGT2NN3MeqEwtCmVlJ6QLqGyOuQ6t1hne5_WJo4/pub?w=353&amp;h=294">
 	<br/>
-	<strong><small>Rendering only the chunks necessary (gray) in the player's viewing frustrum (blue).</small></strong>
+	<strong><small>Rendering only the chunks necessary (orange) in the player's viewing frustrum (blue).</small></strong>
 </p>
 
 Frustrum culling is rendering only the things that exist within the view of the
@@ -38,9 +38,9 @@ derivation of those planes to you, but think about two things: 1) how the
 camera's projection matrix transforms 3D points into clip space, and 2) how
 those points are kept or discarded once in clip space.
 
-Frustrum culling game a huge performance boost, approximately 1.8x. When
-writing any game it's a good idea to always keep in mind ways that you can send
-less data to the GPU.
+Frustrum culling gave a big performance boost, approximately 1.8x. When writing
+any game it's a good idea to always keep in mind ways that you can send less
+data to the GPU.
 
 # Chunk Face Culling
 
@@ -54,8 +54,8 @@ Although not quite as significant an optimization as frustrum culling, I still
 managed to gain about a 1.3x improvement by using what I'll call "chunk face"
 culling. When rendering a cube you are guaranteed that at most three sides will
 be visible. Given that fact, I thought about how I could store the faces of
-each voxel in six separate voxel buffers, and decide which ones to render based
-on the relative offset of a chunk to the user.
+each voxel in six separate vertex buffers, and decide which ones to render
+based on the relative offset of a chunk to the user.
 
 First, we need to categorize the chunks based on the camera's current position.
 In the diagram to the right you can see that we partition chunks into three
