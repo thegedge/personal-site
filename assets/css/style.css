@@ -16,11 +16,12 @@ h1 { font-size: 150%; }
 h2 { font-size: 125%; }
 h3 { font-size: 110%; }
 
-p            { margin-bottom: 1em; }
-p:last-child { margin-bottom: 0; }
-strong       { font-weight: 600; }
-em           { font-style: italic; }
-small        { font-size: 80%; }
+p             { margin: 1em 0; }
+p:first-child { margin-top: 0; }
+p:last-child  { margin-bottom: 0; }
+strong        { font-weight: 600; }
+em            { font-style: italic; }
+small         { font-size: 80%; }
 
 .highlight > pre {
 	font-family: source-code-pro, 'Courier New', monospace;
@@ -43,6 +44,7 @@ sub { vertical-align: sub; font-size: smaller; }
 
 blockquote {
     margin: 0.5em 1em;
+    padding: 0 5px;
     border-left: 10px solid #eee;
 }
 
