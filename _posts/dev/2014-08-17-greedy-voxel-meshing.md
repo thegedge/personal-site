@@ -14,7 +14,6 @@ into creating higher quality blog posts from now on, with a focus on explaining
 a concept or algorithm through visualization. If you have any suggestions for
 improvements or blog posts to write, leave me a comment.
 
-<!-- more -->
 
 Mikola Lysenko goes into great detail describing various methods of meshing in
 his [blog post](http://0fps.net/2012/06/30/meshing-in-a-minecraft-game/). I
@@ -67,7 +66,7 @@ Here's a result from my own engine:
 
 <p style="text-align: center;">
 	{% for img in page.images %}
-		{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2014_08_17_{{ img }}.png{% endcapture %}
+		{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/2014_08_17_{{ img }}.png{% endcapture %}
 		<a href="{{ imgurl }}">
 			<img src="{{ imgurl }}" alt="{{img}} meshing" width="400"/>
 		</a>

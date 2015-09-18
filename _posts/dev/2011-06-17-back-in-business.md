@@ -7,7 +7,7 @@ tags: [score editing, qt, c++, python]
 
 The score editor project has come off the back burner and is now up front. I
 still have work to do with regards to my thesis but I expect I'll have that
-done before mid-summer. <!-- more --> Right now the focus is on the following:
+done before mid-summer. Right now the focus is on the following:
 
 * Completing the port from Java. This task is mostly done, and we just need to
   implement

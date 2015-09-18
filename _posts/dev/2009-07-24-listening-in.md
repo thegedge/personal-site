@@ -14,7 +14,6 @@ Model-View-Controller (MVC). Other examples, in Java, include many of the
 components in Swing, `java.util.Observable`, and
 `java.beans.PropertyChangeListener`.
 
-<!-- more -->
 
 I personally had issues with the extensive use of the listener pattern for us.
 Every time we added a new data class, we'd have to rewrite code for storing and

@@ -10,7 +10,6 @@ algorithms in an underwater camera array. What I'm hoping to do is a rough
 scene reconstruction that has improved results over blindly using an existing
 stereo algorithm.
 
-<!-- more -->
 
 Now on to what this post is about. I found a little subtle and, as far as I can
 tell, undocumented feature of the Point Grey cameras. If you use the FlyCapture

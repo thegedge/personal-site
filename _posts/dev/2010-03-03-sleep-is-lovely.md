@@ -11,7 +11,6 @@ annoying to handle. I think I'm going to put it off to the side and get to work
 on calibrating the camera array we have in the lab. Camera calibration is not
 particularly fun, but oh well, it must be done.
 
-<!-- more -->
 
 I've been refactoring my game engine code lately to abstract the
 physics-related code so that I avoid having to deal with Bullet directly. I've

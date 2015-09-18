@@ -9,7 +9,6 @@ A variety of optimizations has led me to being able to render a bunch more
 voxels. I don't know about everyone else, but optimizing graphics-related code
 I find incredibly fun!
 
-<!-- more -->
 
 From my [last post]({% post_url /dev/2014-07-26-seeing-spheres %}) I
 mentioned using my sphere code to load less sectors around the player. This did

@@ -9,10 +9,10 @@ So for one of my projects I was dissatisfied with the fact that a `QLabel`
 whose horizontal size policy is `Qt::Ignored` will have its text clipped
 instead of having an ellipsis at the end (or somewhere in there). I whipped
 together a simple extension to `QLabel` that puts an ellipsis at the end based
-on the current size of the label. <!-- more --> It's not complete in general
-(e.g., doesn't really support multiple lines), but for me it gets the job done.
-Feel free to use this code for whatever purpose you please (i.e., it's in the
-public domain).
+on the current size of the label. It's not complete in general (e.g., doesn't
+really support multiple lines), but for me it gets the job done. Feel free to
+use this code for whatever purpose you please (i.e., it's in the public
+domain).
 
 * [elidedlabel.hpp](http://www.cs.mun.ca/~gedge/code/elidedlabel.hpp)
 * [elidedlabel.cpp](http://www.cs.mun.ca/~gedge/code/elidedlabel.cpp)

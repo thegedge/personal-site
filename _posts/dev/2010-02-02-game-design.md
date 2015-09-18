@@ -11,7 +11,6 @@ currently happy with the way things are going:
 
 [Game Engine Screenshot](http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_01.jpg)
 
-<!-- more -->
 
 Pretty simple, I know. Shows off some basic texturing and per-pixel lighting,
 but that's about all I got for now. Currently this is all done in OpenGL, but

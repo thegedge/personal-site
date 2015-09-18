@@ -11,7 +11,6 @@ to get some native behavior on OS X. For example, the closest to native you can
 get with Open/Save file dialogs is what you get from `java.awt.FileDialog`,
 which isn't very much.
 
-<!-- more -->
 
 Since we're developing in Swing it is key that if we do anything, it should be
 wrapped up in a neat little package that mimics existing Swing components. Not

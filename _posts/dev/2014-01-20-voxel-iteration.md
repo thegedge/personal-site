@@ -9,7 +9,6 @@ time to do a proper implementation of a grid-based iterator. I'm not going to
 dive into great detail about this algorithm because this post exists to point to
 the GitHub repository with my code, so I'll summarize the idea of the algorithm.
 
-<!-- more -->
 
 Given a ray, `source + t\*direction`, you initialize the iterator with the value
 of _t_ required to get to the next voxel along each axis. For every iteration,

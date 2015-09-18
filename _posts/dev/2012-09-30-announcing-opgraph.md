@@ -1,4 +1,4 @@
----           
+---
 layout: post
 title: Announcing OpGraph
 category: dev
@@ -12,7 +12,7 @@ operations from simple ones. One creates a set of simple operations which can
 then be linked together to create a more complex operation.
 
 <p style="text-align: center;">
-<img src="{{ site.production_url }}assets/img/portfolio/opgraph/opgraph.png" alt="OpGraph Screenshot"/>
+<img src="{{ site.baseurl }}/assets/img/portfolio/opgraph/opgraph.png" alt="OpGraph Screenshot"/>
 </p>
 
 This was a project that I created initially for the [Phon](http://phon.ling.mun.ca)

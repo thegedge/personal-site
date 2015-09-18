@@ -7,7 +7,6 @@ tags: [c++, graphics, voxels]
 The second post in my voxel journey will just be a short one. I was pretty happy
 with a small optimization I made today and would like to share it.
 
-<!-- more -->
 
 One aspect of performance when it comes to graphics is the number of triangles
 you're pushing to the GPU. If you're trying to draw 10k triangles, it's likely
@@ -17,7 +16,7 @@ million triangles. Take all of this with a grain of salt though; you can draw
 fragments generated.
 
 <p style="text-align: center;">
-	{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2013_11_30.png{% endcapture %}
+	{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/2013_11_30.png{% endcapture %}
 	<a href="{{ imgurl }}">
 		<img src="{{ imgurl }}" alt="Screenshot" width="400"/>
 	</a>
@@ -50,7 +49,7 @@ The result? Although it's roughly the same number of triangles, I can draw an
 order of magnitude more sectors:
 
 <p style="text-align: center;">
-	{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2013_12_02.png{% endcapture %}
+	{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/2013_12_02.png{% endcapture %}
 	<a href="{{ imgurl }}">
 		<img src="{{ imgurl }}" alt="Screenshot" width="400"/>
 	</a>

@@ -13,7 +13,6 @@ But I digress. This week's entry will give a quick update on what I've done
 recently: unit testing and my use of the
 [Builder pattern](//en.wikipedia.org/wiki/Builder_pattern).
 
-<!-- more -->
 
 So one of the biggest things I've done since my last update is add a bunch of
 unit tests for my code, and a couple of performance tests. I made use of the

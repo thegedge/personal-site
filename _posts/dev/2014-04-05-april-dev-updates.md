@@ -7,7 +7,6 @@ tags: [c++, voxels]
 It's been a few months since I've written something, so I'll just give a quick
 update on what I've been doing.
 
-<!-- more -->
 
 First, I'll mention that I'll be headed to [PyCon](https://us.pycon.org/2014/)
 in Montreal next week. Ping me on Twitter if you'll be there too and we'll try

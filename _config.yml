@@ -1,5 +1,11 @@
 # Jekyll config
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude:
+  - .rvmrc
+  - .rbenv-version
+  - changelog.md
+  - Rakefile
+  - README.md
+  - vendor/bundle
 
 highlighter: pygments
 
@@ -10,7 +16,8 @@ kramdown:
 
 # Site configuration
 permalink: /:categories/:year/:month/:day/:title
-production_url: http://www.gedge.ca/
+url: http://www.gedge.ca
+baseurl:
 
 # Site data
 title: Jason Gedge
@@ -19,3 +26,5 @@ author:
     github: thegedge
     twitter: thegedge
 
+gems:
+  - jekyll-feed

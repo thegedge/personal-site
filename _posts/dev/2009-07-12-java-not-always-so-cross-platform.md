@@ -11,7 +11,6 @@ even with such power, there's always little things that really can make one's
 life a pain when creating a piece of software that is intended to be high
 quality.
 
-<!-- more -->
 
 One of the major sources of pain in Java is cross-platform GUIs. It's nice that
 Swing works "out-of-the-box" on most systems, but it often suffers from lacking

@@ -9,7 +9,6 @@ So it's been a couple of weeks since my last update. I definitely haven't had a
 lot of time to work on things, but there are a few updates and thoughts that
 I'd like to share.
 
-<!-- more -->
 
 # Updates
 

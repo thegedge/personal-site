@@ -14,7 +14,6 @@ very useful.
 `static_assert` is a way to make compile-time assertions about, well, anything
 you can compute at compile time.
 
-<!-- more -->
 
 So let's say you have a piece of code that just isn't going to work unless
 you're compiling on a system that has a 32-bit word. You could simply add the

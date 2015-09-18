@@ -8,12 +8,11 @@ To keep up with my weekly dev journal blog, here's a short post on something I
 whipped up today. I thought it would be neat to have a way of seeing how
 performant my systems were in gameplay.
 
-<!-- more -->
 
 The result looks something like this:
 
 <p style="text-align: center;">
-	{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2014_05_24.png{% endcapture %}
+	{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/2014_05_24.png{% endcapture %}
 	<img src="{{ imgurl }}" alt="Benchmark Graph" width="800"/>
 </p>
 

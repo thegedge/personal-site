@@ -11,7 +11,6 @@ team consists of just myself and a classmate from my undergrad. We previously
 worked on a team project during our undergrad (a required course), so we were
 already familiar with team development.
 
-<!-- more -->
 
 For me, projects come in two flavors:
 

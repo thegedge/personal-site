@@ -11,7 +11,6 @@ realized is that this separation is actually making my life more difficult.
 What I've come to realize is that in my own case, this separation doesn't even
 make sense.
 
-<!-- more -->
 
 Why? Well I'm not trying to create a core music library that can be reused by
 others (not anytime in the near future anyways), but rather I'm attempting to

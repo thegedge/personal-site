@@ -12,7 +12,6 @@ preview):
 
 ![Score Editor](http://www.cs.ualberta.ca/~gedge/tabeditor/tabeditor_aug17.png)
 
-<!-- more -->
 
 For our first release we focused on guitar tabs, and making sure the
 application as a whole works together properly. Unfortunately this release will

@@ -31,7 +31,6 @@ related to each other: deferred shading and screen-space ambient occlusion
 have a rough SSAO implementation, which is what I'll be discussing in this
 entry.
 
-<!-- more -->
 
 # Ambient Occlusion
 
@@ -46,7 +45,7 @@ bright source of light such as lightning.
 So exactly how does such light get occluded? Primarily by nearby geometry:
 
 <div style="text-align: center">
-    <img src="{{ site.production_url }}assets/img/voxels/2014_09_27_ambient_occlusion.svg" alt="Ambient Occlusion">
+    <img src="{{ site.baseurl }}/assets/img/voxels/2014_09_27_ambient_occlusion.svg" alt="Ambient Occlusion">
     <br/>
     <strong><small>About one third of the possible incoming directions are blocked by the cube.</small></strong>
 </div>
@@ -181,8 +180,8 @@ Here's a result from my own engine. Hover over the image to see how SSAO can
 give the scene some much-needed depth.
 
 <div class="img_overlay">
-    <img src="{{ site.production_url }}assets/img/voxels/2014_09_27_with_ssao.png" alt="With SSAO">
-    <img src="{{ site.production_url }}assets/img/voxels/2014_09_27_without_ssao.png" alt="Without SSAO">
+    <img src="{{ site.baseurl }}/assets/img/voxels/2014_09_27_with_ssao.png" alt="With SSAO">
+    <img src="{{ site.baseurl }}/assets/img/voxels/2014_09_27_without_ssao.png" alt="Without SSAO">
 </div>
 
 Of course, this was just my first attempt so there are many improvements to be

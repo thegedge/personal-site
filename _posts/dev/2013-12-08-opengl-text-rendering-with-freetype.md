@@ -8,7 +8,6 @@ The latest post in my voxel dev journal is my work on rendering text using the
 [FreeType](//www.freetype.org) library. I was pleasantly surprised at how easy
 it was to use the FreeType library to render TrueType fonts (TTF) as bitmaps.
 
-<!-- more -->
 
 You can get some quick and dirty text rendering up and running with just four
 functions:
@@ -141,7 +140,7 @@ void main(void) {
 {% endhighlight %}
 
 <p style="text-align: center;">
-	{% capture imgurl %}{{ site.production_url }}assets/img/voxels/2013_12_08.png{% endcapture %}
+	{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/2013_12_08.png{% endcapture %}
 	<a href="{{ imgurl }}">
 		<img src="{{ imgurl }}" alt="Screenshot" width="400"/>
 	</a>
@@ -157,4 +156,4 @@ of things you can do:
      a mapping between characters and their location within the atlas.
   2. For strings that rarely change, we can cache the vertex data in a VBO.
 
-[Example GLFW Application Source Code]({{ site.production_url }}code/opengl_text_rendering.cpp.txt)
+[Example GLFW Application Source Code]({{ site.baseurl }}/code/opengl_text_rendering.cpp.txt)

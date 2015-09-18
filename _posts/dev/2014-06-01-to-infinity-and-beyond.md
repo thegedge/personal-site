@@ -9,7 +9,6 @@ since starting this goal of one entry a weeks, so for my third week I have some
 Good Stuff&trade; for all of you reading: __infinite terrain__ and a
 __significant performance boost__.
 
-<!-- more -->
 
 ## Infinite Terrain
 Perhaps my favourite update of the week is that I _finally_ got around to

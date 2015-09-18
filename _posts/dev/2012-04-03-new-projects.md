@@ -10,7 +10,6 @@ score editor project had to be put on the back burner for now, as I've picked
 up a real job (only a short-term contract), which leads into my discussion in
 this post.
 
-<!-- more -->
 
 Working on a real project has really helped me learn many things, but
 especially good design techniques. In particular, my project will be used as a

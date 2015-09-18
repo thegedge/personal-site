@@ -14,7 +14,6 @@ bunch of info on the net, I think I got the basic idea. Here's my attempt at
 giving an eagle-eye view of what it is, or rather, what I think it is in the
 context of a game.
 
-<!-- more -->
 
 You have three major concepts: entities, components, and systems.
 

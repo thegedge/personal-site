@@ -13,7 +13,6 @@ score there can be multiple staves. For example, a piano score usually has two:
 one for treble clef and one for bass clef. For guitar tabs, there is often the
 tablature and then the score notation affiliated with this tablature.
 
-<!-- more -->
 
 My design decision is focused on the best way to structure my data hierarchy
 and rendering process to render this. In particular, I'm focused on tablature.

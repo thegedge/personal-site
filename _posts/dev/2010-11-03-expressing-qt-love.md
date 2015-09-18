@@ -10,7 +10,6 @@ expressing my joy about how simple it is to do things with Qt. Whenever I do
 something new, no matter how small, I'm excitedly telling and showing friends
 what I've done.
 
-<!-- more -->
 
 For example, recently I had the requirement that I wanted to be able to save
 images displayed by `QGraphicsPixmapItem` to a file. In a matter of a couple of

@@ -9,11 +9,10 @@ Looks like I dropped the ball on a weekly journal, but that's okay! I took a
 break from everything and had a vacation (i.e., I visited my friends and family
 back in Canada). Back in the game and played around with "voxelizing" spheres.
 
-<!-- more -->
 
 <p style="text-align: center;">
 	{% for img in page.images %}
-		{% capture imgurl %}{{ site.production_url }}assets/img/voxels/{{ img }}.png{% endcapture %}
+		{% capture imgurl %}{{ site.baseurl }}/assets/img/voxels/{{ img }}.png{% endcapture %}
 		<a href="{{ imgurl }}">
 			<img src="{{ imgurl }}" alt="Screenshot" width="400"/>
 		</a>

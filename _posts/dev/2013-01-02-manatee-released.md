@@ -11,7 +11,6 @@ Feel free to clone the repository `git://github.com/thegedge/manatee.git`, or
 check out the
 [example](https://github.com/thegedge/manatee/tree/master/examples/main/java/ca/gedge/manatee).
 
-<!-- more -->
 
 ## Why call it Manatee?
 

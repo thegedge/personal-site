@@ -11,7 +11,6 @@ follow-up post with a brief introduction to them, so here it is. I'm going to
 talk about annotations in the Java sense, but a lot of this propagates to other
 \[reflective\] languages too.
 
-<!-- more -->
 
 Annotations are often defined as "notes of explanation or comments added to
 text". In Java, one can regard an annotation as metadata attached to code, a
