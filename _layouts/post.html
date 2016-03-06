@@ -19,7 +19,7 @@ page_id: post
 		{{ content | replace:"<!-- more -->","" }}
 	</div>
 </div>
-{% if jekyll.environment == 'production' %}
+{% if site.environment == 'production' %}
 <div id="post_comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">

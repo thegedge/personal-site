@@ -9,6 +9,7 @@ exclude:
 permalink: /:categories/:year/:month/:day/:title
 url: http://www.gedge.ca
 baseurl: ''
+environment: production
 
 # Defaults
 defaults:
