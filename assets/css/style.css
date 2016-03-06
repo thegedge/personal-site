@@ -417,7 +417,7 @@ body.portfolio #content > ul > li > div > a > img {
 body.portfolio #content > ul > li > ul.inline.block {
 	float: right;
 	clear: right;
-	margin-bottom: 1px;
+	margin-bottom: 0;
 }
 
 /*
