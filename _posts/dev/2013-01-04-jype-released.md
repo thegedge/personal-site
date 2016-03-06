@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Jype Released
 category: dev
 tags: [java, jype]

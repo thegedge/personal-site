@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: "Data + Rendering -- Design Decisions"
 category: dev
 tags: [software engineering, coding]

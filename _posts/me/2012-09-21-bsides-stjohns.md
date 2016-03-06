@@ -1,5 +1,4 @@
 ---
-layout: post
 title: BSides St. John's, 2012
 category: me
 tags: [conferences, security]

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: "Java: not always so cross-platform"
 category: dev
 tags: [java]

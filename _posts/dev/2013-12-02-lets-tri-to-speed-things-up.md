@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Let's Tri To Speed Things Up
 category: dev
 tags: [c++, graphics, voxels]

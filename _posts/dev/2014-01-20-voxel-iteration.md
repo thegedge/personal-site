@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Voxel Iteration
 category: dev
 tags: [c++, voxels]

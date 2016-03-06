@@ -1,5 +1,4 @@
 ---
-layout: post
 title: static_assert in C++11
 category: dev
 tags: [c++]

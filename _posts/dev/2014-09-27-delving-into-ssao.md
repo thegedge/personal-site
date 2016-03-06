@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Delving Into SSAO
 category: dev
 tags: [c++, opengl]

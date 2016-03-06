@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Unit Testing and Texture Builder
 category: dev
 tags: [c++, opengl]

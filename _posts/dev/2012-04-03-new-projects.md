@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: New Projects
 category: dev
 tags: [java, api, software engineering]

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Becoming a Jedi, err...JNI Master!
 category: dev
 tags: [java, jni]

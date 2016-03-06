@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: "Java Annotations: A [Somewhat] Brief Introduction"
 category: dev
 tags: [java]

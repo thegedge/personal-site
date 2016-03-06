@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Announcing OpGraph
 category: dev
 tags: [java, opgraph]

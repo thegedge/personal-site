@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: First Look
 category: dev
 tags: [score editing]

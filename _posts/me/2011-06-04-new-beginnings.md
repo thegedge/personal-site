@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: New Beginnings
 category: me
 tags: []

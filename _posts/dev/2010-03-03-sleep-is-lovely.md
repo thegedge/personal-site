@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Sleep is lovely
 category: dev
 tags: [research, c++]

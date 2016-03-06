@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Listening In
 category: dev
 tags: [java]

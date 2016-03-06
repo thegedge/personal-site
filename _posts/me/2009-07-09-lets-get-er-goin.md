@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Let's get 'er goin'
 category: me
 tags: []

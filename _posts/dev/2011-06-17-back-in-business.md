@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Back in Business
 category: dev
 tags: [score editing, qt, c++, python]

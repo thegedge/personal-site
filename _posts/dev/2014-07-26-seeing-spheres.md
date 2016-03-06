@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Seeing Spheres
 category: dev
 tags: [c++, opengl, voxels]

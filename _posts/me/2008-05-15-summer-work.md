@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Summer Work
 date: 2008-05-15
 category: me

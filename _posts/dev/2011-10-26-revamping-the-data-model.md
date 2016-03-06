@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Revamping The Data Model
 category: dev
 tags: []

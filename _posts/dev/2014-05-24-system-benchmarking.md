@@ -1,5 +1,4 @@
 ---
-layout: post
 title: System Benchmarking
 category: dev
 tags: [c++, opengl]

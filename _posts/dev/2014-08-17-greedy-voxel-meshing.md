@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Greedy Voxel Meshing
 category: dev
 tags: [c++, opengl, voxels]

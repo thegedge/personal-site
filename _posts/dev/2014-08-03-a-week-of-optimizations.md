@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A Week of Optimizations
 category: dev
 tags: [c++, opengl, voxels]
@@ -10,7 +9,7 @@ voxels. I don't know about everyone else, but optimizing graphics-related code
 I find incredibly fun!
 
 
-From my [last post]({% post_url /dev/2014-07-26-seeing-spheres %}) I
+From my [last post]({% post_url 2014-07-26-seeing-spheres %}) I
 mentioned using my sphere code to load less sectors around the player. This did
 improve things, but only ever so slightly. Nevertheless, loading less data is
 never a bad thing.  There were two other more significant improvements though:

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Game Design
 category: dev
 tags: [graphics, opengl, game design]

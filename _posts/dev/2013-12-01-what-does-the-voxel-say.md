@@ -1,5 +1,4 @@
 ---
-layout: post
 title: What Does the Vox(el) Say?
 category: dev
 tags: [c++, opengl, voxels]

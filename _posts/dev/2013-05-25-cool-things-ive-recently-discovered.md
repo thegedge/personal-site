@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Cool Things I've Recently Discovered
 category: dev
 tags: [web development, javascript]

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Point Grey Cameras
 category: dev
 tags: [research]

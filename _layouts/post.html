@@ -19,9 +19,7 @@ page_id: post
 		{{ content | replace:"<!-- more -->","" }}
 	</div>
 </div>
-{% if site.production_url contains 'localhost' %}
-<div id="post_comments">No comments locally</div>
-{% else %}
+{% if jekyll.environment == 'production' %}
 <div id="post_comments">
 	<div id="disqus_thread"></div>
 	<script type="text/javascript">

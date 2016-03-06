@@ -1,5 +1,4 @@
 ---
-layout: post
 title: End of Summer Updates
 category: dev
 tags: [c++, opengl, voxels]

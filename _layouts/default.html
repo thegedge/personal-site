@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{{ page.title }} - Jason Gedge</title>
+  <title>{{ page.title }} - {{ site.author.name }}</title>
+
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
   <meta name="author" content="{{ site.author.name }}">
 
@@ -18,6 +19,14 @@
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/vendor/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/vendor/css/colorbox.css">
+
+  {% for css in page.additional_css %}
+  {% if css contains '//' %}
+  <link rel="stylesheet" type="text/css" href="{{ css }}">
+  {% else %}
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/{{ css }}">
+  {% endif %}
+  {% endfor %}
 
   {% feed_meta %}
 
@@ -57,7 +66,7 @@
      })();
   </script>
 </head>
-<body class="{{ page.page_id }}">
+<body class="{{ page.page_id | default:page.layout }}">
   <div class="container">
     <header class="clearfix">
       <h1><a href="{{ site.url }}">
@@ -84,6 +93,8 @@
       <p>Copyright &copy; 2008 {{ site.author.name }}</p>
     </footer>
   </div>
+  {% if jekyll.environment == 'production' %}
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  {% endif %}
 </body>
 </html>

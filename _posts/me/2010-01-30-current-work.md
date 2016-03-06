@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Current Work
 category: me
 tags: [research, conferences, score editing]

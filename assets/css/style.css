@@ -23,12 +23,6 @@ strong        { font-weight: 600; }
 em            { font-style: italic; }
 small         { font-size: 80%; }
 
-.highlight > pre {
-	font-family: source-code-pro, 'Courier New', monospace;
-	font-size: 70%;
-	white-space: pre;
-}
-
 p > code, li > code {
 	background-color: #eee;
 	border-radius: 5px;
@@ -288,16 +282,16 @@ ul.inline.block > li > * {
 	font-size: 10pt;
 	color: #000;
 	padding: 0.2em 1em;
-	transition: all 0.5s ease-out;
+	transition: all 0.2s ease-out;
 	cursor:	default;
 }
-/*
+
 ul.inline.block > li > *:hover {
 	background: #555;
 	text-decoration: none;
 	color: #fff;
 }
-*/
+
 /*
  * Page sub-header
  */
@@ -477,11 +471,11 @@ body.post div#sub-header > ul.inline.block {
 body.post div#sub-header > ul.inline.block > li > * {
 	background-color: #eee;
 }
-/*
+
 body.post div#sub-header > ul.inline.block > li > *:hover {
 	background-color: #555;
 }
-*/
+
 body.post #content > p {
 	text-align: justify;
 }
@@ -539,6 +533,11 @@ table.data td {
 /*
  * Additional highlight table CSS.
  */
+.highlight > pre {
+	font-family: source-code-pro, 'Courier New', monospace;
+	font-size: 70%;
+}
+
 .highlighttable, .gist .gist-file {
 	width: 90% !important;
 	margin: 1em auto !important;
@@ -550,9 +549,8 @@ table.data td {
 	font-weight: 600;
 	text-align: right;
 	padding: 5px 10px 5px 0;
-	width: 30px;
-	background: rgba(0, 0, 0, 0.1) !important;
-	color: #444 !important;
+	background: rgba(255, 255, 255, 0.1) !important;
+	color: #ccc !important;
 	opacity: 0.3;
 }
 

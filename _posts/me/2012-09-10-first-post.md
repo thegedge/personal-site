@@ -1,5 +1,4 @@
 ---
-layout: post
 title: First Post
 category: me
 tags: []

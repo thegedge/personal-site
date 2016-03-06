@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Components, systems, subsystems, entities...*collapses*
 category: dev
 tags: [software engineering]

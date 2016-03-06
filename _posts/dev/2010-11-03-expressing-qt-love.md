@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Expressing Qt Love
 category: dev
 tags: [java, qt, c++]

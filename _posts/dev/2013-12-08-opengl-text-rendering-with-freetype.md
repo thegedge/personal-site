@@ -1,5 +1,4 @@
 ---
-layout: post
 title: OpenGL Text Rendering With FreeType
 category: dev
 tags: [c++, opengl, voxels, freetype]

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Shaping Up
 category: me
 tags: [running]

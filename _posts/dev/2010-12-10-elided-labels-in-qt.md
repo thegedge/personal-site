@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Elided Labels in Qt
 category: dev
 tags: [qt, c++]

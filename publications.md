@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Publications
 page_id: publications
 ---

@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: Manatee Released
 category: dev
 tags: [java, manatee]

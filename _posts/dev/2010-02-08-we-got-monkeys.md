@@ -1,5 +1,4 @@
 ---           
-layout: post
 title: We got monkeys!
 category: dev
 tags: [graphics, software engineering, c++]
