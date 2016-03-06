@@ -1,0 +1,11 @@
+{% capture base_url %}
+{% case include.type %}
+{% when 'github' %}
+  https://github.com/{{ include.who }}
+{% when 'twitter' %}
+  https://twitter.com/{{ include.who }}
+{% else %}
+  {{ include.who }}
+{% endcase %}
+{% endcapture %}
+<a href="{{ base_url | strip }}" class="social-link {{ include.type }}">{{ include.who }}</a>

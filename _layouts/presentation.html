@@ -1,0 +1,100 @@
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} - {{ site.author.name }}</title>
+
+  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <meta name="author" content="{{ site.author.name }}">
+
+  <!-- For IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/vendor/reveal/css/reveal.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/reveal.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/vendor/css/pygments.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi )
+      ? '{{ site.baseurl }}/vendor/reveal/css/print/pdf.css'
+      : '{{ site.baseurl }}/vendor/reveal/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+
+<div class="reveal">
+  <div class="slides">
+    <section id="title" data-background="{{ page.presentation.background }}">
+      <h1>{{ page.title }}</h1>
+      <div class="presenter bottom-right">
+        <p class="name">{{ page.presentation.presenter.name }}</p>
+        <p class="position">{{ page.presentation.presenter.position }}, {{ page.presentation.presenter.company }}</p>
+        <p class="date">{{ page.presentation.date | date:'%A, %B %-d, %Y' }}</p>
+      </div>
+    </section>
+
+    {% assign slides = content | split: page.presentation.separators.slide %}
+    {% for slide in slides %}
+    <section data-background="{{ page.presentation.background }}">
+        {% assign stuff = slide | split: page.presentation.separators.notes %}
+        {{ stuff | first }}
+        <aside class="notes">
+          {{ stuff | last }}
+        </aside>
+      </section>
+    {% endfor %}
+
+    <section id="fin" data-background="{{ page.presentation.background }}">
+      <h1>Thanks for your attention!</h1>
+      <div class="social bottom-right">
+        <p>
+          {% include social-link.html type='website' who=page.presentation.presenter.social.website %}
+        </p>
+        <p>
+          {% include social-link.html type='twitter' who=page.presentation.presenter.social.twitter %}
+        </p>
+        <p>
+          {% include social-link.html type='github' who=page.presentation.presenter.social.github %}
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="{{ site.baseurl }}/vendor/reveal/lib/js/head.min.js"></script>
+<script src="{{ site.baseurl }}/vendor/reveal/js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    history: true,
+    center: false,
+    transition: 'none',
+
+    margin: 0,
+    maxScale: 1,
+
+    // Optional reveal.js plugins
+    dependencies: [
+      { src: '{{ site.baseurl }}/vendor/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      //{ src: '{{ site.baseurl }}/vendor/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      //{ src: '{{ site.baseurl }}/vendor/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      //{ src: '{{ site.baseurl }}/vendor/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      //{ src: '{{ site.baseurl }}/vendor/reveal/plugin/zoom-js/zoom.js', async: true },
+      { src: '{{ site.baseurl }}/vendor/reveal/plugin/notes/notes.js', async: true },
+      //{ src: 'plugin/math/math.js', async: true },
+    ]
+  });
+</script>

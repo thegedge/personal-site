@@ -1,0 +1,180 @@
+.reveal {
+  font-size: 38px;
+  line-height: 130%;
+  color: #003f60;
+}
+
+.reveal .slides > section:not(#title):not(#fin) {
+  text-align: left !important;
+}
+
+.reveal .slides section#title h1, .reveal .slides section#fin h1 {
+  text-shadow: 2px 2px 10px #7EB1C1;
+}
+
+.reveal:not(.overview) .slides {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.reveal .slides > section {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  padding-right: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.reveal li, .reveal h1, .reveal h2, .reveal h3, .reveal section {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+}
+
+.reveal h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  text-align: center;
+
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.reveal h1 { font-size: 250%; font-weight: 800; line-height: 120%; }
+.reveal h2 { font-size: 150%; font-weight: 600; line-height: 120%; }
+.reveal h3 {
+  background-color: rgba(231, 238, 240, 0.3);
+  border-bottom: 1px solid #d1dce2;
+  margin: 0 -25px;
+  margin-bottom: 25px;
+  font-size: 150%;
+  font-weight: 600;
+  line-height: 120%;
+  padding: 25px 0 20px 25px;
+}
+
+.reveal ul, .reveal ol {
+  margin: 10px 50px;
+  counter-reset: item;
+}
+
+.reveal ol > li {
+  list-style-type: none;
+  counter-increment: item;
+}
+
+.reveal ol > li:before {
+  display: inline-block;
+  margin-left: -40px;
+  padding-right: 10px;
+  font-weight: 600;
+  text-align: right;
+  content: counter(item) ".";
+}
+
+.reveal a, .reveal a:visited {
+  color: #c51;
+  text-decoration: none;
+}
+
+.reveal .slide-background {
+  opacity: 0.1 !important;
+}
+
+/* TODO a centered slide class would be better */
+.reveal p > img {
+  display: block;
+  margin: 0 auto;
+  max-height: 550px;
+}
+
+/*
+ * Slide elements
+ */
+
+.reveal .presenter .name { font-weight: 600; }
+.reveal .presenter .date { font-style: italic; }
+
+.reveal section .bottom-right {
+  position: absolute;
+  padding: 10px;
+  bottom: 25px;
+  right: 25px;
+  text-align: right;
+}
+
+/*
+ * Social icons
+ */
+
+@font-face {
+  font-family: "socicon";
+  src:url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.eot");
+  src:url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.eot?#iefix") format("embedded-opentype"),
+    url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.woff") format("woff"),
+    url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.ttf") format("truetype"),
+    url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.svg#1457133584") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.reveal .social-link:after {
+  font-family: "socicon" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0 5px;
+}
+
+.reveal .social-link.website:after { content: "\e00b"; }
+.reveal .social-link.twitter:after { content: "\e040"; }
+.reveal .social-link.github:after { content: "\e030"; }
+
+/*
+ * Code stuff
+ */
+
+.reveal .highlight {
+  float: left;
+
+  width: 550px;
+  min-height: 550px;
+  margin: 0 75px 0 0;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre;
+
+  text-shadow: 2px 2px 3px #111111;
+  transition: width .2s ease-in-out;
+  -moz-transition: width .2s ease-in-out;
+  -webkit-transition: width .2s ease-in-out;
+}
+
+.reveal .highlight:hover {
+  width: 95%;
+}
+
+.reveal .highlighter-rouge:hover + * {
+  display: none;
+}
+
+.reveal code {
+  font-family: "Source Code Pro", "Courier New", monospace;
+  font-weight: 400;
+}
+
+.reveal li code {
+  color: #955;
+}
