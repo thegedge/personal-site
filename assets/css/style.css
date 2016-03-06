@@ -538,17 +538,21 @@ table.data td {
 	font-size: 70%;
 }
 
-.highlighttable, .gist .gist-file {
+.highlight, .gist .gist-file {
 	width: 90% !important;
 	margin: 1em auto !important;
 	line-height: 14pt;
 	border: 1px solid #e7e7d6 !important;
 }
 
-.highlighttable .linenos, .gist .line-numbers {
+.highlight .code {
+  padding: 0 10px;
+}
+
+.highlight .gutter, .gist .line-numbers {
 	font-weight: 600;
 	text-align: right;
-	padding: 5px 10px 5px 0;
+	padding: 5px 10px;
 	background: rgba(255, 255, 255, 0.1) !important;
 	color: #ccc !important;
 	opacity: 0.3;
