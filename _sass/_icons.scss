@@ -1,0 +1,20 @@
+@mixin icon($offset) {
+  background: {
+    image: url(../img/social-icons.png);
+    repeat: no-repeat;
+    position: -$offset;
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+
+  &.github      { @include icon(0px); }
+  &.facebook    { @include icon(41px); }
+  &.twitter     { @include icon(82px); }
+  &.google_plus { @include icon(123px); }
+  &.linkedin    { @include icon(164px); }
+  &.rss         { @include icon(205px); }
+}

@@ -1,11 +1,9 @@
-# Jekyll config
 exclude:
   - .bundle
   - README.md
   - Gemfile
   - Gemfile.lock
 
-# Site configuration
 permalink: /:categories/:year/:month/:day/:title
 url: http://www.gedge.ca
 baseurl: ''
@@ -15,13 +13,14 @@ kramdown:
   input: GFM
   hard_wrap: false
 
-# Collections
+sass:
+  style: compressed
+
 collections:
   presentations:
     output: true
     permalink: /presentations/:path
 
-# Defaults
 defaults:
   -
     scope:
@@ -53,6 +52,6 @@ author:
   twitter: thegedge
 
 gems:
-  - jekyll-feed
   - jekyll-coffeescript
+  - jekyll-feed
   - jekyll-paginate

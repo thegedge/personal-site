@@ -1,0 +1,23 @@
+table.data {
+  margin: 1em auto;
+
+  tbody tr:nth-child(odd) {
+    background-color: $light;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  th, td {
+    padding: 5px 25px;
+  }
+
+  td {
+    border: {
+      top: 1px solid $light-alternate;
+      bottom: 1px solid $light-alternate;
+    }
+    padding: 5px 25px;
+  }
+}

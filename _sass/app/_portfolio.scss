@@ -1,0 +1,50 @@
+body.portfolio #content {
+  > ul {
+    width: 100%;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+
+    > li {
+      display: block;
+      clear: both;
+      width: 100%;
+      padding: 1em 0 0 0;
+      border-top: 3px solid $light;
+      font-size: 90%;
+      line-height: 140%;
+
+      &:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      > div {
+        padding: 0 1em;
+
+        > img {
+          float: right;
+        }
+
+        > a {
+          display: block;
+          float: right;
+          padding: 0;
+          outline: none;
+          margin: 0 0 1em 1em;
+
+          > img {
+            max-width: 25em;
+            max-height: 15em;
+          }
+        }
+      }
+
+      > ul.inline.block {
+        float: right;
+        clear: right;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

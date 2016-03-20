@@ -1,0 +1,12 @@
+div.img_overlay {
+  text-align: center;
+
+  img:first-child {
+    display: none;
+  }
+
+  &:hover {
+    img:first-child { display: inline; }
+    img:last-child { display: none; }
+  }
+}

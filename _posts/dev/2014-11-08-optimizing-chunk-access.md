@@ -29,11 +29,11 @@ of various operations:
 
 {:.data}
 | Operation                   | Time (ns) |
-|:--------------------------- |:---------:|
-| execute typical instruction |     1     |
-| fetch from L1 cache memory  |    0.5    |
-| fetch from L2 cache memory  |     7     |
-| fetch from main memory      |    100    |
+|:----------------------------+----------:|
+| execute typical instruction |     1.0   |
+| fetch from L1 cache memory  |     0.5   |
+| fetch from L2 cache memory  |     7.0   |
+| fetch from main memory      |   100.0   |
 
 Actual timings will likely vary quite a bit, but expect roughly an order of
 magnitude difference each time you move up a level. See the entire table on
@@ -45,7 +45,7 @@ Suppose we store our chunk data in YZX order; that is, the greatest stride is
 along the y axis, followed by z, and finally x. Optimal iteration would look
 like this:
 
-{% highlight cpp linenos=table tabsize=4 %}
+{% highlight cpp linenos %}
 for(int y = 0; y < RADIUS; ++y) {
     for(int z = 0; z < RADIUS; ++z) {
         for(int x = 0; x < RADIUS; ++x) {

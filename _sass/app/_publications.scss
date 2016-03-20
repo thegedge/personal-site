@@ -1,0 +1,22 @@
+body.publications #content {
+  > h2 {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    background: $light;
+    padding: 0.5em;
+    border: 1px solid $light-alternate;
+    text-align: right;
+  }
+
+  ul {
+    list-style-type: inherit;
+    padding: 0 2em;
+    text-align: justify;
+
+    > li:hover {
+      color: #579;
+    }
+  }
+}

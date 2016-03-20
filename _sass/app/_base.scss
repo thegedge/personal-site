@@ -1,0 +1,131 @@
+div#sub-header {
+	padding: 1em;
+	background: #ddd;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 1000px;
+  background-color: #fff;
+  box-shadow: 0 0 25px 5px $light-alternate;
+
+  > .content {
+    padding: 0 1em;
+    text-align: justify;
+  }
+
+  > header {
+    margin: 0;
+    padding: 0 1em;
+    background: #555;
+    background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#333));
+    border-bottom: 3px solid $medium;
+    text-shadow: 1px 1px 0px #000;
+
+    a, h1, li {
+      color: #fff;
+    }
+
+    > h1 {
+      float: left;
+      font-weight: 900;
+      font-size: 90px;
+      margin: 0;
+      font-variant: small-caps;
+
+      > a {
+        line-height: 100px;
+        overflow: hidden;
+        height: 100px;
+        display: inline-block;
+      }
+    }
+
+    > ul.inline {
+      float: right;
+      margin: 0.5em 0;
+
+      &.social-icons {
+        clear: right;
+        margin: 0 0 0.2em 0;
+
+        img {
+          height: 1.5em;
+        }
+
+        > li {
+          opacity: 0.5;
+          transition: opacity .25s ease-in-out;
+          -moz-transition: opacity .25s ease-in-out;
+          -webkit-transition: opacity .25s ease-in-out;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  //
+  // Footer
+  //
+  > footer {
+    margin: 1em 0;
+    padding: 1em;
+    background-color: $light;
+
+    p {
+      font-size: 75%;
+      padding: 0;
+      margin: -10px;
+      text-align: center;
+      color: $medium;
+    }
+  }
+}
+
+//
+// Content
+//
+#content {
+  padding: 1em;
+
+  img {
+    max-width: 950px;
+  }
+
+  // TODO move to posts partial
+  .post-body a {
+    display: inline-block;
+    background-color: $primary-light;
+    border-radius: 3px;
+    padding: 0 0.3em;
+  }
+
+  ol, ul {
+    padding: 0 2em;
+    margin: 1em 0;
+  }
+
+  // Ordered lists go 1., 1.1., 1.1.1., ... for sub lists
+  ol {
+    counter-reset: item;
+
+    > li {
+      display: block;
+      position: relative;
+
+      &:before {
+        font-weight: 600;
+        content: counters(item, ".") ".";
+        counter-increment: item;
+        margin-right: 100%;
+        right: 10px;
+        position: absolute;
+      }
+    }
+  }
+}
+

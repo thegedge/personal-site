@@ -1,2 +1,5 @@
 url: http://localhost:4000
 environment: development
+
+sass:
+    style: nested

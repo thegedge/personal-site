@@ -2,7 +2,7 @@
 title: About Me
 page_id: about 
 ---
-<img class="me bordered" src="assets/img/me.jpg"/>
+<img class="me" src="assets/img/me.jpg"/>
 The name's __Jason Gedge__, but you've probably already figured that out.
 I'm a __problem solver__, with software being my medium of choice. In other words,
 I'm a __software developer__. I also enjoy _composing music_ and _playing guitar_.

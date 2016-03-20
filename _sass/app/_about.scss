@@ -1,0 +1,15 @@
+body.about #content {
+  text-align: justify;
+
+  img.me {
+    float: right;
+    width: 45%;
+    margin-left: 1.5em;
+    opacity: 0.5;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+}

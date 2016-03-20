@@ -1,0 +1,193 @@
+---
+---
+@font-face {
+  font-family: "socicon";
+  src:url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.eot");
+  src:url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.eot?#iefix") format("embedded-opentype"),
+      url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.woff") format("woff"),
+      url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.ttf") format("truetype"),
+      url("https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/fonts/1457133584.svg#1457133584") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.reveal {
+  font: {
+    family: source-sans-pro, "Helvetica Neue", Arial, sans-serif;
+    weight: 300;
+    size: 38px;
+  }
+
+  ul { list-style-type: disc; }
+  ul > li > ul { list-style-type: circle; }
+
+  line-height: 130%;
+  color: #003f60;
+
+  &:not(.overview) .slides {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .slides > section {
+    width: 100%;
+    height: 100%;
+    padding: 0 25px;
+    padding-right: 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &:not(#title):not(#fin) {
+      text-align: left !important;
+    }
+
+    &#title h1, &#fin h1 {
+      text-shadow: 2px 2px 10px #7EB1C1;
+    }
+
+    li, h1, h2, h3, section {
+      font-weight: 300;
+    }
+
+    h1 { font-size: 250%; font-weight: 800; line-height: 120%; }
+    h2, h3 { font-size: 150%; font-weight: 600; line-height: 120%; }
+
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      text-align: center;
+
+      transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+
+    h3 {
+      background-color: rgba(231, 238, 240, 0.3);
+      border-bottom: 1px solid #d1dce2;
+      margin: 0 -25px;
+      margin-bottom: 25px;
+      padding: 25px 0 20px 25px;
+    }
+
+    ul, ol {
+      margin: 10px 50px;
+      counter-reset: item;
+    }
+
+    ol > li {
+      list-style-type: none;
+      counter-increment: item;
+
+      &:before {
+        display: inline-block;
+        margin-left: -40px;
+        padding-right: 10px;
+        font-weight: 600;
+        text-align: right;
+        content: counter(item) ".";
+      }
+    }
+
+    a, a:visited {
+      color: #cc5511;
+      text-decoration: none;
+    }
+
+    /* TODO a centered slide class would be better */
+    p > img {
+      display: block;
+      margin: 0 auto;
+      max-height: 550px;
+    }
+
+    //
+    // Slide elements
+    //
+
+    .presenter { color: #cc5511; }
+    .presenter .name { font-weight: 600; }
+    .presenter .date { font-style: italic; }
+
+    .bottom-right {
+      position: absolute;
+      padding: 10px;
+      bottom: 25px;
+      right: 25px;
+      text-align: right;
+    }
+
+    //
+    // Social icons
+    //
+
+    .social-link {
+      &:after {
+        font-family: "socicon" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        font-size: 25px;
+        text-transform: none !important;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        margin: 0 5px;
+      }
+
+      &.website:after { content: " \e00b"; }
+      &.twitter:after { content: " \e040"; }
+      &.github:after { content: " \e030"; }
+    }
+
+    //
+    // Code stuff
+    //
+
+    .highlight {
+      float: left;
+
+      width: 550px;
+      min-height: 550px;
+      margin: 0 75px 0 0;
+      padding: 20px;
+      font-size: 20px;
+      line-height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre;
+
+      text-shadow: 2px 2px 3px #111111;
+      transition: width .2s ease-in-out;
+      -moz-transition: width .2s ease-in-out;
+      -webkit-transition: width .2s ease-in-out;
+
+      &:hover {
+        width: 95%;
+      }
+    }
+
+    .highlighter-rouge:hover + * {
+      display: none;
+    }
+
+    code {
+      font: {
+        family: source-code-pro, Consolas, "Courier New", monospace;
+        weight: 400;
+      }
+    }
+
+    li code {
+      color: #995555;
+    }
+  }
+
+  .slide-background {
+    opacity: 0.1 !important;
+  }
+}

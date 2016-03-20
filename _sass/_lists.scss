@@ -1,0 +1,43 @@
+// "Tagged:" prefix on list
+ul.tagged:before {
+  content: "Tagged:";
+  padding-right: 0.5em;
+}
+
+// Inline list
+ul.inline > li {
+  display: inline-block;
+  margin: 0;
+  margin-right: -1px;
+  padding: 0;
+}
+
+// Inline lists with a blocky look
+ul.inline.block > li {
+  > * {
+    background: $light;
+    font-size: 10pt;
+    color: $dark;
+    padding: 0.2em 1em;
+    transition: all 0.2s ease-out;
+    cursor:	default;
+
+    &:hover {
+      background: $dark;
+      text-decoration: none;
+      color: $light;
+    }
+  }
+}
+
+// Dots between items
+ul.inline.dotted {
+  > li:before {
+    content: " · ";
+    margin: 0.5em;
+  }
+
+  > li:first-child:before {
+    content: none;
+  }
+}
