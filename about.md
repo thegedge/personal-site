@@ -8,7 +8,7 @@ I'm a __problem solver__, with software being my medium of choice. In other word
 I'm a __software developer__. I also enjoy _composing music_ and _playing guitar_.
 I originally came from the far east of __Canada__, in the lovely province of
 [Newfoundland and Labrador](http://en.wikipedia.org/wiki/Newfoundland_and_Labrador "Wikipedia Entry").
-These days I'm living in the Bay Area of California, working for __YouTube__.
+These days I'm working at __Shopify__, previously working for __YouTube__.
 
 In 2011, I received my __Master of Science__ degree in Computing Science from
 the University of Alberta. My research took me into the field of __computer
