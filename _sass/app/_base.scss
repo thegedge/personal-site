@@ -3,10 +3,21 @@ div#sub-header {
 	background: #ddd;
 }
 
+@media only screen and (min-width: 1000px) {
+  .container {
+    width: 1000px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+}
+
 .container {
   margin: 0 auto;
   padding: 0;
-  width: 1000px;
   background-color: #fff;
   box-shadow: 0 0 25px 5px $light-alternate;
 
