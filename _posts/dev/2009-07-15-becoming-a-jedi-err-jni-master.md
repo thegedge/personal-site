@@ -16,8 +16,8 @@ wrapped up in a neat little package that mimics existing Swing components. Not
 only that, but we want the behavior of any wrapper classes to be the exact
 same, or very similar to, the corresponding `JComponent`. Although it's far
 from being ready for public release, I currently have a pretty solid JNI
-library for the Open/Save dialogs in OS X. It's all wrapped up neatly in
-CarbonFileChooser, an extension to `JFileChooser`.
+library for the open/save dialogs in OS X. It's all wrapped up neatly in
+`CarbonFileChooser`, an extension to `JFileChooser`.
 
 One issue that arose, at least for OS X, is that there are various threads that
 have to run independently: the AWT/Swing thread, and the AppKit thread. Hence,
@@ -27,7 +27,7 @@ along to the AppKit thread. This can be done via the
 `performSelectorOnMainThread` method. To achieve modality, I use the following
 code:
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 public int showSaveDialog(Component parent) {
 	dialogOpen = true;
 	result = CANCEL_OPTION;
@@ -40,10 +40,10 @@ public int showSaveDialog(Component parent) {
 
  	return result;
 }
-{% endhighlight %}
+```
 
 What happens is that when the dialog is disposed, JNI calls are executed to set
-the dialogOpen variable to false, breaking the loop. I've been debating trying
+the `dialogOpen` variable to false, breaking the loop. I've been debating trying
 out `wait()` and using JNI to wake up the object instead, but for now the above
 code gets the job done.
 

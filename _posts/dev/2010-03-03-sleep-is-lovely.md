@@ -1,4 +1,4 @@
----           
+---
 title: Sleep is lovely
 category: dev
 tags: [research, c++]
@@ -37,7 +37,7 @@ concise, almost like _some things_ in Python. Here's my attempt at writing a
 simple "list comprehension" that writes the squares of the numbers from 1 to
 10:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <iterator>int main(int argc, char *argv[]) {
@@ -47,7 +47,7 @@ simple "list comprehension" that writes the squares of the numbers from 1 to
 	std::cout << std::endl;
 	return 0;
 }
-{% endhighlight %}
+```
 
 I don't know about any of you, but I think that's about as concise as one is
 going to get in a language like C++. I'm looking forward to playing around with

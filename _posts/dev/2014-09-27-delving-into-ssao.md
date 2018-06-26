@@ -11,14 +11,14 @@ additional_js: [
   MathJax.Hub.Config({
     extensions: ['tex2jax.js'],
     jax: ['input/TeX', 'output/HTML-CSS'],
-    
+
     tex2jax: {
       inlineMath: [ ['$','$'] ],
       displayMath: [ ['$$','$$'] ],
       processEscapes: true,
     },
 
-    'HTML-CSS': { 
+    'HTML-CSS': {
     	availableFonts: ['TeX'],
     }
   });
@@ -29,7 +29,6 @@ related to each other: deferred shading and screen-space ambient occlusion
 (SSAO). Although I don't actually have deferred shading implemented yet, I do
 have a rough SSAO implementation, which is what I'll be discussing in this
 entry.
-
 
 # Ambient Occlusion
 
@@ -87,7 +86,7 @@ interested in actually computing and storing this information, look up any
 article on [Framebuffer Objects](//www.opengl.org/wiki/Framebuffer_Object) and
 multiple color attachments.
 
-{% highlight python linenos=table tabsize=4 %}
+```python
 def ssao(pixel, P, viewRay, gbuffer, samples, radius, power):
     #------------------------------------------------------------------
     # Reconstruct the point from depth
@@ -136,7 +135,7 @@ def ssao(pixel, P, viewRay, gbuffer, samples, radius, power):
         occludedSamples += rangeCheck * step(sampleDepth, samplePt.z)
 
     return 1 - pow(1 - occludedSamples / len(numSamples), power)
-{% endhighlight %}
+```
 
 There's a lot happening here, so let's dig in, but first let me note that I
 don't guarantee copying and pasting the above will work out-of-the-box.

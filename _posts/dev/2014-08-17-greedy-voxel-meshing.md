@@ -21,14 +21,14 @@ meshing works and how bad it can get. My goal is to give a more intuitive
 explanation of Mikola's post. I'll emphasize the most important part of the
 algorithm to understand: the ordering of quads. Mikola gives this ordering:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 bool compareQuads(const Quad &q1, const Quad &q2) {
   if(q1.y != q2.y) return q1.y < q2.y;
   if(q1.x != q2.x) return q1.x < q2.x;
   if(q1.w != q2.w) return q1.w > q2.w;
   return q1.h >= q2.h;
 }
-{% endhighlight %}
+```
 
 What this means is that we form our quads from top to bottom, left to right.
 Whenever we reach a face that has yet to be covered with a quad, we take the

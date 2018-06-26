@@ -10,6 +10,7 @@ __significant performance boost__.
 
 
 ## Infinite Terrain
+
 Perhaps my favourite update of the week is that I _finally_ got around to
 making my terrain infinite. You can go on forever and ever and have plenty of
 terrain to keep you occupied. Right now it's a very naive process every frame:
@@ -32,6 +33,7 @@ so moving this off the main thread should be straightforward.
 </p>
 
 ## Performance Boost
+
 After implementing infinite terrain, I realized the performance was incredibly
 poor. After some investigation I found the major issue here was that my
 per-voxel data was too large. Originally I was sending over 9 floats per voxel:
@@ -56,13 +58,13 @@ into a single quad or perhaps animate the texture coordinates, but for now this
 will do. Here's what the before and after looks like for the texture part of my
 vertex shader:
 
-{% highlight glsl linenos=table tabsize=4 %}
+```glsl
 // Before
 texCoords = in_TexCoords;
 
 // After
 texCoords = vec3(in_TextureData & 0x1, (in_TextureData >> 1) & 0x1, in_TextureData >> 2);
-{% endhighlight %}
+```
 
 So a little more complexity for a pretty big boost. I was originally running at
 about 23 ms/frame and this change brought it down to about 13 ms/frame. Some
@@ -81,6 +83,7 @@ other ideas I have for performance boosts:
   environment that feels grand.
 
 ## Other Updates
+
 The previous two were the big updates, but here's a few other small things in no
 particular order:
 

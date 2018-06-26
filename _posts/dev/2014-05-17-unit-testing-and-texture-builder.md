@@ -34,7 +34,7 @@ refactoring unified all of these into a single texture class that is
 constructed from a builder instance. Creating a texture looks something like
 this now:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 TextureBuilder builder(GL_TEXTURE_2D_ARRAY);
 builder.mipmap()
        .allocate(128, 128, 3)
@@ -42,4 +42,4 @@ builder.mipmap()
        .fromImage("assets/textures/foo2.png")
        .fromImage("assets/textures/foo3.png");
 return std::make_shared<Texture>(builder);
-{% endhighlight %}
+```

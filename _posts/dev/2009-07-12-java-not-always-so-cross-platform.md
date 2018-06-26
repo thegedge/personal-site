@@ -1,4 +1,4 @@
----           
+---
 title: "Java: not always so cross-platform"
 category: dev
 tags: [java]
@@ -12,7 +12,7 @@ quality.
 
 One of the major sources of pain in Java is cross-platform GUIs. It's nice that
 Swing works "out-of-the-box" on most systems, but it often suffers from lacking
-in a "native" feel, even when using the system LaF. Also, it's sometimes hard
+in a "native" feel, even when using the system look and feel. Also, it's sometimes hard
 to take advantage of platform-specific features that could really open up a
 world of possibilities for your app.
 
@@ -34,7 +34,7 @@ magically changes. Anyways, some functionality we require includes:
 So nothing too interesting to talk about in the first 2, but for the last one I
 can provide a little snippet of our default behaviour:
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 public T getSwingComponent(Class componentClass, Object... args) {
 	Class>[] classes = new Class>[args.length];
 	for(int i = 0; i < args.length; ++i) {
@@ -52,7 +52,7 @@ public T getSwingComponent(Class componentClass, Object... args) {
 		return null;
 	}
 }
-{% endhighlight %}
+```
 
 So if we want a `JToolBar` we simply go `getSwingComponent(JToolBar.class)` and
 that's it. The implementation provides variable arguments behaviour to

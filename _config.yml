@@ -12,6 +12,16 @@ environment: production
 kramdown:
   input: GFM
   hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      table_class: 'table'
+      gutter_class: 'gutter'
+      code_class: 'code'
+      start_line: 1
 
 sass:
   style: compressed

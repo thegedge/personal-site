@@ -45,7 +45,7 @@ Suppose we store our chunk data in YZX order; that is, the greatest stride is
 along the y axis, followed by z, and finally x. Optimal iteration would look
 like this:
 
-{% highlight cpp linenos %}
+```cpp
 for(int y = 0; y < RADIUS; ++y) {
     for(int z = 0; z < RADIUS; ++z) {
         for(int x = 0; x < RADIUS; ++x) {
@@ -54,7 +54,7 @@ for(int y = 0; y < RADIUS; ++y) {
         }
     }
 }
-{% endhighlight %}
+```
 
 If we can process voxels in an order-independent manner, that's how we should
 do it. We can't always access memory in a cache-efficient manner though. For

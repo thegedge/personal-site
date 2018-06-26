@@ -50,13 +50,13 @@ So how do we create an annotation? Well, it's pretty straightforward. Note that
 I'll be using the messaging system from my previous post as an example. Here's
 what the Message annotation looks like:
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.FIELD})
 public @interface Message {
 	Class<?>[] signature() default {};
 }
-{% endhighlight %}
+```
 
 So the first line says we want to be able to retrieve this annotation at
 runtime. Note the use of the @ symbol here. This is the notation used for
@@ -74,18 +74,18 @@ describe `@Message`).
 For our messaging system, the field itself is a static member that is a String,
 and that string defines the name of the message. For example,
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 @Message(signature = {String.class})
 public final static String MYMESSAGE = "myMessageName";
-{% endhighlight %}
+```
 
-describes a message with the name "myMessageName" which sends a String argument
-to all receiving functions. If we wanted to, we could have defined a second
-property in the annotation for the message name. In our message delivery class,
-we can then loop through all the fields in a class to register messages like
-this:
+describes a message with the name `myMessageName` which sends a `String`
+argument to all receiving functions. If we wanted to, we could have defined a
+second property in the annotation for the message name. In our message delivery
+class, we can then loop through all the fields in a class to register messages
+like this:
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 public void registerSender(Class<? extends MessageSender> sender) {
 	MessageData msgData = getData(sender);
 	for(Field field : sender.getDeclaredFields()) {
@@ -98,7 +98,7 @@ public void registerSender(Class<? extends MessageSender> sender) {
 		}
 	}
 }
-{% endhighlight %}
+```
 
 Note that, for simplicity, I excluded the try/catch blocks and log messages in
 the above. A fairly straightforward piece of code: for each field in the class,
@@ -108,19 +108,19 @@ to register each individual message. For message receivers we have a
 `@ReceiverMethod` annotation that I won't explain, but it looks something like
 this:
 
-{% highlight java linenos=table tabsize=4 %}
+```java
 // Annotation for a method that will receive a message
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.METHOD})
 public @interface ReceiverMethod {
 	// Special message name which allows catching all messages from a sender
 	public static final String CATCHALL = "<<all>>";
-	
+
 	// Properties
 	public Class<? extends MessageSender> senderClass();
 	public String message();
 }
-{% endhighlight %}
+```
 
 We can then do something similar to the `registerSender` method above to
 register our receiver. So that's my quick introduction to annotations. Maybe

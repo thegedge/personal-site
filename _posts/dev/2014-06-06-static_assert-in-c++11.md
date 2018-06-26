@@ -13,28 +13,27 @@ very useful.
 `static_assert` is a way to make compile-time assertions about, well, anything
 you can compute at compile time.
 
-
 So let's say you have a piece of code that just isn't going to work unless
 you're compiling on a system that has a 32-bit word. You could simply add the
 following line somewhere in your code:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 static_assert(sizeof(int) != 4, "32-bit sadface");.
-{% endhighlight %}
+```
 
 Pretty neat, eh? Well, that example is somewhat contrived. For my purposes, I
 wanted to make sure that all template parameters in a variadic expansion had
 a certain base class. For example, when creating a system you can specific all
 of its dependent components:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 template <class Derived, class ...Dependencies>
 class System {}
 
 class PhysicsSystem : public System<PhysicsSystem, Transform, Velocity> {
 	// initialize/update code for system here
 }
-{% endhighlight %}
+```
 
 So a physics system depends on transform and velocity components and will
 update all entities that has both (currently I don't support an optional
@@ -45,7 +44,7 @@ I had one issue: as far as I know there is no way to ask an all/any style
 question in static asserts. Template metaprogramming to the rescue! Here's the
 all query I whipped up:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 // A
 template <bool ...Values>
 struct all;
@@ -61,7 +60,7 @@ struct all<false, Values...> : std::false_type {};
 // D
 template <>
 struct all<> : std::true_type {};
-{% endhighlight %}
+```
 
 Let's break this down into simpler components. Section A defines the templated
 struct that we will use for the all query. Section B specializes for the first
@@ -76,13 +75,13 @@ query (hint: short-circuited case gets swapped).
 That's a whole lot of words, so how do we use this to test if all of our
 dependent component types actually inherit from `Component`:
 
-{% highlight c++ linenos=table tabsize=4 %}
+```cpp
 template <class Derived, class ...Dependencies>
 class System {
 	static_assert(all<std::is_base_of<Component, Dependencies>{}...>{}>,
 				  "Every type in Dependencies should inherit from Component");
 }
-{% endhighlight %}
+```
 
 `std:is_base_of`is a super useful trait class which you can find in
 [type_traits](//en.cppreference.com/w/cpp/header/type_traits), along with many
