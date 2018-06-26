@@ -20,36 +20,37 @@ views of the same data. I have considered two possibilities:
 
 1. Consider score and tablature two different staves that reference the same
 set of data. This comes with a set of things to think about:
-  * Pros
-	* The rendering process can blindly render everything.
-  * Cons
-	* Other parts of the program should know that these refer to the same set
-	  of data (e.g., when saving to file).
-	* Right now my data hierarchy is represented using a parent/child
-	  relationship. Since these two staves point to the same set of bars, each
-	  bar would technically have two parents. I'd rather not change the way
-	  things are currently, so I would just have to make sure that in no
-	  situation it would be a problem getting the initial parent.
-	* User will most likely have to manually remove these staves. In other
-	  words, it might not be easy to implement a "Show Score/Show
-	  Tablature/Show Both" option. _Maybe this isn't really much of a con?_
-	* Without any code that remembers the connection between the two staves,
-	  the user would be able to insert another staff in between them. Now if
-	  the user chooses to do this, it's his/her own choice so this may not be a
-	  bad thing, but it breaks up the connection between the two and the fact
-	  that they are connected (i.e., by the same data). _Again, maybe this
-	  isn't really a con?_
+    * **Pros**
+        * The rendering process can blindly render everything.
+    * **Cons**
+        * Other parts of the program should know that these refer to the same set
+          of data (e.g., when saving to file).
+        * Right now my data hierarchy is represented using a parent/child
+          relationship. Since these two staves point to the same set of bars, each
+          bar would technically have two parents. I'd rather not change the way
+          things are currently, so I would just have to make sure that in no
+          situation it would be a problem getting the initial parent.
+        * User will most likely have to manually remove these staves. In other
+          words, it might not be easy to implement a "Show Score/Show
+          Tablature/Show Both" option. _Maybe this isn't really much of a con?_
+        * Without any code that remembers the connection between the two staves,
+          the user would be able to insert another staff in between them. Now if
+          the user chooses to do this, it's his/her own choice so this may not be a
+          bad thing, but it breaks up the connection between the two and the fact
+          that they are connected (i.e., by the same data). _Again, maybe this
+          isn't really a con?_
+
 2. Restrict this merely to the rendering process
-  * Pros
-	* Does not require any changes to the data hierarchy.
-  * Cons
-	* Less flexible.
-	* Most likely will produce sloppier rendering code.
-	* Code for user interaction would be uglier. For example, when the user
-	  clicks on the score rendering component, I need to figure out which staff
-	  is clicked. I would have to write code that checks the view type
-	  (score/tab/both) and understands that some staves would be rendered twice
-	  in the "both" viewing mode.
+    * **Pros**
+        * Does not require any changes to the data hierarchy.
+    * **Cons**
+        * Less flexible.
+        * Most likely will produce sloppier rendering code.
+        * Code for user interaction would be uglier. For example, when the user
+          clicks on the score rendering component, I need to figure out which staff
+          is clicked. I would have to write code that checks the view type
+          (score/tab/both) and understands that some staves would be rendered twice
+          in the "both" viewing mode.
 
 It's just one of those bigger decisions I have to make early. I'm pretty sure
 I'll go with the first one, but I'd like to hear thoughts and/or suggestions

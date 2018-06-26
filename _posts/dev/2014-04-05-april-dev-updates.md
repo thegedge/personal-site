@@ -30,7 +30,7 @@ the get-go.
 Other than that, there's been a few other changes:
 
 1. I decided to whip up an entity component system (ECS) and play with that
-   idea. I [wrote]({% post_url 2009-09-06-components-systems-subsystems-entities-collapses %})
+   idea. I [wrote]({% post_url dev/2009-09-06-components-systems-subsystems-entities-collapses %})
    about these beasts a while back. At that time I was mostly trying to wrap
    my head around it all, but nowadays I have a pretty good idea what they're
    all about.

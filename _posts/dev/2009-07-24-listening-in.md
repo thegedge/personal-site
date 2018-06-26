@@ -10,9 +10,7 @@ For those not familiar with this pattern, you'd use this guy when you want the
 outside world to know about state changes in an object. This pattern is used
 often when developing with various architectural patterns, such as
 Model-View-Controller (MVC). Other examples, in Java, include many of the
-components in Swing, `java.util.Observable`, and
-`java.beans.PropertyChangeListener`.
-
+components in Swing, `java.util.Observable`, and `java.beans.PropertyChangeListener`.
 
 I personally had issues with the extensive use of the listener pattern for us.
 Every time we added a new data class, we'd have to rewrite code for storing and
@@ -47,19 +45,21 @@ personally find this a reasonably elegant system, for one that uses reflection.
 So what do we get out of this? I'll start with the cons (that I can think of)
 followed by (what I consider to be) the pros:
 
-* Cons
-  * We lose a lot of compile-time error checking
-  * We introduce some overhead, mainly due to using the reflection API
-* Pros
-  * Adding or removing messages (generally) will require less work elsewhere in
-  	the code
-  * Receivers only need to implement the messages they want to receive
-  * Receivers are not required to name their methods as per an interface
-  * Receivers can define what I call "catchall" methods, methods that accept
-  	all messages from a specified sender (this could also be done using the
-  	observable/listener pattern too, but I believe it would be a little less
-  	elegant)
-  * Receivers define an accept method which allows them to dynamically control
-  	which instances they receive messages from
+* **Pros**
+    * Adding or removing messages (generally) will require less work elsewhere in
+      the code
+    * Receivers only need to implement the messages they want to receive
+    * Receivers are not required to name their methods as per an interface
+    * Receivers can define what I call "catchall" methods, methods that accept
+      all messages from a specified sender (this could also be done using the
+      observable/listener pattern too, but I believe it would be a little less
+      elegant)
+    * Receivers define an accept method which allows them to dynamically control
+      which instances they receive messages from
+* **Cons**
+    * We lose a lot of compile-time error checking
+    * We introduce some overhead, mainly due to using the reflection API
 
-Currently I'm holding on to this until I feel it satisfies the needs of our score editing project completely, but after that I think I'll release it to the public so that someone else might find some use out of it.
+Currently I'm holding on to this until I feel it satisfies the needs of our
+score editing project completely, but after that I think I'll release it to the
+public so that someone else might find some use out of it.

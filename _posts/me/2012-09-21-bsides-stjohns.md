@@ -9,6 +9,7 @@ an area of interest or an area pertinent to my current position, there were
 some interesting talks.
 
 If you're interested in summaries of the talks, click "Read More".
+
 Morning Talks
 =============
 

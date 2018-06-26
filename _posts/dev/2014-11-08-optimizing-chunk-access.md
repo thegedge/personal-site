@@ -58,7 +58,7 @@ for(int y = 0; y < RADIUS; ++y) {
 
 If we can process voxels in an order-independent manner, that's how we should
 do it. We can't always access memory in a cache-efficient manner though. For
-example, [greedy meshing]({% post_url 2014-08-17-greedy-voxel-meshing %})
+example, [greedy meshing]({% post_url dev/2014-08-17-greedy-voxel-meshing %})
 accesses voxel data in slices. In many cases like these, we can alleviate some
 of the pain by __prefetching__ data into the cache. We are in control of the
 code, and we know our access patterns, so we can warm up the cache with data

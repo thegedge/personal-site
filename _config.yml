@@ -51,7 +51,7 @@ author:
   github: thegedge
   twitter: thegedge
 
-gems:
+plugins:
   - jekyll-coffeescript
   - jekyll-feed
   - jekyll-paginate
