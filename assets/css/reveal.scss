@@ -18,6 +18,8 @@
     size: 38px;
   }
 
+  ol, ul { list-style-position: inside; }
+
   ul { list-style-type: disc; }
   ul > li > ul { list-style-type: circle; }
 
@@ -151,12 +153,10 @@
       float: left;
 
       width: 550px;
-      min-height: 550px;
       margin: 0 75px 0 0;
-      padding: 20px;
+      padding: 0;
       font-size: 20px;
       line-height: 100%;
-      border-radius: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: pre;
@@ -168,6 +168,10 @@
 
       &:hover {
         width: 95%;
+      }
+
+      .table {
+        min-height: 550px;
       }
     }
 

@@ -1,6 +1,7 @@
 ---
 ---
 @import "app/syntax_coloring";
+@import "highlight";
 
 pre.highlight, figure.highlight {
   @include highlighting-base;
