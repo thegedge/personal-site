@@ -1,18 +1,49 @@
 body.portfolio #content {
+  padding: 0;
+
   > ul {
     width: 100%;
     list-style-type: none;
-    padding-left: 0;
+    padding: 1em 0 0 0;
     margin: 0;
 
+    > li#opgraph { background-image: url(/assets/img/portfolio/opgraph/opgraph_bg.png); }
+    > li#radix_tree { background-image: url(/assets/img/portfolio/radix_tree/radix_tree_bg.png); }
+    > li#jype {
+      background-image: url(/assets/img/portfolio/jype/jype_bg.png);
+      background-position: left top !important;
+    }
+
+    > li#manatee {
+      background-image: url(/assets/img/portfolio/manatee/manatee_bg.png);
+      background-position: center top !important;
+    }
+
+    > li#voxel_iterator {
+      background-image: url(/assets/img/portfolio/voxel_iterator/voxel_iterator_bg.png);
+      background-size: 100%;
+    }
+
+    > li#stereo {
+      background-image: url(/assets/img/portfolio/stereo/stereo_bg.png);
+      background-repeat: repeat-x !important;
+    }
+
     > li {
+      background-position: center;
+      background-repeat: no-repeat;
+
       display: block;
       clear: both;
       width: 100%;
-      padding: 1em 0 0 0;
-      border-top: 3px solid $light;
+      padding: 1em;
+      margin: 0;
+      box-sizing: border-box;
+      border-bottom: 3px solid $light;
       font-size: 90%;
       line-height: 140%;
+      min-height: 300px;
+      position: relative;
 
       &:first-child {
         border-top: none;
@@ -41,9 +72,16 @@ body.portfolio #content {
       }
 
       > ul.inline.block {
+        position: absolute;
         float: right;
         clear: right;
         margin-bottom: 0;
+
+        display: block;
+        bottom: 0;
+        right: 0;
+
+        > li > a { cursor: pointer; }
       }
     }
   }
