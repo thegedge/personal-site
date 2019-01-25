@@ -3,13 +3,14 @@ title: "Building Gesh: Starting Out"
 category: dev
 tags: [rust]
 series: Building gesh
+published: false
 ---
 I recently decided I wanted to do two things: learn a new language, and build a shell. I settled on
 learning [Rust]. This mini blog series will be a little about learning Rust and a little about
 building a shell. I've decided to call it [gesh]. This will be the first post in a series of me
-building the shell, the learnings I 
+building the shell.
 
-## What is a shell? 
+## What is a shell?
 
 [Wikipedia][shell] defines it as:
 
