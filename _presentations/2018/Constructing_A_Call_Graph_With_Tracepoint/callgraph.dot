@@ -1,0 +1,6 @@
+digraph callgraph {
+  func1 -> foo;
+  func2 -> func1;
+  func2 -> bar;
+  bar -> func1;
+}

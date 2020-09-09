@@ -1,4 +1,4 @@
----           
+---
 title: First Look
 category: dev
 tags: [score editing]
@@ -9,8 +9,7 @@ We've decided to give a pre-beta teaser. Minus a couple of rendering issues,
 here's what she looked like a couple of days ago (click image for larger
 preview):
 
-![Score Editor](http://www.cs.ualberta.ca/~gedge/tabeditor/tabeditor_aug17.png)
-
+![Score Editor](/assets/img/tabeditor.png)
 
 For our first release we focused on guitar tabs, and making sure the
 application as a whole works together properly. Unfortunately this release will

@@ -8,8 +8,7 @@ So, one thing that I've been working on over the past week is reviving my "game
 engine" that I started working on a couple of years ago. It's not far, but I'm
 currently happy with the way things are going:
 
-[Game Engine Screenshot](http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_01.jpg)
-
+![Game Engine Screenshot](/assets/img/2010_Feb_01.jpg)
 
 Pretty simple, I know. Shows off some basic texturing and per-pixel lighting,
 but that's about all I got for now. Currently this is all done in OpenGL, but
@@ -26,15 +25,15 @@ These mappings are registered at runtime, generally in the initialize method
 one specifies.There's plenty of work to be done, but I think it's a good start.
 Some things I need to work on:
 
-* __Resource Management__. Currently all resource management is done through
+* **Resource Management**. Currently all resource management is done through
   `boost::shared_ptr`. In other words, there isn't really any "management"
   happening. I need some form of a manager that can load various assets,
   caching things as necessary to help with efficiency.
-* __Higher-level Primitives__. Currently I send triangle primitives to the
+* **Higher-level Primitives**. Currently I send triangle primitives to the
   renderer, which is a little too low level for my liking. I'd like to pick a
   set of base primitives that are at a higher-level (e.g., triangular mesh,
   model, terrain)
-* __Deferred Rendering__. I've always wanted to take a stab at implementing
+* **Deferred Rendering**. I've always wanted to take a stab at implementing
   deferred rendering. I'd just love to play around with shaders in general and
   getting some fancy stuff on the go.
 

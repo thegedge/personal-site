@@ -12,8 +12,7 @@ screenshots I've posted only do per-pixel lighting with Lambertian reflectance.
 I also want to make it so that my OBJ loader doesn't reproduce vertices with
 the same position + normal + texture coordinates.
 
-![http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg](http://webdocs.cs.ualberta.ca/~gedge/images/gameengine/2010_Feb_08.jpg)
-
+![Monkey image](/assets/img/2010_Feb_08.jpg)
 
 I have also gotten things working with Cocoa. I do the event loop myself to
 make things easier, but it's all good. Full screen mode works in Cocoa too, but
