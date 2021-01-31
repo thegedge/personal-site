@@ -1,4 +1,0 @@
-#!/bin/sh
-rm -rf _site
-bundle check || bundle install
-bundle exec jekyll server --watch --config=_config.yml,_config_dev.yml

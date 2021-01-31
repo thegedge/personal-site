@@ -5,6 +5,7 @@ tags: [rust]
 series: Building gesh
 published: false
 ---
+
 I recently decided I wanted to do two things: learn a new language, and build a shell. I settled on
 learning [Rust]. This mini blog series will be a little about learning Rust and a little about
 building a shell. I've decided to call it [gesh]. This will be the first post in a series of me
@@ -14,7 +15,7 @@ building the shell.
 
 [Wikipedia][shell] defines it as:
 
-> _a shell is a user interface for access to an operating system's services._
+> a shell is a user interface for access to an operating system's services.
 
 Great, so we'll be building a UI for the operating system. Before we can do that, what kinds of
 services does the OS provide that we'll be exposing? Well, to start, I'm going to focus on two:
@@ -30,27 +31,28 @@ some customization features. If you've used a shell before, you've probably come
 I've already began building the shell, so future blog posts will be a little more focused, but for
 now I'll talk about what I have so far.
 
-First, I needed to be able to parse basic commands and execute them. For parsing, I chose
-[nom] to make it quick and easy to get up and running. It's a parser combinator library with
-no copying, and can be streamed. I kept it simple for now, so we can pass arguments to a command,
-with support for simple environment variable interpolation.
+First, I needed to be able to parse basic commands and execute them. For parsing, I chose [nom] to
+make it quick and easy to get up and running. It's a parser combinator library with no copying, and
+can be streamed. I kept it simple for now, so we can pass arguments to a command, with support for
+simple environment variable interpolation.
 
 For command execution, we need:
 
-- an [environment] under which the commands will run, containing the current working directory
-  and all of the environment variables;
-- a [registry] to find commands, which could be aliases, shell builtins, or executables on the path; and
+- an [environment] under which the commands will run, containing the current working directory and
+  all of the environment variables;
+- a [registry] to find commands, which could be aliases, shell builtins, or executables on the path;
+  and
 - a [prompt] to input the commands.
 
 ## Building a command registry
 
 The most interesting challenge so far has been building a command registry. Finding and executing
-commands on the path is pretty straightforward, but once I introduced builtins (for example, `cd`)
-I had some challenges. I wanted to take a builder approach, similar to Rust's [Command]. The
-challenge was that I needed to give a mutable reference to the environment. This is necessary
-because shell builtins could mutate the environment. For example, `cd` will change the current
-working directory and `export` would add new vars to the environment. After battling with the
-borrow checker, I came to this solution:
+commands on the path is pretty straightforward, but once I introduced builtins (for example, `cd`) I
+had some challenges. I wanted to take a builder approach, similar to Rust's [Command]. The challenge
+was that I needed to give a mutable reference to the environment. This is necessary because shell
+builtins could mutate the environment. For example, `cd` will change the current working directory
+and `export` would add new vars to the environment. After battling with the borrow checker, I came
+to this solution:
 
 ```rust
 pub struct CommandBuilder<'e, Iter, Args>
@@ -112,12 +114,11 @@ So many things!
 I've set up a [project board](https://github.com/thegedge/gesh/projects/1?add_cards_query=is%3Aopen)
 to capture a lot of this. Stay tuned!
 
-
-[Rust]: https://www.rust-lang.org/en-US/
+[rust]: https://www.rust-lang.org/en-US/
 [gesh]: https://github.com/thegedge/gesh/tree/master/src
 [shell]: https://en.wikipedia.org/wiki/Shell_(computing)
 [nom]: https://github.com/Geal/nom
 [environment]: https://github.com/thegedge/gesh/blob/master/src/environment/mod.rs
 [registry]: https://github.com/thegedge/gesh/blob/master/src/command/registry.rs
 [prompt]: https://github.com/thegedge/gesh/blob/master/src/prompt/mod.rs
-[Command]: https://doc.rust-lang.org/std/process/struct.Command.html
+[command]: https://doc.rust-lang.org/std/process/struct.Command.html

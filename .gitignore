@@ -1,4 +1,6 @@
-_site
-.DS_Store
-.bundle
-.sass-cache
+node_modules/
+.next/
+out/
+
+workspace.code-workspace
+yarn.lock

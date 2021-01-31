@@ -1,0 +1,87 @@
+@tailwind base;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    @apply text-primary-600;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+    @apply text-primary-700;
+  }
+
+  h1 {
+    @apply text-4xl;
+    @apply mb-8;
+  }
+
+  h2 {
+    @apply text-2xl;
+    @apply mt-4;
+    @apply mb-4;
+  }
+
+  ul {
+    @apply list-disc;
+    @apply mx-16;
+  }
+
+  ol {
+    @apply list-decimal;
+    @apply mx-16;
+  }
+
+  blockquote {
+    @apply mx-8;
+    @apply py-0.5;
+    @apply px-4;
+    @apply bg-primary-100;
+    @apply text-primary-600;
+    @apply border-l-base;
+    @apply border-primary-200;
+    @apply italic;
+    @apply rounded-r-md;
+  }
+
+  blockquote > p {
+    @apply m-0;
+  }
+
+  figure {
+    @apply text-center;
+  }
+
+  figure > img {
+    @apply mx-auto;
+  }
+
+  figure > figcaption {
+    @apply text-sm;
+  }
+}
+
+/* overrides for latex stuff */
+.frac-line {
+  border-color: #000000;
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */

@@ -3,69 +3,69 @@ title: Terraforming the AWS Landscape
 category: presentations
 presentation:
   background: background.png
-  date: 2016-03-16
+  date: "2016-03-16"
   presenter:
     name: Jason Gedge
     position: Software Developer
     company: Shopify
     social:
-      website: http://www.gedge.ca
+      website: https://www.gedge.ca
       twitter: "@thegedge"
       github: thegedge
 ---
 
 ### Outline
 
-* What is Terraform?
-* Related technology
-* Creating your first stack
-  * VPC
-  * Subnets
-  * Instances
-  * ELB
-  * Demo deploy
-* Tips and tricks
-* Terraform at Shopify
+- What is Terraform?
+- Related technology
+- Creating your first stack
+  - VPC
+  - Subnets
+  - Instances
+  - ELB
+  - Demo deploy
+- Tips and tricks
+- Terraform at Shopify
 
-----
+---
 
 ### What is Terraform?
 
-* {:.fragment} Infrastructure as code
-* {:.fragment} Understands dependencies between resources
-* {:.fragment} Group collections of resources together as a module
-* {:.fragment} Expose information about stacks via outputs
+- {:.fragment} Infrastructure as code
+- {:.fragment} Understands dependencies between resources
+- {:.fragment} Group collections of resources together as a module
+- {:.fragment} Expose information about stacks via outputs
 
 Notes:
 
-* Hashicorp working on cloud provisioning / orchestration
-  * Consul, vault, packer, serf, nomad, atlas
-* No more artisanal infrastructure
-* Dependencies between resources ensures everything is brought up in correct order
-* Modules encourage reusability
-* Generated state files can be used as inputs to other stacks
+- Hashicorp working on cloud provisioning / orchestration
+  - Consul, vault, packer, serf, nomad, atlas
+- No more artisanal infrastructure
+- Dependencies between resources ensures everything is brought up in correct order
+- Modules encourage reusability
+- Generated state files can be used as inputs to other stacks
 
-----
+---
 
 ### Related technology
 
-* {:.fragment} CloudFormation
-  * {:.fragment} AWS only
-  * {:.fragment} Proprietary
-* {:.fragment} Chef, Puppet, Ansible
-  * {:.fragment} Mostly focused on config management and application orchestration
-  * {:.fragment} Plugins for infrastructure
+- {:.fragment} CloudFormation
+  - {:.fragment} AWS only
+  - {:.fragment} Proprietary
+- {:.fragment} Chef, Puppet, Ansible
+  - {:.fragment} Mostly focused on config management and application orchestration
+  - {:.fragment} Plugins for infrastructure
 
 Notes:
 
-* AWS only => Terraform is platform agnostic (Google, Docker, Dynect, Heroku, etc)
-* Proprietary => cannot extend the language
-* Config management => Terraform is infrastructure
-* Plugins for infrastructure =>
-  * Works, but not what these things are built for (cohesiveness)
-  * What happens when I modify the infrastructure resource?
+- AWS only => Terraform is platform agnostic (Google, Docker, Dynect, Heroku, etc)
+- Proprietary => cannot extend the language
+- Config management => Terraform is infrastructure
+- Plugins for infrastructure =>
+  - Works, but not what these things are built for (cohesiveness)
+  - What happens when I modify the infrastructure resource?
 
-----
+---
 
 ### Creating your first stack
 
@@ -77,17 +77,17 @@ Notes:
 
 Notes:
 
-* Describe what a VPC is
-* Keeping things simple with public subnets
-* Application deployment is not really what Terraform should be doing
+- Describe what a VPC is
+- Keeping things simple with public subnets
+- Application deployment is not really what Terraform should be doing
 
-----
+---
 
 ### Creating your first stack
 
 ![Design](design.png)
 
-----
+---
 
 ### Creating your first stack – Provider
 
@@ -97,18 +97,18 @@ provider "aws" {
 }
 ```
 
-* `provider` blocks configure any of the supported resource providers
-* `chef`, `google` (cloud), and many other providers come by default
-* Some read in environment vars for config. For example, `AWS_ACCESS_KEY_ID`
-  and `AWS_SECRET_ACCESS_KEY`
+- `provider` blocks configure any of the supported resource providers
+- `chef`, `google` (cloud), and many other providers come by default
+- Some read in environment vars for config. For example, `AWS_ACCESS_KEY_ID` and
+  `AWS_SECRET_ACCESS_KEY`
 
 Notes:
 
-* This is HCL (Hashicorp Config Language). Can also write in pure JSON
-* Provider blocks often optional because they either have no config (e.g., template
-  files) or read from env (e.g., aws)
+- This is HCL (Hashicorp Config Language). Can also write in pure JSON
+- Provider blocks often optional because they either have no config (e.g., template files) or read
+  from env (e.g., aws)
 
-----
+---
 
 ### Creating your first stack – VPC
 
@@ -122,15 +122,15 @@ resource "aws_internet_gateway" "gw" {
 }
 ```
 
-* `${…}` is an interpolation
-* Other resources referenced in an interpolation via `${type.name.attribute}`
+- `${…}` is an interpolation
+- Other resources referenced in an interpolation via `${type.name.attribute}`
 
 Notes:
 
-* Explain the CIDR notation (last 8 bits vary) 
-* Internet gateways connect our VPCs to the public internet
+- Explain the CIDR notation (last 8 bits vary)
+- Internet gateways connect our VPCs to the public internet
 
-----
+---
 
 ### Creating your first stack – Subnets
 
@@ -159,19 +159,19 @@ resource "aws_subnet" "public" {
 }
 ```
 
-* Variables are inputs to your terraform stacks and modules
-* `count` is a special attribute to support multiplicity of resources
-* `lifecycle` is also a special attribute, here preventing the resource from being destroyed
+- Variables are inputs to your terraform stacks and modules
+- `count` is a special attribute to support multiplicity of resources
+- `lifecycle` is also a special attribute, here preventing the resource from being destroyed
   (terraform destroy, from changing a ForceNewResource attribute)
-* Interpolations can use functions, like `cidrsubnet`
+- Interpolations can use functions, like `cidrsubnet`
 
 Notes:
 
-* No such thing as a constant, so we make use of variables
-* Many more attributes on resources, this is just a sample
-* `prevent_destroy` needs to be removed or set to `false` before resource can be destroyed
+- No such thing as a constant, so we make use of variables
+- Many more attributes on resources, this is just a sample
+- `prevent_destroy` needs to be removed or set to `false` before resource can be destroyed
 
-----
+---
 
 ### Creating your first stack – Route table
 
@@ -193,18 +193,18 @@ resource "aws_route_table_association" "public" {
 }
 ```
 
-* `resource.name.*.attr` is a splat, used when `count > 1`
-* Routes can be specified in the route table itself, but using the `aws_route`
-  resource simplifies future additions / removals
+- `resource.name.*.attr` is a splat, used when `count > 1`
+- Routes can be specified in the route table itself, but using the `aws_route` resource simplifies
+  future additions / removals
 
 Notes:
 
-* `0.0.0.0/0` is your default route
-* Terraform doesn't manage inline routes / security group rules well, so we prefer
-  using separate resources instead
-* Can reference attributes of individual resource; use `count`, `lifecycle`, etc
+- `0.0.0.0/0` is your default route
+- Terraform doesn't manage inline routes / security group rules well, so we prefer using separate
+  resources instead
+- Can reference attributes of individual resource; use `count`, `lifecycle`, etc
 
-----
+---
 
 ### Creating your first stack – Instances
 
@@ -232,19 +232,18 @@ resource "aws_instance" "www" {
 }
 ```
 
-* `element` wraps around the input list
-* Allowing all SSH will simplify our deployment resource, which will connect
-  directly to the instance via SSH
-* We read in the userdata script with the `file` function, a script that will
-  set up nginx
+- `element` wraps around the input list
+- Allowing all SSH will simplify our deployment resource, which will connect directly to the
+  instance via SSH
+- We read in the userdata script with the `file` function, a script that will set up nginx
 
 Notes:
 
-* Wrapping is a good default, if we have more instances than subnets, for example
-* VPN is an alternative to allowing all SSH
-* from/to port values can differ to cover _all_ traffic (see documentation)
+- Wrapping is a good default, if we have more instances than subnets, for example
+- VPN is an alternative to allowing all SSH
+- from/to port values can differ to cover _all_ traffic (see documentation)
 
-----
+---
 
 ### Creating your first stack – ELB
 
@@ -272,21 +271,19 @@ resource "aws_elb" "www" {
 }
 ```
 
-* Some resources have "nested blocks" for configuration
-* For `aws_elb`, we can have multiple `listener` and `health_check` blocks
-* We still need square brackets around interpolations that produce lists so
-  that we pass schema validation
+- Some resources have "nested blocks" for configuration
+- For `aws_elb`, we can have multiple `listener` and `health_check` blocks
+- We still need square brackets around interpolations that produce lists so that we pass schema
+  validation
 
 Notes:
 
-* See documentation for health check syntax
-* `allow_http` security group allows ingress from all traffic on ports
-  80/443 and all egress
-* Note that instances will need allow traffic on port 80 for ELBs, but the
-  default security group allows all traffic within a VPC. This traffic
-  does not have to be open to the world, just the ELB
+- See documentation for health check syntax
+- `allow_http` security group allows ingress from all traffic on ports 80/443 and all egress
+- Note that instances will need allow traffic on port 80 for ELBs, but the default security group
+  allows all traffic within a VPC. This traffic does not have to be open to the world, just the ELB
 
-----
+---
 
 ### Creating your first stack – Deploy
 
@@ -318,18 +315,18 @@ resource "null_resource" "deploy" {
 }
 ```
 
-* `local_www_path` exists solely to strip an optional trailing slash
-* `connection` blocks specify how provisioners will connect to a resource
-* Normally configured by the provider, but sometimes the defaults aren't sufficient
-* Can be placed inside a provisioner for local configuration
+- `local_www_path` exists solely to strip an optional trailing slash
+- `connection` blocks specify how provisioners will connect to a resource
+- Normally configured by the provider, but sometimes the defaults aren't sufficient
+- Can be placed inside a provisioner for local configuration
 
 Notes:
 
-* Remember that `user` can vary based on AMI
-* Provisioners executed in order
-* Connections support private key auth, bastion hosts, and windows remote management
+- Remember that `user` can vary based on AMI
+- Provisioners executed in order
+- Connections support private key auth, bastion hosts, and windows remote management
 
-----
+---
 
 # Demo
 
@@ -346,58 +343,54 @@ $ open `terraform output endpoint`
 
 If enough time, modify www/index.html, taint the deploy resources and apply again
 
-----
+---
 
 ### Tips and tricks
 
-* {:.fragment}
-  Variables are only strings (for now), so to support lists you can join on a delimiter
+- {:.fragment} Variables are only strings (for now), so to support lists you can join on a delimiter
   when passing a value into a module and split within the module
-* {:.fragment}
-  No support for conditionals, but you _can_ use interpolations in certain ways to simulate them
-  (e.g., ternary operations)
-* {:.fragment}
-  Never do a raw `terraform apply`, but rather output a plan file from `terraform plan` to use
-* {:.fragment}
-  State can be stored in many ways, but git is perhaps the simplest
-* {:.fragment}
-  Use vars files to switch between different environments (e.g., production, staging)
+- {:.fragment} No support for conditionals, but you _can_ use interpolations in certain ways to
+  simulate them (e.g., ternary operations)
+- {:.fragment} Never do a raw `terraform apply`, but rather output a plan file from `terraform plan`
+  to use
+- {:.fragment} State can be stored in many ways, but git is perhaps the simplest
+- {:.fragment} Use vars files to switch between different environments (e.g., production, staging)
 
 Notes:
 
-* No easy way to pass mappings to modules, but can pass keys + values list and get a 1-level map
-* `count = 0` will not make that resource
-* If you use var files, the plan you see from `terraform plan` may be different from what
-  gets applied with `terraform apply` (if you happen to forget to use the same var files)
+- No easy way to pass mappings to modules, but can pass keys + values list and get a 1-level map
+- `count = 0` will not make that resource
+- If you use var files, the plan you see from `terraform plan` may be different from what gets
+  applied with `terraform apply` (if you happen to forget to use the same var files)
 
-----
+---
 
 ### Terraform at Shopify
 
-* {:.fragment} Manage a ~100 instance cluster of nodes (over-provisioned for flash sales)
-* {:.fragment} Went from time to scale time taking ~1 hour to just a few minutes
-* {:.fragment} DNS plugin for reading TXT records
-* {:.fragment} Chef plugin for creating/delete chef nodes and clients
-* {:.fragment} Wrapped Terraform binary to ensure best practices
+- {:.fragment} Manage a ~100 instance cluster of nodes (over-provisioned for flash sales)
+- {:.fragment} Went from time to scale time taking ~1 hour to just a few minutes
+- {:.fragment} DNS plugin for reading TXT records
+- {:.fragment} Chef plugin for creating/delete chef nodes and clients
+- {:.fragment} Wrapped Terraform binary to ensure best practices
 
 Notes:
 
-* DNS plugin is quite simple and a great example of extending the language
-* DNS plugin isn't really doing CRUD resources, but just RU, because there
-  are no other options right now. Hashicorp is working on this (data resources)
-* Chef provider was recently added, so our plugin is no longer necessary
-* Check out Shopify on GitHub to see these plugins
+- DNS plugin is quite simple and a great example of extending the language
+- DNS plugin isn't really doing CRUD resources, but just RU, because there are no other options
+  right now. Hashicorp is working on this (data resources)
+- Chef provider was recently added, so our plugin is no longer necessary
+- Check out Shopify on GitHub to see these plugins
 
-----
+---
 
 ### More information
 
-* Official documentation
-  * <https://www.terraform.io/docs/index.html>
-* Official repository
-  * <https://github.com/hashicorp/terraform>
-* Community modules
-  * <https://github.com/terraform-community-modules>
-* Shopify DNS provider
-  * <https://github.com/Shopify/terraform-provider-dns>
-* IRC: `#terraform-tool` on Freenode
+- Official documentation
+  - <https://www.terraform.io/docs/index.html>
+- Official repository
+  - <https://github.com/hashicorp/terraform>
+- Community modules
+  - <https://github.com/terraform-community-modules>
+- Shopify DNS provider
+  - <https://github.com/Shopify/terraform-provider-dns>
+- IRC: `#terraform-tool` on Freenode
