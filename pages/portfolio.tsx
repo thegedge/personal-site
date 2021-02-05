@@ -2,7 +2,6 @@ import { concat } from "lodash";
 import React from "react";
 import { Layout } from "../lib/components/Layout";
 import { HorizontalList } from "../lib/components/List";
-import { PostData } from "../lib/posts";
 
 const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }) => {
   const children = concat([], props.children);
@@ -18,7 +17,7 @@ const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }
   );
 };
 
-export default function Home(props: { posts: PostData[] }) {
+export default function Portfolio() {
   return (
     <Layout title="Portfolio" description="A portfolio full of things I've built">
       <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200">
