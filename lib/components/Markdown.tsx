@@ -43,7 +43,7 @@ const tailwindAlignment = (align?: "left" | "right" | "center") => {
   }
 };
 
-const MarkdownP = (props: { children: React.ReactNode }) => {
+const MarkdownParagraph = (props: { children: React.ReactNode }) => {
   return <p className="px-4 my-4" {...props} />;
 };
 
@@ -179,7 +179,7 @@ const MarkdownMath = (props: { value: string }) => {
 export default function Markdown(props: { children: string }) {
   const renderers = {
     blockquote: MarkdownBlockQuote,
-    paragraph: MarkdownP,
+    paragraph: MarkdownParagraph,
     code: MarkdownCode,
     inlineCode: MarkdownInlineCode,
     link: MarkdownLink,
