@@ -8,7 +8,7 @@ import posts, { PostData } from "../lib/posts";
 export default function Home(props: { posts: PostData[] }) {
   return (
     <Layout title="Publications" description="Things I've published">
-      <VerticalList border className="text-lg leading-8">
+      <VerticalList border className="text-md leading-8">
         <div className="px-4">
           <h2>Refereed Conference Publications</h2>
           <ul>
