@@ -7,8 +7,8 @@ import { Tag } from "./Tag";
 const PostListItem = (props: { post: PostData }) => {
   let index = 0;
   return (
-    <div className="flex flex-row w-full py-4">
-      <div>
+    <div className="flex flex-row w-full p-4">
+      <div className="flex-1">
         <a className="text-xl" href={`/posts/${props.post.slug}`}>
           {props.post.title}
         </a>
@@ -18,7 +18,7 @@ const PostListItem = (props: { post: PostData }) => {
           </time>
         </p>
       </div>
-      <div className="flex-1 text-right">
+      <div className="text-right">
         <HorizontalList align="end" spacing={1}>
           {concat([], props.post.tags).map((tag) => (
             <Tag key={index++} tag={tag} />
