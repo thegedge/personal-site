@@ -1,5 +1,6 @@
-import { concat } from "lodash";
+import { concat, groupBy, identity, orderBy } from "lodash";
 import moment from "moment";
+import React from "react";
 import { PostData } from "../posts";
 import { HorizontalList, VerticalList } from "./List";
 import { Tag } from "./Tag";
@@ -7,10 +8,11 @@ import { Tag } from "./Tag";
 const PostListItem = (props: { post: PostData }) => {
   let index = 0;
   return (
-    <div className="flex flex-row w-full p-4">
+    <div className={`flex flex-row w-full p-4 ${!props.post.published && "bg-yellow-100"}`}>
       <div className="flex-1">
         <a className="text-xl" href={`/blog/${props.post.slug}`}>
           {props.post.title}
+          {!props.post.published && <span className="ml-4 italic text-sm">unpublished</span>}
         </a>
         <p>
           <time dateTime={props.post.date} className="text-sm font-thin italic text-gray-400">
@@ -21,7 +23,7 @@ const PostListItem = (props: { post: PostData }) => {
       <div className="text-right">
         <HorizontalList align="end" spacing={1}>
           {concat([], props.post.tags).map((tag) => (
-            <Tag key={index++} tag={tag} />
+            <Tag key={index++}>{tag}</Tag>
           ))}
         </HorizontalList>
       </div>
@@ -31,10 +33,18 @@ const PostListItem = (props: { post: PostData }) => {
 
 export const PostList = (props: { posts: PostData[] }) => {
   let index = 0;
+  const posts = groupBy(props.posts, (post) => new Date(post.date).getFullYear());
   return (
-    <VerticalList border spacing={0}>
-      {props.posts.map((post) => (
-        <PostListItem key={index++} post={post} />
+    <VerticalList spacing={0}>
+      {orderBy(Object.keys(posts), identity, "desc").map((year) => (
+        <>
+          <h2 className="text-center bg-primary-50 py-4">{year}</h2>
+          <VerticalList border spacing={1}>
+            {posts[year].map((post) => (
+              <PostListItem key={index++} post={post} />
+            ))}
+          </VerticalList>
+        </>
       ))}
     </VerticalList>
   );
