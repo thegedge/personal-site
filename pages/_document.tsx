@@ -23,8 +23,14 @@ class MyDocument extends Document {
 
           <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
           <link
-            href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
             rel="stylesheet"
+          />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS feed for my blog posts"
+            href="/rss.xml"
           />
 
           <meta name="author" content="Jason Gedge" />

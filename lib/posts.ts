@@ -12,7 +12,7 @@ export interface PostData {
   markdown: string;
   title: string;
   tags: string[];
-  description?: string;
+  description: string | null;
   published: boolean;
 }
 
@@ -30,6 +30,10 @@ export default memoize(async function (): Promise<PostData[]> {
 
         get published() {
           return this.frontMatter.published ?? true;
+        },
+
+        get description() {
+          return this.frontMatter.description ?? null;
         },
 
         get title() {

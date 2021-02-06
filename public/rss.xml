@@ -1,0 +1,364 @@
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Gedge's Blog</title>
+  <link href="http://www.gedge.ca/" />
+  <copyright>Copyright 2021, Jason Gedge</copyright>
+  <description>All my blog posts!</description>
+  <language>en</language>
+  <pubDate>Sat, 30 Jun 2018 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 30 Jun 2018 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://gedge.ca/rss.xml" rel="self" type="application/rss+xml"/>
+  
+  <item>
+    <title>Building Gesh: Starting Out</title>
+    <link>https://gedge.ca/blog/2018-06-30-building-gesh-starting-out</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2018-06-30-building-gesh-starting-out</guid>
+    <description></description>
+    <pubDate>Sat, 30 Jun 2018 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Shaping Up</title>
+    <link>https://gedge.ca/blog/2015-08-03-shaping-up</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2015-08-03-shaping-up</guid>
+    <description></description>
+    <pubDate>Mon, 03 Aug 2015 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Optimizing Chunk Access</title>
+    <link>https://gedge.ca/blog/2014-11-08-optimizing-chunk-access</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-11-08-optimizing-chunk-access</guid>
+    <description></description>
+    <pubDate>Sat, 08 Nov 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Delving Into SSAO</title>
+    <link>https://gedge.ca/blog/2014-09-27-delving-into-ssao</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-09-27-delving-into-ssao</guid>
+    <description></description>
+    <pubDate>Sat, 27 Sep 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>End of Summer Updates</title>
+    <link>https://gedge.ca/blog/2014-09-01-end-of-summer-updates</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-09-01-end-of-summer-updates</guid>
+    <description></description>
+    <pubDate>Mon, 01 Sep 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Greedy Voxel Meshing</title>
+    <link>https://gedge.ca/blog/2014-08-17-greedy-voxel-meshing</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-08-17-greedy-voxel-meshing</guid>
+    <description></description>
+    <pubDate>Sun, 17 Aug 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>A Week of Optimizations</title>
+    <link>https://gedge.ca/blog/2014-08-03-a-week-of-optimizations</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-08-03-a-week-of-optimizations</guid>
+    <description></description>
+    <pubDate>Sun, 03 Aug 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Seeing Spheres</title>
+    <link>https://gedge.ca/blog/2014-07-26-seeing-spheres</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-07-26-seeing-spheres</guid>
+    <description></description>
+    <pubDate>Sat, 26 Jul 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>static_assert in C++11</title>
+    <link>https://gedge.ca/blog/2014-06-06-static_assert-in-c++11</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-06-06-static_assert-in-c++11</guid>
+    <description></description>
+    <pubDate>Fri, 06 Jun 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>To Infinity...And Beyond!</title>
+    <link>https://gedge.ca/blog/2014-06-01-to-infinity-and-beyond</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-06-01-to-infinity-and-beyond</guid>
+    <description></description>
+    <pubDate>Sun, 01 Jun 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>System Benchmarking</title>
+    <link>https://gedge.ca/blog/2014-05-24-system-benchmarking</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-05-24-system-benchmarking</guid>
+    <description></description>
+    <pubDate>Sat, 24 May 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Unit Testing and Texture Builder</title>
+    <link>https://gedge.ca/blog/2014-05-17-unit-testing-and-texture-builder</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-05-17-unit-testing-and-texture-builder</guid>
+    <description></description>
+    <pubDate>Sat, 17 May 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>April Dev Updates</title>
+    <link>https://gedge.ca/blog/2014-04-05-april-dev-updates</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-04-05-april-dev-updates</guid>
+    <description></description>
+    <pubDate>Sat, 05 Apr 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Voxel Iteration</title>
+    <link>https://gedge.ca/blog/2014-01-20-voxel-iteration</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2014-01-20-voxel-iteration</guid>
+    <description></description>
+    <pubDate>Mon, 20 Jan 2014 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>OpenGL Text Rendering With FreeType</title>
+    <link>https://gedge.ca/blog/2013-12-08-opengl-text-rendering-with-freetype</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-12-08-opengl-text-rendering-with-freetype</guid>
+    <description></description>
+    <pubDate>Sun, 08 Dec 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Let's Tri To Speed Things Up</title>
+    <link>https://gedge.ca/blog/2013-12-02-lets-tri-to-speed-things-up</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-12-02-lets-tri-to-speed-things-up</guid>
+    <description></description>
+    <pubDate>Mon, 02 Dec 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>What Does the Vox(el) Say?</title>
+    <link>https://gedge.ca/blog/2013-12-01-what-does-the-voxel-say</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-12-01-what-does-the-voxel-say</guid>
+    <description></description>
+    <pubDate>Sun, 01 Dec 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cool Things I've Recently Discovered</title>
+    <link>https://gedge.ca/blog/2013-05-25-cool-things-ive-recently-discovered</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-05-25-cool-things-ive-recently-discovered</guid>
+    <description></description>
+    <pubDate>Sat, 25 May 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>The Latest</title>
+    <link>https://gedge.ca/blog/2013-04-07-the-latest</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-04-07-the-latest</guid>
+    <description></description>
+    <pubDate>Sun, 07 Apr 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Jype Released</title>
+    <link>https://gedge.ca/blog/2013-01-04-jype-released</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-01-04-jype-released</guid>
+    <description></description>
+    <pubDate>Fri, 04 Jan 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Manatee Released</title>
+    <link>https://gedge.ca/blog/2013-01-02-manatee-released</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2013-01-02-manatee-released</guid>
+    <description></description>
+    <pubDate>Wed, 02 Jan 2013 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Announcing OpGraph</title>
+    <link>https://gedge.ca/blog/2012-09-30-announcing-opgraph</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-09-30-announcing-opgraph</guid>
+    <description></description>
+    <pubDate>Sun, 30 Sep 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Jekyll and GitHub</title>
+    <link>https://gedge.ca/blog/2012-09-27-jekyll-and-github</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-09-27-jekyll-and-github</guid>
+    <description></description>
+    <pubDate>Thu, 27 Sep 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>BSides St. John's, 2012</title>
+    <link>https://gedge.ca/blog/2012-09-21-bsides-stjohns</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-09-21-bsides-stjohns</guid>
+    <description></description>
+    <pubDate>Fri, 21 Sep 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>First Post</title>
+    <link>https://gedge.ca/blog/2012-09-10-first-post</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-09-10-first-post</guid>
+    <description></description>
+    <pubDate>Mon, 10 Sep 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Life</title>
+    <link>https://gedge.ca/blog/2012-08-29-life</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-08-29-life</guid>
+    <description></description>
+    <pubDate>Wed, 29 Aug 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>New Projects</title>
+    <link>https://gedge.ca/blog/2012-04-03-new-projects</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2012-04-03-new-projects</guid>
+    <description></description>
+    <pubDate>Tue, 03 Apr 2012 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Revamping The Data Model</title>
+    <link>https://gedge.ca/blog/2011-10-26-revamping-the-data-model</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2011-10-26-revamping-the-data-model</guid>
+    <description></description>
+    <pubDate>Wed, 26 Oct 2011 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Data + Rendering – Design Decisions</title>
+    <link>https://gedge.ca/blog/2011-09-20-data-rendering-design-decisions</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2011-09-20-data-rendering-design-decisions</guid>
+    <description></description>
+    <pubDate>Tue, 20 Sep 2011 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Back in Business</title>
+    <link>https://gedge.ca/blog/2011-06-17-back-in-business</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2011-06-17-back-in-business</guid>
+    <description></description>
+    <pubDate>Fri, 17 Jun 2011 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>New Beginnings</title>
+    <link>https://gedge.ca/blog/2011-06-04-new-beginnings</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2011-06-04-new-beginnings</guid>
+    <description></description>
+    <pubDate>Sat, 04 Jun 2011 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Elided Labels in Qt</title>
+    <link>https://gedge.ca/blog/2010-12-10-elided-labels-in-qt</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-12-10-elided-labels-in-qt</guid>
+    <description></description>
+    <pubDate>Fri, 10 Dec 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Expressing Qt Love</title>
+    <link>https://gedge.ca/blog/2010-11-03-expressing-qt-love</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-11-03-expressing-qt-love</guid>
+    <description></description>
+    <pubDate>Wed, 03 Nov 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>A New Look</title>
+    <link>https://gedge.ca/blog/2010-04-17-a-new-look</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-04-17-a-new-look</guid>
+    <description></description>
+    <pubDate>Sat, 17 Apr 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Sleep is lovely</title>
+    <link>https://gedge.ca/blog/2010-03-03-sleep-is-lovely</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-03-03-sleep-is-lovely</guid>
+    <description></description>
+    <pubDate>Wed, 03 Mar 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>FIZZICKS!!!!</title>
+    <link>https://gedge.ca/blog/2010-02-21-fizzicks</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-02-21-fizzicks</guid>
+    <description></description>
+    <pubDate>Sun, 21 Feb 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Modeling 101</title>
+    <link>https://gedge.ca/blog/2010-02-10-modeling-101</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-02-10-modeling-101</guid>
+    <description></description>
+    <pubDate>Wed, 10 Feb 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>We got monkeys!</title>
+    <link>https://gedge.ca/blog/2010-02-08-we-got-monkeys</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-02-08-we-got-monkeys</guid>
+    <description></description>
+    <pubDate>Mon, 08 Feb 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Game Design</title>
+    <link>https://gedge.ca/blog/2010-02-02-game-design</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-02-02-game-design</guid>
+    <description></description>
+    <pubDate>Tue, 02 Feb 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Current Work</title>
+    <link>https://gedge.ca/blog/2010-01-30-current-work</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2010-01-30-current-work</guid>
+    <description></description>
+    <pubDate>Sat, 30 Jan 2010 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Components, systems, subsystems, entities...*collapses*</title>
+    <link>https://gedge.ca/blog/2009-09-06-components-systems-subsystems-entities-collapses</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-09-06-components-systems-subsystems-entities-collapses</guid>
+    <description></description>
+    <pubDate>Sun, 06 Sep 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Point Grey Cameras</title>
+    <link>https://gedge.ca/blog/2009-08-27-point-grey-cameras</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-08-27-point-grey-cameras</guid>
+    <description></description>
+    <pubDate>Thu, 27 Aug 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>First Look</title>
+    <link>https://gedge.ca/blog/2009-08-19-first-look</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-08-19-first-look</guid>
+    <description></description>
+    <pubDate>Wed, 19 Aug 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Java Annotations: A [Somewhat] Brief Introduction</title>
+    <link>https://gedge.ca/blog/2009-08-03-java-annotations-a-somewhat-brief-introduction</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-08-03-java-annotations-a-somewhat-brief-introduction</guid>
+    <description></description>
+    <pubDate>Mon, 03 Aug 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Listening In</title>
+    <link>https://gedge.ca/blog/2009-07-24-listening-in</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-07-24-listening-in</guid>
+    <description></description>
+    <pubDate>Fri, 24 Jul 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Becoming a Jedi, err...JNI Master!</title>
+    <link>https://gedge.ca/blog/2009-07-15-becoming-a-jedi-err-jni-master</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-07-15-becoming-a-jedi-err-jni-master</guid>
+    <description></description>
+    <pubDate>Wed, 15 Jul 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Java: not always so cross-platform</title>
+    <link>https://gedge.ca/blog/2009-07-12-java-not-always-so-cross-platform</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-07-12-java-not-always-so-cross-platform</guid>
+    <description></description>
+    <pubDate>Sun, 12 Jul 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Beginnings</title>
+    <link>https://gedge.ca/blog/2009-07-11-beginnings</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-07-11-beginnings</guid>
+    <description></description>
+    <pubDate>Sat, 11 Jul 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Let's get 'er goin'</title>
+    <link>https://gedge.ca/blog/2009-07-09-lets-get-er-goin</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2009-07-09-lets-get-er-goin</guid>
+    <description></description>
+    <pubDate>Thu, 09 Jul 2009 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Summer Work</title>
+    <link>https://gedge.ca/blog/2008-05-15-summer-work</link>
+    <guid isPermaLink="false">https://gedge.ca/blog/2008-05-15-summer-work</guid>
+    <description></description>
+    <pubDate>Thu, 15 May 2008 00:00:00 GMT</pubDate>
+  </item>
+</channel>
+</rss>

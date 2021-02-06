@@ -7,7 +7,7 @@ tags: [c++, opengl, voxels]
 A variety of optimizations has led me to being able to render a bunch more voxels. I don't know
 about everyone else, but optimizing graphics-related code I find incredibly fun!
 
-From my [last post](/posts/2014-07-26-seeing-spheres) I mentioned using my sphere code to load less
+From my [last post](/blog/2014-07-26-seeing-spheres) I mentioned using my sphere code to load less
 sectors around the player. This did improve things, but only ever so slightly. Nevertheless, loading
 less data is never a bad thing. There were two other more significant improvements though: frustrum
 culling and what I'll call "chunk face" culling.

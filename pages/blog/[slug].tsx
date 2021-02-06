@@ -24,18 +24,18 @@ export default function Post(props: { post?: PostData; newer?: PostData; older?:
         {props.newer && (
           <>
             <Head>
-              <link rel="next" href={`/posts/${props.newer.slug}`} />
+              <link rel="next" href={`/blog/${props.newer.slug}`} />
             </Head>
-            <Link href={`/posts/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
+            <Link href={`/blog/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
           </>
         )}
         <div className="flex-1"></div>
         {props.older && (
           <>
             <Head>
-              <link rel="prev" href={`/posts/${props.older.slug}`} />
+              <link rel="prev" href={`/blog/${props.older.slug}`} />
             </Head>
-            <Link href={`/posts/${props.older.slug}`}>Older: {props.older.title} ›</Link>
+            <Link href={`/blog/${props.older.slug}`}>Older: {props.older.title} ›</Link>
           </>
         )}
       </div>

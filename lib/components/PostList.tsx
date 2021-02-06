@@ -9,7 +9,7 @@ const PostListItem = (props: { post: PostData }) => {
   return (
     <div className="flex flex-row w-full p-4">
       <div className="flex-1">
-        <a className="text-xl" href={`/posts/${props.post.slug}`}>
+        <a className="text-xl" href={`/blog/${props.post.slug}`}>
           {props.post.title}
         </a>
         <p>

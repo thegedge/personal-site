@@ -34,7 +34,6 @@ export const Header = (props: { className?: string }) => {
           </a>
           <a
             href="/feed.xml"
-            target="_blank"
             className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
           >
             <FontAwesomeIcon icon={faRss} />
