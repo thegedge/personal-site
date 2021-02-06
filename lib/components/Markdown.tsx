@@ -23,7 +23,7 @@ const tailwindAlignment = (align?: "left" | "right" | "center") => {
 };
 
 const MarkdownP = (props: { children: React.ReactNode }) => {
-  return <p className="px-4 my-4 coll" {...props} />;
+  return <p className="px-4 my-4" {...props} />;
 };
 
 const MarkdownCode = (props: { language: string; value: string }) => {
