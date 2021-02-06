@@ -3,11 +3,32 @@ import React from "react";
 import Latex from "react-latex";
 import ReactMarkdown from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+//
+import cpp from "react-syntax-highlighter/dist/cjs/languages/prism/cpp";
+import glsl from "react-syntax-highlighter/dist/cjs/languages/prism/glsl";
+import java from "react-syntax-highlighter/dist/cjs/languages/prism/java";
+import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import liquid from "react-syntax-highlighter/dist/cjs/languages/prism/liquid";
+import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
+import ruby from "react-syntax-highlighter/dist/cjs/languages/prism/ruby";
+import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
+import sh from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
 import { prism as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
+//
 import deflist from "remark-deflist";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { Link } from "./Link";
+
+SyntaxHighlighter.registerLanguage("sh", sh);
+SyntaxHighlighter.registerLanguage("cpp", cpp);
+SyntaxHighlighter.registerLanguage("glsl", glsl);
+SyntaxHighlighter.registerLanguage("java", java);
+SyntaxHighlighter.registerLanguage("js", javascript);
+SyntaxHighlighter.registerLanguage("liquid", liquid);
+SyntaxHighlighter.registerLanguage("python", python);
+SyntaxHighlighter.registerLanguage("ruby", ruby);
+SyntaxHighlighter.registerLanguage("rust", rust);
 
 const tailwindAlignment = (align?: "left" | "right" | "center") => {
   switch (align) {
@@ -84,7 +105,7 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
     const caption = [...props.children.slice(index)];
     return (
       <figure className="mx-16">
-        <div className={images.length > 2 && "grid grid-cols-2 gap-2"}>{images}</div>
+        <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
         {caption.length > 0 && (
           <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
         )}
