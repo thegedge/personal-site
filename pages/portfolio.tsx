@@ -20,7 +20,7 @@ const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }
 export default function Portfolio() {
   return (
     <Layout title="Portfolio" description="A portfolio full of things I've built">
-      <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200">
+      <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200 text-lg leading-8">
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/opgraph/opgraph_bg.png"
