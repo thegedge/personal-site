@@ -20,11 +20,12 @@ const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }
 export default function Portfolio() {
   return (
     <Layout title="Portfolio" description="A portfolio full of things I've built">
+      <aside>A selection of things I've built. Most of these aren't actively maintained.</aside>
       <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200 text-lg leading-8">
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/opgraph/opgraph_bg.png"
-            className="absolute w-full h-auto left-0 top-0 z-behind"
+            src="/img/portfolio/opgraph/opgraph.png"
+            className="absolute w-full h-auto left-0 top-0 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>OpGraph Framework</h2>
@@ -52,8 +53,8 @@ export default function Portfolio() {
         </li>
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/voxel_iterator/voxel_iterator_bg.png"
-            className="absolute w-1/2 h-auto left-1/4 top-0 z-behind"
+            src="/img/portfolio/voxel_iterator/voxel_iterator.png"
+            className="absolute w-1/2 h-auto left-1/4 top-0 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>Voxel (grid-based) Iterator</h2>
@@ -67,8 +68,8 @@ export default function Portfolio() {
         </li>
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/radix_tree/radix_tree_bg.png"
-            className="absolute w-full h-auto left-0 top-0 z-behind"
+            src="/img/portfolio/radix_tree/radix_tree.png"
+            className="absolute w-2/3 h-auto left-32 -top-8 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>Radix Tree</h2>
@@ -86,8 +87,8 @@ export default function Portfolio() {
         </li>
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/stereo/stereo_bg.png"
-            className="absolute w-1/2 h-auto left-1/2 top-24 z-behind"
+            src="/img/portfolio/stereo/stereo.png"
+            className="absolute w-1/2 h-auto left-1/2 top-24 z-behind opacity-20"
           />
           <div className="px-4 min-h-32">
             <h2>Stereo Reconstruction</h2>
@@ -146,8 +147,8 @@ export default function Portfolio() {
         </li>
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/manatee/manatee_bg.png"
-            className="absolute w-full h-auto left-0 -top-36 z-behind"
+            src="/img/portfolio/manatee/manatee.jpg"
+            className="absolute w-full h-auto left-0 -top-8 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>Manatee</h2>
@@ -162,8 +163,8 @@ export default function Portfolio() {
         </li>
         <li className="relative overflow-hidden">
           <img
-            src="/img/portfolio/jype/jype_bg.png"
-            className="absolute w-full h-auto left-0 top-0 z-behind"
+            src="/img/portfolio/jype/jype.png"
+            className="absolute w-full h-auto left-0 top-0 z-behind opacity-20"
           />
           <div className="px-4 min-h-32">
             <h2>Jype</h2>
