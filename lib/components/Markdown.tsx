@@ -102,15 +102,17 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
       }
     }
 
-    const caption = [...props.children.slice(index)];
-    return (
-      <figure className="mx-16">
-        <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
-        {caption.length > 0 && (
-          <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
-        )}
-      </figure>
-    );
+    if (images.length > 0) {
+      const caption = [...props.children.slice(index)];
+      return (
+        <figure className="mx-16">
+          <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
+          {caption.length > 0 && (
+            <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
+          )}
+        </figure>
+      );
+    }
   }
 
   return <blockquote {...props} />;
