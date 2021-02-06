@@ -1,6 +1,8 @@
 node_modules/
 .next/
 out/
-
 workspace.code-workspace
 yarn.lock
+
+# generated files
+public/feed.xml
