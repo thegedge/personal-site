@@ -9,10 +9,12 @@ Looks like I dropped the ball on a weekly journal, but that's okay! I took a bre
 and had a vacation (i.e., I visited my friends and family back in Canada). Back in the game and
 played around with "voxelizing" spheres.
 
-> [outside the sphere](/img/voxels/2014_07_26_outside.png) >
-> [inside the sphere](/img/voxels/2014_07_26_inside.png)
+<!-- prettier-ignore-start -->
+> ![outside the sphere](/img/voxels/2014_07_26_outside.png)
+> ![inside the sphere](/img/voxels/2014_07_26_inside.png)
 >
 > A solid sphere + inside a spherical cutout.
+<!-- prettier-ignore-end -->
 
 Although I could use this as a "brush" for creating voxel landscapes, my guiding reason for creating
 a voxel sphere is for finding a radius of chunks around the player to load. Right now I grab a cube
