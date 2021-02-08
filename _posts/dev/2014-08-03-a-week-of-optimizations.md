@@ -2,6 +2,8 @@
 title: A Week of Optimizations
 category: dev
 tags: [c++, opengl, voxels]
+description: >-
+  A brief description of two optimizations for voxel rendering frustrum culling and chunk face culling.
 ---
 
 A variety of optimizations has led me to being able to render a bunch more voxels. I don't know
@@ -15,9 +17,9 @@ culling and what I'll call "chunk face" culling.
 ## Frustrum culling
 
 <p style="float: right; margin-left: 10px; width: 353px; line-height: 100%;">
-	<img src="https://docs.google.com/drawings/d/1XlMlgGT2NN3MeqEwtCmVlJ6QLqGyOuQ6t1hne5_WJo4/pub?w=353&amp;h=294">
-	<br/>
-	<strong><small>Rendering only the chunks necessary (orange) in the player's viewing frustrum (blue).</small></strong>
+  <img src="https://docs.google.com/drawings/d/1XlMlgGT2NN3MeqEwtCmVlJ6QLqGyOuQ6t1hne5_WJo4/pub?w=353&amp;h=294">
+  <br/>
+  <strong><small>Rendering only the chunks necessary (orange) in the player's viewing frustrum (blue).</small></strong>
 </p>
 
 Frustrum culling is rendering only the things that exist within the view of the player. Previously I
@@ -37,9 +39,9 @@ idea to always keep in mind ways that you can send less data to the GPU.
 ## Chunk Face Culling
 
 <p style="float: right; margin-left: 10px; width: 353px; line-height: 100%;">
-	<img src="https://docs.google.com/drawings/d/1-ZTXzb6-gV5Kw30Ka50QQZm1_0wI0tvAnZil9yzgGu4/pub?w=353&amp;h=294">
-	<br/>
-	<strong><small>Categorizing chunks based on relative location to player</small></strong>
+  <img src="https://docs.google.com/drawings/d/1-ZTXzb6-gV5Kw30Ka50QQZm1_0wI0tvAnZil9yzgGu4/pub?w=353&amp;h=294">
+  <br/>
+  <strong><small>Categorizing chunks based on relative location to player</small></strong>
 </p>
 
 Although not quite as significant an optimization as frustrum culling, I still managed to gain about

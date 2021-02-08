@@ -2,6 +2,7 @@
 title: System Benchmarking
 category: dev
 tags: [c++, opengl]
+description: A brief look and description into a benchmarking system I created for my game engine.
 ---
 
 To keep up with my weekly dev journal blog, here's a short post on something I whipped up today. I

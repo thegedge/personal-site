@@ -2,6 +2,7 @@
 title: Shaping Up
 category: me
 tags: [running]
+description: Some random thoughts on health, exercise, and running.
 ---
 
 Wow! Almost nine months without any new posts on my website. I'm pretty bad with keeping up with
@@ -95,7 +96,7 @@ do 5km nonstop, and when I saw that I could do this before the end of the year I
 10km. Today I decided that I'm being too modest with my goals, so I decided that next summer I will
 run a half marathon.
 
-## &Sigma;ing It Up
+## &Sigma;-ing It Up
 
 I've started posting with the #notrocketscience hash tag on Twitter because I believe that healthy
 living doesn't require research, special diet programs, gym memberships, or anything else like that.

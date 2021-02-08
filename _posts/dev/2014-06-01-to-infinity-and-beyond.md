@@ -2,6 +2,9 @@
 title: To Infinity...And Beyond!
 category: dev
 tags: [c++, opengl, voxels]
+description: >-
+  How I implemented chunk loading for infinite terrain, and some performance improvements to the
+  voxel data sent to the GPU.
 ---
 
 This weekly journal thing has been good for me. I've been fairly productive since starting this goal

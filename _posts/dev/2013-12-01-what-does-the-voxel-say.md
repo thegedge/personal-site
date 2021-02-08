@@ -2,6 +2,7 @@
 title: What Does the Vox(el) Say?
 category: dev
 tags: [c++, opengl, voxels]
+description: Some thoughts surrounding the start of my journey on building a voxel game engine.
 ---
 
 As always, I've started a new project. I really need to start sticking with my projects and
@@ -18,8 +19,7 @@ akin to [Minecraft](https://www.minecraft.net) and [Cube World](https://picroma.
 <!-- prettier-ignore-end -->
 
 Note that my intent is not to recreate either of these games. I don't have a game idea in mind right
-yet, but I'm hoping
-something will rise to the top of my mind soon. Once that happens, I'll switch
+yet, but I'm hoping something will rise to the top of my mind soon. Once that happens, I'll switch
 focus from creating a voxel "engine" and actually create a game with whatever I have at that point.
 I'll most likely aim for a simple and, more importantly, achievable game idea initially. Hopefully
 I'll learn from all the mistakes I make from that game to actually prepare myself for the release of
@@ -60,9 +60,9 @@ And finally, some things I'll be working on in the near future:
   [Command](https://en.wikipedia.org/wiki/Command_pattern).
 - Implement picking code. Picking refers to figuring out what 3D object corresponds to a pixel.
   There are several ways to do this. In a voxel world you can get away with a ray tracing algorithm.
-  Another approach is to take advantange of the GPUs power by rendering all your geometry with
-  unique colors. If you offload this into a framebuffer object, you can extract the color for a
-  pixel and decode it to figure out what geometry corresponds to that pixel.
+  Another approach is to take advantage of the GPUs power by rendering all your geometry with unique
+  colors. If you offload this into a framebuffer object, you can extract the color for a pixel and
+  decode it to figure out what geometry corresponds to that pixel.
 - Add a user interface. At the very least, get some foundational stuff done for 2D rendering (fonts,
   text, dialogs, etc). I can't really create an actual UI until I figure out what kind of game I'll
   be implementing!

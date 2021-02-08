@@ -2,6 +2,7 @@
 title: The Latest
 category: me
 tags: []
+description: Life updates
 ---
 
 It's been awhile since my last update, so I thought I'd mention what's been happening lately:

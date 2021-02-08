@@ -2,6 +2,8 @@
 title: static_assert in C++11
 category: dev
 tags: [c++]
+description: >-
+  A light discussion on the use of static_assert, with an example of building an "all true" function
 ---
 
 A few days ago I realized that some of my template code wasn't that safe. In particular, my entity
@@ -28,7 +30,7 @@ template <class Derived, class ...Dependencies>
 class System {}
 
 class PhysicsSystem : public System<PhysicsSystem, Transform, Velocity> {
-	// initialize/update code for system here
+    // initialize/update code for system here
 }
 ```
 
@@ -71,15 +73,17 @@ actually inherit from `Component`:
 ```cpp
 template <class Derived, class ...Dependencies>
 class System {
-	static_assert(all<std::is_base_of<Component, Dependencies>{}...>{}>,
-				  "Every type in Dependencies should inherit from Component");
+    static_assert(
+        all<std::is_base_of<Component, Dependencies>{}...>{}>,
+        "Every type in Dependencies should inherit from Component"
+    );
 }
 ```
 
 `std:is_base_of`is a super useful trait class which you can find in
-[type_traits](//en.cppreference.com/w/cpp/header/type_traits), along with many other useful trait
-classes. With that `static_assert` in place I get a useful compile-time error message instead of
-either a) giving it a non-component type that happens to have the necessary concepts (not that bad),
-or b) getting what will likely be an unhelpful compile-time error message.
+[type_traits](https://en.cppreference.com/w/cpp/header/type_traits), along with many other useful
+trait classes. With that `static_assert` in place I get a useful compile-time error message instead
+of either a) giving it a non-component type that happens to have the necessary concepts (not that
+bad), or b) getting what will likely be an unhelpful compile-time error message.
 
 Have fun peeps!

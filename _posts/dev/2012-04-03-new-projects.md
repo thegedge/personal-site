@@ -2,6 +2,7 @@
 title: New Projects
 category: dev
 tags: [java, api, software engineering]
+description: Thoughts on designing a library's API.
 ---
 
 It's been quite some time since my last post (this seems to be a regular occurrence, doesn't it?).
@@ -11,12 +12,12 @@ discussion in this post.
 
 Working on a real project has really helped me learn many things, but especially good design
 techniques. In particular, my project will be used as a plugin for an existing piece of open source
-software ([Phon](https://www.phon.ca/) , a tool for phonological analysis). To not see the past few
+software ([Phon](https://www.phon.ca/), a tool for phonological analysis). To not see the past few
 months worth of work go to waste, I've been given permission to take this project on as my own
 (it'll show up on my [GitHub](https://github.com/thegedge) account eventually), so I'm really
 designing this to be something that's easily usable and extendable by others. In its simplest form,
 it's a framework for designing complex operations from simpler ones (think
-[Quartz Composer](https://en.wikipedia.org/wiki/Quartz_Composer) , but more general).
+[Quartz Composer](https://en.wikipedia.org/wiki/Quartz_Composer), but more general).
 
 Since I'm designing something that will be used by others, I really need to think twice about every
 decision I make. Some discussion points on my experience so far:

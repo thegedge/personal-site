@@ -2,6 +2,10 @@
 title: Announcing OpGraph
 category: dev
 tags: [java, opgraph]
+description: >-
+  Announcement for a project to construct complex operations from simpler ones using a node-based
+  approach. A node is a small operation with inputs and outputs. You can link the outputs of one
+  node to the inputs of another in a GUI.
 ---
 
 This is an announcement of a new project I'm proud to release: **OpGraph**. Check out my portfolio

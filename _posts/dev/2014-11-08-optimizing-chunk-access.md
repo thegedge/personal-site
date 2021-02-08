@@ -2,6 +2,7 @@
 title: Optimizing Chunk Access
 category: dev
 tags: [c++, voxels]
+description: How to take advantage of cache lines for voxel storage.
 ---
 
 In general, one should access memory in a contiguous manner, but sometimes it is impossible to do so
@@ -14,9 +15,9 @@ First, let's think about why contiguous access is optimal. Whenever you need to 
 address, cache is first asked whether or not it has that memory. Eventually you will get a cache
 miss, meaning the memory you're accessing isn't in a cache. Whenever there's a cache miss, the
 processor has to read from main memory. Memory around that address will also be read. For example,
-the [Sandy Bridge](https://en.wikipedia.org/wiki/Sandy_Bridge) architecture employed in many modern Intel
-processors have a 64-byte cache line, meaning that whenever you access main memory, you'll bring 64
-byte chunks of memory into the cache (maybe not all at once). If we're accessing memory
+the [Sandy Bridge](https://en.wikipedia.org/wiki/Sandy_Bridge) architecture employed in many modern
+Intel processors have a 64-byte cache line, meaning that whenever you access main memory, you'll
+bring 64 byte chunks of memory into the cache (maybe not all at once). If we're accessing memory
 contiguously, every 64 bytes will (likely) have cache hits. Want to know how all of this works in
 detail? [Ulrich Drepper](https://akkadia.org/drepper/cpumemory.pdf) has your back.
 
@@ -52,15 +53,15 @@ for(int y = 0; y < RADIUS; ++y) {
 
 If we can process voxels in an order-independent manner, that's how we should do it. We can't always
 access memory in a cache-efficient manner though. For example,
-[greedy meshing](/blog/2014-08-17-greedy-voxel-meshing) accesses voxel data in slices. In many
-cases like these, we can alleviate some of the pain by **prefetching** data into the cache. We are
-in control of the code, and we know our access patterns, so we can warm up the cache with data we
-know that we will soon use. This is similar to how a processor
-[prefetches instructions](//en.wikipedia.org/wiki/Instruction_prefetch).
+[greedy meshing](/blog/2014-08-17-greedy-voxel-meshing) accesses voxel data in slices. In many cases
+like these, we can alleviate some of the pain by **prefetching** data into the cache. We are in
+control of the code, and we know our access patterns, so we can warm up the cache with data we know
+that we will soon use. This is similar to how a processor
+[prefetches instructions](https://en.wikipedia.org/wiki/Instruction_prefetch).
 
 Clang and GCC have a special function to prefetch data:
-[\_\_builtin_prefetch](//gcc.gnu.org/onlinedocs/gcc-3.3.6/gcc/Other-Builtins.html). We pass in a
-memory address to prefetch, whether or not it we need read-write access, and the temporal locality
+[\_\_builtin_prefetch](https://gcc.gnu.org/onlinedocs/gcc-3.3.6/gcc/Other-Builtins.html). We pass in
+a memory address to prefetch, whether or not it we need read-write access, and the temporal locality
 of the prefetch (0, 1, 2, or 3 where 0 means ephemeral and 3 means "keep it around in all caches as
 long as possible".)
 

@@ -2,7 +2,9 @@
 title: Greedy Voxel Meshing
 category: dev
 tags: [c++, opengl, voxels]
-images: ["greedy", "normal"]
+description: >-
+  A brief explanation of greedy meshing for voxel data, along with an animation to help explain the
+  process.
 ---
 
 I've been busy working on improving the performance in my voxel engine over the past week. The
@@ -12,10 +14,10 @@ with a focus on explaining a concept or algorithm through visualization. If you 
 for improvements or blog posts to write, leave me a comment.
 
 Mikola Lysenko goes into great detail describing various methods of meshing in his
-[blog post](https://0fps.net/2012/06/30/meshing-in-a-minecraft-game/). I highly recommend reading his
-post to get a better understanding of why greedy meshing works and how bad it can get. My goal is to
-give a more intuitive explanation of Mikola's post. I'll emphasize the most important part of the
-algorithm to understand: the ordering of quads. Mikola gives this ordering:
+[blog post](https://0fps.net/2012/06/30/meshing-in-a-minecraft-game/). I highly recommend reading
+his post to get a better understanding of why greedy meshing works and how bad it can get. My goal
+is to give a more intuitive explanation of Mikola's post. I'll emphasize the most important part of
+the algorithm to understand: the ordering of quads. Mikola gives this ordering:
 
 ```cpp
 bool compareQuads(const Quad &q1, const Quad &q2) {

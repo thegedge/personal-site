@@ -2,9 +2,10 @@
 title: Voxel Iteration
 category: dev
 tags: [c++, voxels]
+description: Implementing an iterator for grids, that can be used in voxel games.
 ---
 
-Given my poor man's implementation of intersection testing, I realized it was time to do a proper
+Given my poor implementation of intersection testing, I realized it was time to do a proper
 implementation of a grid-based iterator. I'm not going to dive into great detail about this
 algorithm because this post exists to point to the GitHub repository with my code, so I'll summarize
 the idea of the algorithm.

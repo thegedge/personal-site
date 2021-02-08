@@ -2,6 +2,7 @@
 title: New Beginnings
 category: me
 tags: []
+description: One small paragraph on the outcome of my M.Sc.
 ---
 
 For anyone who still happens to read this blog, or for anyone who falls upon it, I'm hoping to get

@@ -2,6 +2,9 @@
 title: Let's Tri To Speed Things Up
 category: dev
 tags: [c++, graphics, voxels]
+description: >-
+  How I improved performance by using visibility testing to reduce the number of triangles needed to
+  render.
 ---
 
 The second post in my voxel journey will just be a short one. I was pretty happy with a small

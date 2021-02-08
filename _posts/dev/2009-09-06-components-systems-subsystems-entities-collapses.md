@@ -2,6 +2,7 @@
 title: Components, systems, subsystems, entities...*collapses*
 category: dev
 tags: [software engineering]
+description: A discussion on entity/component systems.
 ---
 
 So I've recently been reading into various articles and forum topics on Component-Based design, or
@@ -13,6 +14,7 @@ or rather, what I think it is in the context of a game.
 
 You have three major concepts: entities, components, and systems.
 
+<!-- prettier-ignore-start -->
 Entity
 : An entity is a collection of components. These components describe how an entity functions.
 In terms of a game, an entity is a single instance of an object that exists in your game. So if you
@@ -32,6 +34,7 @@ data container, but I don't think I would like such a design. Often there is a \
 correspondence between systems and components. You may have a `RenderSystem` to store all
 `Renderable` components and display them when necessary in your game loop. You could also have a
 `PhysicsSystem`, `AnimationSystem`, and so on.
+<!-- prettier-ignore-end -->
 
 That's my stab at defining those three concepts. The main task in designing your
 system/game/whatever is to follow the "separation of concerns" idea, each "concern" often mapping to

@@ -1,7 +1,8 @@
 ---
 title: Revamping The Data Model
 category: dev
-tags: []
+tags: [software engineering]
+description: Changes I'm making to the data model of my score editor project.
 ---
 
 When coding the core data model for the score editor, I tried my best to keep any view-related

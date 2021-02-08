@@ -2,6 +2,7 @@
 title: "Java Annotations: A [Somewhat] Brief Introduction"
 category: dev
 tags: [java]
+description: A look into Java annotations, what you can use them for and how you can write your own.
 ---
 
 So in my last post where I described a messaging system we implemented, I also mentioned our use of
@@ -43,7 +44,7 @@ messaging system from my previous post as an example. Here's what the Message an
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.FIELD})
 public @interface Message {
-	Class<?>[] signature() default {};
+    Class<?>[] signature() default {};
 }
 ```
 
@@ -72,16 +73,16 @@ register messages like this:
 
 ```java
 public void registerSender(Class<? extends MessageSender> sender) {
-	MessageData msgData = getData(sender);
-	for(Field field : sender.getDeclaredFields()) {
-		if(field.isAnnotationPresent(Message.class)) {
-			if((field.getModifiers() & Modifier.STATIC) == 0)
-				continue;
+    MessageData msgData = getData(sender);
+    for(Field field : sender.getDeclaredFields()) {
+        if(field.isAnnotationPresent(Message.class)) {
+            if((field.getModifiers() & Modifier.STATIC) == 0)
+                continue;
 
-			Message msg = field.getAnnotation(Message.class);
-			msgData.addMessage(field.get(null).toString(), msg.signature());
-		}
-	}
+            Message msg = field.getAnnotation(Message.class);
+            msgData.addMessage(field.get(null).toString(), msg.signature());
+        }
+    }
 }
 ```
 
@@ -96,12 +97,12 @@ convenient than having to register each individual message. For message receiver
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.METHOD})
 public @interface ReceiverMethod {
-	// Special message name which allows catching all messages from a sender
-	public static final String CATCHALL = "<<all>>";
+    // Special message name which allows catching all messages from a sender
+    public static final String CATCHALL = "<<all>>";
 
-	// Properties
-	public Class<? extends MessageSender> senderClass();
-	public String message();
+    // Properties
+    public Class<? extends MessageSender> senderClass();
+    public String message();
 }
 ```
 

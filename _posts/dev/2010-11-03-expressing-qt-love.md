@@ -1,7 +1,10 @@
 ---
 title: Expressing Qt Love
 category: dev
-tags: [java, qt, c++]
+tags: [qt, c++]
+description: >-
+  Praise for the Qt Framework, specifically on how simple it was to create a QGraphicsView that can
+  save itself to an image file.
 ---
 
 The more I use Qt, the more I love it. Whenever I talk to people I'm always expressing my joy about

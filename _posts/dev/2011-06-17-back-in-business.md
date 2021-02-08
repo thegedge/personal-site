@@ -1,7 +1,8 @@
 ---
 title: Back in Business
 category: dev
-tags: [score editing, qt, c++, python]
+tags: [score editing, c++, python]
+description: A TODO list for the score editor project, and a list of tech I've been using for it.
 ---
 
 The score editor project has come off the back burner and is now up front. I still have work to do

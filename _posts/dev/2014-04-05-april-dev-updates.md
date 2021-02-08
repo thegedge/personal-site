@@ -2,6 +2,7 @@
 title: April Dev Updates
 category: dev
 tags: [c++, voxels]
+description: List of updates (voxel iteration, entity component systems, and so on).
 ---
 
 It's been a few months since I've written something, so I'll just give a quick update on what I've
@@ -19,7 +20,7 @@ realized the issue was with computing the initial voxel for iteration. What I ne
 using the mathematical definition of floor (i.e., greatest integer smaller than the given value).
 Instead, I was using integer truncation to "floor" my value. This meant that, for example, -1.2
 would end up being -1 instead of -2. I've updated my
-[voxel iterator repository](//github.com/thegedge/voxel_iterator) with this change. Once I get
+[voxel iterator repository](https://github.com/thegedge/voxel_iterator) with this change. Once I get
 around to writing some unit tests I'll definitely remember to capture this issue in a test. I know,
 I know. I should be writing tests from the get-go.
 

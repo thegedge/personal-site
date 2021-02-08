@@ -2,6 +2,7 @@
 title: Jekyll and GitHub
 category: dev
 tags: [web, jekyll]
+description: Working around a GitHub pages issues when using a filter in a Liquid assign tag.
 ---
 
 So when I created my personal site with Jekyll, I was using the latest version. Everything looked

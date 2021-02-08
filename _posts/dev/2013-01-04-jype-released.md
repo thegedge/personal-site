@@ -2,6 +2,9 @@
 title: Jype Released
 category: dev
 tags: [java, jype]
+description: >-
+  Small announcement for a new project to maintain generic type information at runtime, which is
+  normally unavailable due to type erasure.
 ---
 
 Sometimes [type erasure](https://docs.oracle.com/javase/tutorial/java/generics/erasure.html) in Java

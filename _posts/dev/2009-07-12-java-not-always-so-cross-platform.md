@@ -2,6 +2,7 @@
 title: "Java: not always so cross-platform"
 category: dev
 tags: [java]
+description: Building a plugin system for our Java project.
 ---
 
 There's no doubting the fact that Java really makes one's life far easier in general when creating a
@@ -32,21 +33,20 @@ snippet of our default behaviour:
 
 ```java
 public T getSwingComponent(Class componentClass, Object... args) {
-	Class>[] classes = new Class>[args.length];
-	for(int i = 0; i < args.length; ++i) {
-		classes[i] = args[i].getClass();
-		try {
-			return componentClass.getConstructor(classes).newInstance(args);
-		} catch (SecurityException e) {
-		} catch (NoSuchMethodException e) {
-		} catch (IllegalArgumentException e) {
-		} catch (InstantiationException e) {
-		} catch (IllegalAccessException e) {
-		} catch (InvocationTargetException e) {
-		}
-
-		return null;
-	}
+    Class>[] classes = new Class>[args.length];
+    for(int i = 0; i < args.length; ++i) {
+        classes[i] = args[i].getClass();
+        try {
+            return componentClass.getConstructor(classes).newInstance(args);
+        } catch (SecurityException e) {
+        } catch (NoSuchMethodException e) {
+        } catch (IllegalArgumentException e) {
+        } catch (InstantiationException e) {
+        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException e) {
+        }
+        return null;
+    }
 }
 ```
 

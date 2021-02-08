@@ -2,6 +2,7 @@
 title: Summer Work
 category: me
 tags: [research]
+description: Some thoughts on upcoming research into stitching panoramas
 ---
 
 Well my research job started last week and I'm looking forward to some results, although they won't

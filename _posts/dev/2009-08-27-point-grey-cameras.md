@@ -2,6 +2,8 @@
 title: Point Grey Cameras
 category: dev
 tags: [research]
+description: >-
+  How I used the FlyCapture API to create a synchronized image capture across a camera array.
 ---
 
 For anyone who doesn't know my research, I'm looking into stereo vision algorithms in an underwater

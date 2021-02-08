@@ -2,6 +2,7 @@
 title: First Post
 category: me
 tags: []
+description: New personal site, new post announcing it (not much to see here).
 ---
 
 So, I've finally gotten around to making a personal site, and this would be the first post. There's

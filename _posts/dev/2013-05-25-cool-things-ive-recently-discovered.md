@@ -2,6 +2,8 @@
 title: Cool Things I've Recently Discovered
 category: dev
 tags: [web development, javascript]
+description: >-
+  Some interesting tech I recently discovered: knockout.js, emscripten, and web components.
 ---
 
 As always, it's taken me a while to write a new post. I guess I don't have a lot to talk about?
@@ -14,7 +16,7 @@ with y'all.
    There's a few other things you can do with it, but those are the big ones I was looking for.
 2. [emscripten](https://emscripten.org) is a neat project that can take LLVM bytecode and convert it
    into Javascript. The reason this is cool is because as long as you can compile a project and its
-   dependcies to LLVM bytecode, you can run it on the web. Definitely visit the website and check
+   dependencies to LLVM bytecode, you can run it on the web. Definitely visit the website and check
    out the demos. Some examples of projects that have been ported to the web with emscripten:
    - Various Qt demos (GUI framework)
    - LaTeX and BibTeX (typesetting)

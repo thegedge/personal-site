@@ -2,13 +2,15 @@
 title: Seeing Spheres
 category: dev
 tags: [c++, opengl, voxels]
+description: Creating voxel spheres with the midpoint circle algorithm
 ---
 
 Looks like I dropped the ball on a weekly journal, but that's okay! I took a break from everything
 and had a vacation (i.e., I visited my friends and family back in Canada). Back in the game and
 played around with "voxelizing" spheres.
 
-> [outside the sphere](/img/voxels/2014_07_26_outside.png) > [inside the sphere](/img/voxels/2014_07_26_inside.png)
+> [outside the sphere](/img/voxels/2014_07_26_outside.png) >
+> [inside the sphere](/img/voxels/2014_07_26_inside.png)
 >
 > A solid sphere + inside a spherical cutout.
 
@@ -19,14 +21,15 @@ data I'm loading into memory. Eventually I'll also do some frustrum culling so I
 unnecessary chunks.
 
 My approach is rather simple and likely not perfect, but for now it'll get the job done. It's simply
-an extension of the [midpoint circle algorithm](//en.wikipedia.org/wiki/Midpoint_circle_algorithm)
-for three dimensions. In Python it looks something like this:
+an extension of the
+[midpoint circle algorithm](https://en.wikipedia.org/wiki/Midpoint_circle_algorithm) for three
+dimensions. In Python it looks something like this:
 
 ```python
 def sphere(cx, cy, cz, radius):
-	for p1, radiusError in midpointCircle(radius):
-		for p2, _ in midpointCircle(p1.x, radiusError):
-			yield cx + p2.x, cy + p1.y, cz + p2.y
+    for p1, radiusError in midpointCircle(radius):
+        for p2, _ in midpointCircle(p1.x, radiusError):
+            yield cx + p2.x, cy + p1.y, cz + p2.y
 ```
 
 Some optimization tasks that I plan on working in the near future:
@@ -46,6 +49,6 @@ Outside of that, I have a few other tasks to work on:
 - Make scripts useful. I can run a script every frame right now, but I can't have a script run on
   certain events or do anything else meaningful right now. I also need to expose anything useful
   from the engine to the scripts.
-- User interface. Thinking about using [Awesomium](//www.awesomium.com) or the
-  [Chromium Embedded Framework](//code.google.com/p/chromiumembedded). In other words, an HTML-based
-  UI engine.
+- User interface. Thinking about using [Awesomium](https://www.awesomium.com) or the
+  [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef/src/master/). In other
+  words, an HTML-based UI engine.

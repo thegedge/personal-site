@@ -2,6 +2,9 @@
 title: Delving Into SSAO
 category: dev
 tags: [c++, opengl]
+description: >-
+  An introduction to screen-space ambient occlusion, a technique for shading pixels based on how
+  much they are blocked by nearby geometry.
 ---
 
 It's been awhile, but I've been busily working away on a couple of things, both related to each
@@ -38,8 +41,8 @@ complexity of the scene, our SSAO computation remains the same.
 ## The G-buffer
 
 In a deferred shading pipeline you'll often hear talk of what's called a
-[G-buffer](//en.wikipedia.org/wiki/Deferred_shading). The G-buffer is simply a set of textures that
-stores important information for each pixel. This could include information such as the normal,
+[G-buffer](https://en.wikipedia.org/wiki/Deferred_shading). The G-buffer is simply a set of textures
+that stores important information for each pixel. This could include information such as the normal,
 diffuse color, specularity, depth, and anything else necessary to help you shade a pixel.
 
 To compute the AO factor in SSAO we only need depth and normal at every pixel. In my own
@@ -57,8 +60,8 @@ $$
 So I'm going to start off with a rough Python + GLSL description of the SSAO computation and work
 through it line by line from there. I'm assuming the first pass, which computes the G-buffer, has
 already been performed. If you're interested in actually computing and storing this information,
-look up any article on [Framebuffer Objects](//www.opengl.org/wiki/Framebuffer_Object) and multiple
-color attachments.
+look up any article on [Framebuffer Objects](https://www.khronos.org/opengl/wiki/Framebuffer_Object)
+and multiple color attachments.
 
 ```python
 def ssao(pixel, P, viewRay, gbuffer, samples, radius, power):
@@ -156,5 +159,5 @@ much-needed depth.
 
 Of course, this was just my first attempt so there are many improvements to be made, in both
 performance and visuals. I'd also recommend checking out
-[John Chapman's SSAO tutorial](//john-chapman-graphics.blogspot.co.uk/2013/01/ssao-tutorial.html),
+[John Chapman's SSAO tutorial](https://john-chapman-graphics.blogspot.co.uk/2013/01/ssao-tutorial.html),
 of which I was inspired by.

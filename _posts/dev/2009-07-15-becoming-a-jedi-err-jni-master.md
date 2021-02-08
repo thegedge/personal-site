@@ -2,12 +2,13 @@
 title: Becoming a Jedi, err...JNI Master!
 category: dev
 tags: [java, jni]
+description: Using Java Native Interface (JNI) to improve the file selection dialog in Swing.
 ---
 
-I myself am far from being a JNI master, since I only started doing my first JNI a few days ago. The
-problem we were having is that there is no way in Java to get some native behavior on OS X. For
-example, the closest to native you can get with Open/Save file dialogs is what you get from
-`java.awt.FileDialog`, which isn't very much.
+I myself am far from being a master of the Java Native Interface (JNI), since I only started doing
+my first JNI a few days ago. The problem we were having is that there is no way in Java to get some
+native behavior on OS X. For example, the closest to native you can get with Open/Save file dialogs
+is what you get from `java.awt.FileDialog`, which isn't very much.
 
 Since we're developing in Swing it is key that if we do anything, it should be wrapped up in a neat
 little package that mimics existing Swing components. Not only that, but we want the behavior of any
@@ -24,16 +25,16 @@ method. To achieve modality, I use the following code:
 
 ```java
 public int showSaveDialog(Component parent) {
-	dialogOpen = true;
-	result = CANCEL_OPTION;
-	cc_showSaveDialog(parent);
-	while(dialogOpen) {
-		try {
-			Thread.sleep(100);
-		} catch(InterruptedException e) { }
-	}
+    dialogOpen = true;
+    result = CANCEL_OPTION;
+    cc_showSaveDialog(parent);
+    while(dialogOpen) {
+       try {
+            Thread.sleep(100);
+        } catch(InterruptedException e) { }
+    }
 
- 	return result;
+    return result;
 }
 ```
 

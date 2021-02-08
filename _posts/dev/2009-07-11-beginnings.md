@@ -2,6 +2,7 @@
 title: Beginnings
 category: dev
 tags: [java, score editing]
+description: Introduction to about a piece of score editing software I've started to build.
 ---
 
 So I'm going to start my blogging off with an introduction to my project: a free cross platform

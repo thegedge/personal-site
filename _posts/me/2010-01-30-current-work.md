@@ -2,6 +2,7 @@
 title: Current Work
 category: me
 tags: [research, conferences, score editing]
+description: Life update, outlining the things I've been working on.
 ---
 
 I thought that since I haven't posted in awhile, I'd put something new up to let everyone know

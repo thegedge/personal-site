@@ -2,6 +2,7 @@
 title: BSides St. John's, 2012
 category: me
 tags: [conferences, security]
+description: Notes from BSides St. John's (2012), a security conference
 ---
 
 Today I attended the [BSides](https://www.securitybsides.com/w/page/51753351/BSidesStJohns2012)

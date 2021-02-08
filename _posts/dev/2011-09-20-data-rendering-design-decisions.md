@@ -1,7 +1,8 @@
 ---
 title: "Data + Rendering – Design Decisions"
 category: dev
-tags: [software engineering, coding]
+tags: [software engineering]
+description: Thoughts on how to model score data to help optimize its rendering.
 ---
 
 Sorry for the lack of posts over the summer, but it was my time to just relax and do very little

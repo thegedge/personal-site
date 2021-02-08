@@ -2,6 +2,7 @@
 title: Let's get 'er goin'
 category: me
 tags: []
+description: A small update on the latest project I've been working on.
 ---
 
 So it has been awhile since my last post, but I've been keeping myself busy with research and a

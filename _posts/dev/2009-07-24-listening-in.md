@@ -2,6 +2,7 @@
 title: Listening In
 category: dev
 tags: [java]
+description: Simplifying the observer pattern by creating a generic messaging system.
 ---
 
 So it came to our attention recently that our application was making abundant use of the

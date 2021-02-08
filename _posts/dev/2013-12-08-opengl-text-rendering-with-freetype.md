@@ -1,12 +1,13 @@
 ---
 title: OpenGL Text Rendering With FreeType
 category: dev
-tags: [c++, opengl, voxels, freetype]
+tags: [c++, opengl, voxels]
+description: A post showing how you can use FreeType to render text in your OpenGL projects.
 ---
 
 The latest post in my voxel dev journal is my work on rendering text using the
-[FreeType](//www.freetype.org) library. I was pleasantly surprised at how easy it was to use the
-FreeType library to render TrueType fonts (TTF) as bitmaps.
+[FreeType](https://www.freetype.org) library. I was pleasantly surprised at how easy it was to use
+the FreeType library to render TrueType fonts (TTF) as bitmaps.
 
 You can get some quick and dirty text rendering up and running with just four functions:
 
@@ -22,14 +23,14 @@ all circumstances. Loading a font from a TTF file is quite simple:
 ```cpp
 FT_Library ft_lib{nullptr};
 if(FT_Init_FreeType(&ft_lib) != 0) {
-	std::cerr << "Couldn't initialize FreeType library\n";
-	return 1;
+    std::cerr << "Couldn't initialize FreeType library\n";
+    return 1;
 }
 
 FT_Face face{nullptr};
 if(FT_New_Face(ft_lib, "my_font.ttf", 0, &face) != 0) {
-	std::cerr << "Couldn't initialize FreeType library\n";
-	return 1;
+    std::cerr << "Couldn't initialize FreeType library\n";
+    return 1;
 }
 ```
 
@@ -40,7 +41,7 @@ small chunks:
 ```cpp
 void render_text(const std::string &str, FT_Face face, float x, float y, float sx, float sy) {
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	const FT_GlyphSlot g = face->glyph;
+    const FT_GlyphSlot g = face->glyph;
 ```
 
 First, this function takes the following parameters, in order:
@@ -56,12 +57,12 @@ assumes you've taken care of binding a 2D texture and vertex buffer object befor
 bitmaps. Next we iterate through the string:
 
 ```cpp
-	for(auto c : str) {
-		if(FT_Load_Char(face, c, FT_LOAD_RENDER))
-			continue;
+    for(auto c : str) {
+        if(FT_Load_Char(face, c, FT_LOAD_RENDER))
+            continue;
 
         glTexImage2D(GL_TEXTURE_2D, 0, GL_R8,
-		             glyph->bitmap.width, glyph->bitmap.rows,
+                     glyph->bitmap.width, glyph->bitmap.rows,
                      0, GL_RED, GL_UNSIGNED_BYTE, glyph->bitmap.buffer);
 ```
 
@@ -71,34 +72,34 @@ texture. Remember, the bitmap is only 8 bits per pixel, so we have to use a sing
 we create a quad to render the texture:
 
 ```cpp
-		const float vx = x + glyph->bitmap_left * sx;
-		const float vy = y + glyph->bitmap_top * sy;
-		const float w = glyph->bitmap.width * sx;
-		const float h = glyph->bitmap.rows * sy;
+        const float vx = x + glyph->bitmap_left * sx;
+        const float vy = y + glyph->bitmap_top * sy;
+        const float w = glyph->bitmap.width * sx;
+        const float h = glyph->bitmap.rows * sy;
 
-		struct {
-			float x, y, s, t;
-		} data[6] = {
-			{vx    , vy    , 0, 0},
-			{vx    , vy - h, 0, 1},
-			{vx + w, vy    , 1, 0},
-			{vx + w, vy    , 1, 0},
-			{vx    , vy - h, 0, 1},
-			{vx + w, vy - h, 1, 1}
-		};
+        struct {
+            float x, y, s, t;
+        } data[6] = {
+            {vx    , vy    , 0, 0},
+            {vx    , vy - h, 0, 1},
+            {vx + w, vy    , 1, 0},
+            {vx + w, vy    , 1, 0},
+            {vx    , vy - h, 0, 1},
+            {vx + w, vy - h, 1, 1}
+        };
 ```
 
 A fairly straightforward generation of a quad. We just need to remember to scale pixel values to NDC
 values. Finally, we draw the quads and advance our position:
 
 ```cpp
-		glBufferData(GL_ARRAY_BUFFER, 24*sizeof(float), data, GL_DYNAMIC_DRAW);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBufferData(GL_ARRAY_BUFFER, 24*sizeof(float), data, GL_DYNAMIC_DRAW);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		x += (glyph->advance.x << 6) * sx;
-		y += (glyph->advance.y << 6) * sy;
+        x += (glyph->advance.x << 6) * sx;
+        y += (glyph->advance.y << 6) * sy;
     }
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 }
 ```
 
@@ -115,8 +116,8 @@ in vec4 position;
 out vec2 texCoords;
 
 void main(void) {
-	gl_Position = vec4(position.xy, 0, 1);
-	texCoords = position.zw;
+    gl_Position = vec4(position.xy, 0, 1);
+    texCoords = position.zw;
 }
 ```
 
@@ -129,7 +130,7 @@ out vec4 fragColor;
 const vec4 color = vec4(1, 1, 1, 1);
 
 void main(void) {
-	fragColor = vec4(1, 1, 1, texture(tex, texCoords).r) * color;
+    fragColor = vec4(1, 1, 1, texture(tex, texCoords).r) * color;
 }
 ```
 

@@ -3,7 +3,6 @@ import fs from "fs";
 import glob from "glob";
 import { filter, memoize, orderBy } from "lodash";
 import path from "path";
-
 export interface PostData {
   fullPath: string;
   parent: string;
@@ -54,7 +53,7 @@ export default memoize(async function (): Promise<PostData[]> {
 
         get contents() {
           const contents = fs.readFileSync(match);
-          return frontmatter(contents);
+          return frontmatter(contents.toString());
         },
       };
     })

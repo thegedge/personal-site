@@ -2,6 +2,7 @@
 title: Elided Labels in Qt
 category: dev
 tags: [qt, c++]
+description: How to create a QLabel that elides text with an ellipsis.
 ---
 
 So for one of my projects I was dissatisfied with the fact that a `QLabel` whose horizontal size

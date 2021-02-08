@@ -2,6 +2,7 @@
 title: First Look
 category: dev
 tags: [score editing]
+description: First look at the score editor I've been working on.
 ---
 
 So what's this score editing application I've been talking about in my posts? We've decided to give

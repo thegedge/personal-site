@@ -2,6 +2,7 @@
 title: Sleep is lovely
 category: dev
 tags: [research, c++]
+description: Expressing my love for new C++0x features, like auto and lambdas.
 ---
 
 So the last week hasn't been particularly productive. I've managed to get my GPU splatter almost
@@ -19,7 +20,7 @@ Another thing I've decided is that the "experimental" C++0x stuff in GCC is awes
 modifying my code to use some of the useful stuff it offers. Initializer lists really made certain
 parts of my code look much nicer because I get to avoid dealing with `boost::array` and/or
 `std::vector` when dealing with static data. Whenever appropriate, I plan on taking advantage of the
-new `auto` keyword to make code shorter and more concise; No longer will I have to write things like
+new `auto` keyword to make code shorter and more concise. No longer will I have to write things like
 `std::vector<sometype>::const_iterator` (or even have to `typedef` them!). There's a bunch of other
 small things that are cool too, like "raw" strings, smart pointers, variadic templates, rvalue
 references + move semantics, a null pointer constant, fixes for the "double bracket" issue with
@@ -34,11 +35,11 @@ squares of the numbers from 1 to 10:
 #include <iostream>
 #include <algorithm>
 #include <iterator>int main(int argc, char *argv[]) {
-	int i = 1;int data[10] = {};
-	std::generate(data, data + 10,[&i]() -> int { return (i * i++);  });
-	std::copy(data, data + 10, std::ostream_iterator<int>(std::cout, " "));
-	std::cout << std::endl;
-	return 0;
+    int i = 1;int data[10] = {};
+    std::generate(data, data + 10,[&i]() -> int { return (i * i++);  });
+    std::copy(data, data + 10, std::ostream_iterator<int>(std::cout, " "));
+    std::cout << std::endl;
+    return 0;
 }
 ```
 

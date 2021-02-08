@@ -2,6 +2,7 @@
 title: End of Summer Updates
 category: dev
 tags: [c++, opengl, voxels]
+description: Some updates on my voxel project, and thoughts on C++11.
 ---
 
 So it's been a couple of weeks since my last update. I definitely haven't had a lot of time to work
@@ -14,7 +15,7 @@ performance tests to test my meshing code. What I found is that the greedy meshe
 and after a bit of profiling I found out that it was due to poor access characteristics; we need to
 iterate over two-dimensional slices of the 3D chunk, instead of whatever iteration has the best
 performance. To improve on this I actually cache the most important information &mdash; the
-visibility information &mdash; of the chunk data in the greedy mesher and use this instead of the
+visibility information &mdash; of the chunk data in the greedy me sher and use this instead of the
 chunk's interface. This allowed me to go from about 4-5ms per meshing operation to about 1.5ms. My
 goal is to eventually drive this down to under 1ms, but for now I'm happy with 1.5ms.
 
@@ -41,10 +42,10 @@ Other small notes:
 - Significantly decrease my memory footprint by using 8-bit integers for the texture indices instead
   of 32-bit integers. This is mostly temporary though; as my voxel data gets more complex, I'll
   likely have to take advantage of the
-  [flyweight pattern](//en.wikipedia.org/wiki/Flyweight_pattern). Another two tasks that I have on
-  my to-do list are implementing [run-length encoding](//en.wikipedia.org/wiki/Run-length_encoding)
-  for voxel data storage in chunks and dropping the voxel data of distant chunks after they've been
-  meshed.
+  [flyweight pattern](https://en.wikipedia.org/wiki/Flyweight_pattern). Another two tasks that I
+  have on my to-do list are implementing
+  [run-length encoding](https://en.wikipedia.org/wiki/Run-length_encoding) for voxel data storage in
+  chunks and dropping the voxel data of distant chunks after they've been meshed.
 
 ## C++11 Thoughts
 
@@ -56,12 +57,12 @@ the video below for your viewing pleasure, but first I'll summarize some of his 
   looking to do perfect forwarding.
 - Make move operations `noexcept`, if possible.
 - Use versioned, inline namespaces from day one.
-- [ADL](//en.wikipedia.org/wiki/Argument-dependent_name_lookup) can really bite you sometimes, so
-  use `constexpr` functors instead of free functions since global functors are never found by ADL.
-  Note that if you really want a free function to be extensible (think, `std::swap`) then stick to a
-  free function.
+- [ADL](https://en.wikipedia.org/wiki/Argument-dependent_name_lookup) can really bite you sometimes,
+  so use `constexpr` functors instead of free functions since global functors are never found by
+  ADL. Note that if you really want a free function to be extensible (think, `std::swap`) then stick
+  to a free function.
 
 <p>
-	<iframe class="mx-auto" width="853" height="480" src="https://www.youtube.com/embed/zgOF4NrQllo" frameborder="0" allowfullscreen>
+  <iframe class="mx-auto" width="853" height="480" src="https://www.youtube.com/embed/zgOF4NrQllo" frameborder="0" allowfullscreen>
   </iframe>
 </p>

@@ -2,11 +2,12 @@
 title: Manatee Released
 category: dev
 tags: [java, manatee]
+description: Announcement for a new project to easily add events to any a Java project.
 ---
 
 When I was digging through some of my old Java code I came across a messaging system I developed for
 an old application I was working on. I decided to pick it up and make it usable, hence
-[Manatee](https://thegedge.github.com/manatee). Feel free to clone the repository
+[Manatee](https://thegedge.github.com/manatee). Clone the repository @
 `https://github.com/thegedge/manatee.git`, or check out the
 [example](https://github.com/thegedge/manatee/tree/master/src/examples/java/ca/gedge/manatee).
 

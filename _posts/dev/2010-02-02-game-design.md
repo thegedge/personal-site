@@ -1,14 +1,17 @@
 ---
 title: Game Design
 category: dev
-tags: [graphics, opengl, game design]
+tags: [graphics, opengl, gamedev]
+description: >-
+  Basic texture and per-pixel lighting was added to my game engine, but there's still a lot more to
+  do, like resource management and deferred rendering.
 ---
 
-So, one thing that I've been working on over the past week is reviving my "game engine" that I
-started working on a couple of years ago. It's not far, but I'm currently happy with the way things
-are going:
+So, one thing that I've been working on over the past week is reviving my game engine that I started
+working on a couple of years ago. It's not far, but I'm currently happy with the way things are
+going:
 
-![Game Engine Screenshot](/assets/img/2010_Feb_01.jpg)
+![Game Engine Screenshot](/img/2010_Feb_01.jpg)
 
 Pretty simple, I know. Shows off some basic texturing and per-pixel lighting, but that's about all I
 got for now. Currently this is all done in OpenGL, but I've abstracted many of the concepts in such

@@ -2,5 +2,5 @@
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 100,
-  "proseWrap": "preserve"
+  "proseWrap": "always"
 }
