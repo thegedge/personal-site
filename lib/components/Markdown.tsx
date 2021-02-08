@@ -78,40 +78,59 @@ const MarkdownImage = (props: { alt: string; src: string }) => {
 };
 
 const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
-  // If we have something like this:
-  //
-  //    > ![test](imgurl)
-  //    > some caption text
-  //
-  // Then convert it to a figure. The first child of a block quote in the above would be a single>
-  // paragraph element.
-  //
+  if (isArray(props.children) && React.isValidElement(props.children[0])) {
+    const firstGrandchild = props.children[0].props.children[0];
+    if (firstGrandchild.type.name == "TextRenderer") {
+      // If we have `> note: ...` or `> aside: ...`, create a note on the right-hand side of the markdown element.
+      // This note is _mostly_ removed from the flow of the rest of the markdown, and will be roughly in line with the
+      // element that comes after it.
 
-  // TODO perhaps best to process the AST, not alter the rendering
-  // TODO This "flattening" of the blockquote's children could probably be made into a function
-  if (isArray(props.children)) {
-    const images = [];
-    let index = 0;
-    let parent = props.children[index];
-    while (React.isValidElement(parent)) {
-      if (parent.props.children[0].type == MarkdownImage) {
-        images.push(...parent.props.children);
-        parent = props.children[++index];
-      } else {
-        break;
+      const noteMatches = firstGrandchild.props.value.match(/^(?:aside|note): /);
+      if (isArray(noteMatches)) {
+        // TODO doesn't support more than one paragraph
+        const text = firstGrandchild.props.value.substring(noteMatches[0].length);
+        return (
+          <aside className="relative m-0 w-0 p-0 h-0 overflow-visible left-full">
+            <div className="w-48 p-2 border-l-1 text-sm italic bg-primary-50 border-primary-200 ">
+              {text}
+            </div>
+          </aside>
+        );
       }
-    }
+    } else if (firstGrandchild.type == MarkdownImage) {
+      // If we have something like this:
+      //
+      //    > ![test](imgurl)
+      //    > some caption text
+      //
+      // Then convert it to a figure. The first child of a block quote in the above would be a single
+      // paragraph element.
 
-    if (images.length > 0) {
-      const caption = [...props.children.slice(index)];
-      return (
-        <figure className="mx-16">
-          <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
-          {caption.length > 0 && (
-            <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
-          )}
-        </figure>
-      );
+      // TODO This "flattening" of the children could probably be made into a function
+
+      const images = [];
+      let index = 0;
+      let node = props.children[index];
+      while (React.isValidElement(node)) {
+        if (node.props.children[0].type == MarkdownImage) {
+          images.push(...node.props.children);
+          node = props.children[++index];
+        } else {
+          break;
+        }
+      }
+
+      if (images.length > 0) {
+        const caption = [...props.children.slice(index)];
+        return (
+          <figure className="mx-16">
+            <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
+            {caption.length > 0 && (
+              <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
+            )}
+          </figure>
+        );
+      }
     }
   }
 
@@ -196,9 +215,14 @@ export default function Markdown(props: { children: string }) {
     descriptiondetails: MarkdownDescriptionDetails,
   };
 
+  let additionalClasses;
+  if (props.children.match(/^> (?:note|aside): /m)) {
+    additionalClasses = "pr-48";
+  }
+
   return (
     <ReactMarkdown
-      className="text-lg leading-8"
+      className={`text-lg leading-8 ${additionalClasses}`}
       renderers={renderers}
       plugins={[remarkGfm, remarkMath, deflist]}
       allowDangerousHtml

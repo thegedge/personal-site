@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./{pages,lib/components}/**/*.{ts,tsx}"],
+  purge: ["./{pages,lib/components}/**/*.{ts,tsx}", "_posts/**/*.md"],
   theme: {
     extend: {
       colors: {
@@ -10,11 +10,11 @@ module.exports = {
         tertiary: colors.yellow,
       },
       gridTemplateColumns: {
-        deflist: '8em minmax(0, 1fr)'
+        deflist: "8em minmax(0, 1fr)",
       },
       borderWidth: {
-        "1": "1px",
-        "base": "1em",
+        1: "1px",
+        base: "1em",
       },
       minWidth: {
         "1/4": "25%",
@@ -22,13 +22,13 @@ module.exports = {
         "3/4": "75%",
       },
       minHeight: {
-        "32": "8rem"
+        32: "8rem",
       },
       zIndex: {
-        "behind": "-1000",
+        behind: "-1000",
       },
       flex: {
-        "0": "0 0 content"
+        0: "0 0 content",
       },
     },
   },
