@@ -66,14 +66,13 @@ const MarkdownInlineCode = (props: { children: React.ReactNode }) => {
 const MarkdownImage = (props: { alt: string; src: string }) => {
   // const ref = React.useRef<HTMLElement>();
   return (
-    <>
+    <a href={props.src}>
       <img
         src={props.src}
         alt={props.alt}
         className="mx-auto text-center italic text-primary-500"
       />
-      {/* <FontAwesomeIcon icon={faFileImage} forwardedRef={ref} className="hidden" /> */}
-    </>
+    </a>
   );
 };
 
