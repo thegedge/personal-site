@@ -12,7 +12,12 @@ const PostListItem = (props: { post: PostData }) => {
       <div className="flex-1">
         <a className="text-xl" href={`/blog/${props.post.slug}`}>
           {props.post.title}
-          {!props.post.published && <span className="ml-4 italic text-sm">unpublished</span>}
+          {!props.post.published && (
+            <>
+              {" "}
+              <Tag color={{ bg: "bg-yellow-200", fg: "text-yellow-500" }}>unpublished</Tag>
+            </>
+          )}
         </a>
         <p>
           <time dateTime={props.post.date} className="text-sm font-thin italic text-gray-400">
