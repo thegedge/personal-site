@@ -1,4 +1,4 @@
-import { isArray } from "lodash";
+import { isArray, pick } from "lodash";
 import React from "react";
 import Latex from "react-latex";
 import ReactMarkdown from "react-markdown";
@@ -63,14 +63,14 @@ const MarkdownInlineCode = (props: { children: React.ReactNode }) => {
   );
 };
 
-const MarkdownImage = (props: { alt: string; src: string }) => {
+const MarkdownImage = (props: { className?: string; alt: string; src: string }) => {
   // const ref = React.useRef<HTMLElement>();
   return (
     <a href={props.src}>
       <img
         src={props.src}
         alt={props.alt}
-        className="mx-auto text-center italic text-primary-500"
+        className={`mx-auto text-center italic text-primary-500 ${props.className}`}
       />
     </a>
   );
@@ -112,7 +112,7 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
       let node = props.children[index];
       while (React.isValidElement(node)) {
         if (node.props.children[0].type == MarkdownImage) {
-          images.push(...node.props.children);
+          images.push(...node.props.children.filter((ch) => ch.type == MarkdownImage));
           node = props.children[++index];
         } else {
           break;
@@ -121,9 +121,22 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
 
       if (images.length > 0) {
         const caption = [...props.children.slice(index)];
+        const gridClassName =
+          images.length > 1
+            ? "grid grid-cols-2 gap-2 items-center justify-items-center auto-rows-fr"
+            : "";
+        const imgClassName = images.length > 1 ? "max-h-64" : "";
+
         return (
           <figure className="mx-16">
-            <div className={images.length > 2 ? "grid grid-cols-2 gap-2" : ""}>{images}</div>
+            <div className={gridClassName}>
+              {images.map((img) => (
+                <MarkdownImage
+                  className={`${imgClassName} ${img.props.className}`}
+                  {...pick(img.props, "alt", "src")}
+                />
+              ))}
+            </div>
             {caption.length > 0 && (
               <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
             )}

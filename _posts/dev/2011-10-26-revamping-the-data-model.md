@@ -17,9 +17,9 @@ software so that people can create, edit, playback, and print musical scores and
 Intrinsic to that purpose is the display properties of the various elements in a score. In other
 words, view-related properties are part of the data model.
 
-As another teaser, here's how far I've gotten so far in the rendering process:
-
-![score editor screenshot](http://www.cs.mun.ca/~gedge/pics/scoreeditor/score_and_tab2.png)
+> ![screenshot 1](/img/scoreeditor/score_and_tab.png)
+>
+> Teaser! How far I've gotten so far in the rendering process.
 
 There's a lot of work to be done, but I was getting close to something presentable. The need to
 tackle the display properties of elements and somehow integrate this into the data model is my next
