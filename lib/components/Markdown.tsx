@@ -49,7 +49,7 @@ const MarkdownParagraph = (props: { children: React.ReactNode }) => {
 
 const MarkdownCode = (props: { language: string; value: string }) => {
   return (
-    <div className="mx-12 text-sm font-mono">
+    <div className="mx-4 md:mx-12 text-sm font-mono">
       <SyntaxHighlighter language={props.language} style={syntaxTheme} showLineNumbers>
         {props.value}
       </SyntaxHighlighter>
@@ -123,12 +123,14 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
         const caption = [...props.children.slice(index)];
         const gridClassName =
           images.length > 1
-            ? "grid grid-cols-2 gap-2 items-center justify-items-center auto-rows-fr"
+            ? "grid md:grid-cols-2 gap-2 items-center justify-items-center auto-rows-fr"
             : "";
+
+        // TODO better way of making images line up nicely
         const imgClassName = images.length > 1 ? "max-h-64" : "";
 
         return (
-          <figure className="mx-16">
+          <figure className="mx-8 lg:mx-16">
             <div className={gridClassName}>
               {images.map((img) => (
                 <MarkdownImage
@@ -227,7 +229,7 @@ export default function Markdown(props: { children: string }) {
     descriptiondetails: MarkdownDescriptionDetails,
   };
 
-  let additionalClasses;
+  let additionalClasses = "";
   if (props.children.match(/^> (?:note|aside): /m)) {
     additionalClasses = "pr-48";
   }

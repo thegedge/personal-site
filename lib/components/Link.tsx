@@ -11,7 +11,7 @@ import { isExternalUrl } from "../utils";
 
 export const Link = (props: { href: string; className?: string; children: React.ReactNode }) => {
   const className =
-    "text-primary-700 border-primary-300 border-b-2 hover:text-primary-400 transition-colors duration-200 ease-in-out";
+    "text-primary-700 border-primary-300 border-b-2 hover:text-primary-400 transition-colors duration-200 ease-out";
 
   let icon;
   if (props.href.includes("github.com")) {
@@ -29,6 +29,8 @@ export const Link = (props: { href: string; className?: string; children: React.
       <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faExternalLinkAlt} size="xs" />
     );
   }
+
+  // TODO Verify no 404s if process.env.CHECK_LINKS
 
   if (icon) {
     return (

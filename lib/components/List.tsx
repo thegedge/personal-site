@@ -19,6 +19,7 @@ export const List = (props: ListProps) => {
   const isVertical = direction == "vertical";
   const classes = [];
   classes.push(isVertical ? "flex-col" : "flex-row");
+  classes.push(direction == "vertical" ? "h-full" : "w-full");
 
   switch (props.spacing) {
     case 0:
@@ -38,16 +39,16 @@ export const List = (props: ListProps) => {
 
   switch (align) {
     case "center":
-      classes.push("place-content-center");
+      classes.push("justify-center");
       break;
     case "end":
-      classes.push("place-content-end");
+      classes.push("justify-end");
       break;
     case "start":
-      classes.push("place-content-start");
+      classes.push("justify-start");
       break;
     case "stretch":
-      classes.push("place-content-stretch");
+      classes.push("justify-stretch");
       break;
   }
 
@@ -55,9 +56,9 @@ export const List = (props: ListProps) => {
 
   let index = 0;
   return (
-    <ul className={`list-none flex mx-0 ${props.className} ${classes.join(" ")}`}>
+    <ul className={`list-none flex mx-0 ${props.className || ""} ${classes.join(" ")}`}>
       {concat([], props.children).map((c) => (
-        <li className={`${props.childClassName} ${childClassNames}`} key={index++}>
+        <li className={`block ${props.childClassName || ""} ${childClassNames}`} key={index++}>
           {c}
         </li>
       ))}

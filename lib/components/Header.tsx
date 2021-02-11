@@ -6,51 +6,75 @@ import { HorizontalList, VerticalList } from "./List";
 export const Header = (props: { className?: string }) => {
   return (
     <div
-      className={`flex flex-col text-center pt-8 mx-auto border-primary-200 md:border-r-1 md:text-right md:pr-6 md:ml-8 space-y-4 ${props.className}`}
+      className={`flex flex-row lg:flex-col text-center p-4 lg:pt-8 mx-auto border-primary-200 lg:border-r-1 lg:pr-6 lg:ml-8 lg:space-y-4 ${
+        props.className || ""
+      }`}
     >
-      <header className="px-4">
-        <img src="/img/me.jpg" className="rounded-full w-48 mx-auto mb-4 ring-primary-300 ring" />
-        <h1 className="mb-0">Jason Gedge</h1>
+      <header className="px-4 flex flex-row lg:flex-col items-center space-x-8 lg:space-x-0">
+        <img
+          src="/img/me.jpg"
+          className="rounded-full w-48 mx-auto mb-2 ring-primary-100 ring hidden sm:block"
+        />
+        <div>
+          <h1 className="mb-0">Jason Gedge</h1>
+          <div className="px-4 pt-2 text-primary-600 text-xl">
+            <HorizontalList align="center">
+              <a
+                href="https://www.twitter.com/thegedge"
+                className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+              >
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a
+                href="https://www.github.com/thegedge"
+                className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+              <a
+                href="https://www.linkedin.com/pub/jason-gedge/32/484/863"
+                className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+              <a
+                href="/feed.xml"
+                className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+              >
+                <FontAwesomeIcon icon={faRss} />
+              </a>
+            </HorizontalList>
+          </div>
+        </div>
       </header>
-      <div className="px-4 text-primary-600 text-xl">
-        <HorizontalList align="center">
+      <nav className="px-8 border-primary-200 lg:px-4 lg:border-t-1 lg:pt-4 lg:text-right">
+        <VerticalList align="center" spacing={0}>
           <a
-            href="https://www.twitter.com/thegedge"
-            className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+            className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+            href="/about"
           >
-            <FontAwesomeIcon icon={faTwitter} />
+            About
           </a>
           <a
-            href="https://www.github.com/thegedge"
-            className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+            className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+            href="/"
           >
-            <FontAwesomeIcon icon={faGithub} />
+            Blog
           </a>
           <a
-            href="https://www.linkedin.com/pub/jason-gedge/32/484/863"
-            className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+            className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+            href="/portfolio"
           >
-            <FontAwesomeIcon icon={faLinkedin} />
+            Portfolio
           </a>
           <a
-            href="/feed.xml"
-            className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
+            className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+            href="/publications"
           >
-            <FontAwesomeIcon icon={faRss} />
+            Publications
           </a>
-        </HorizontalList>
-      </div>
-      <nav className="px-4 border-primary-200 md:border-t-1 md:pt-4">
-        <VerticalList align="end">
-          <a href="/about">About</a>
-          <a href="/">Blog</a>
-          <a href="/portfolio">Portfolio</a>
-          <a href="/publications">Publications</a>
         </VerticalList>
       </nav>
-      <div className="bg-yellow-100 flex-initial w-56 mx-auto text-left font-bold text-yellow-900 text-sm p-4 rounded-lg border-yellow-300 border-1">
-        Currently migrating my old site to nextjs and netlify, so expect some issues
-      </div>
     </div>
   );
 };

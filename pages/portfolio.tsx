@@ -6,10 +6,10 @@ import { HorizontalList } from "../lib/components/List";
 const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }) => {
   const children = concat([], props.children);
   return (
-    <HorizontalList className="text-sm float-right px-4" spacing={1}>
+    <HorizontalList className="text-sm px-4" spacing={1} align="end">
       {children.map((child) => (
         <a
-          className="inline-block py-2 px-4 bg-primary-200 hover:bg-primary-300 transition-colors ease-in-out duration-300"
+          className="inline-block py-2 px-4 bg-primary-200 hover:bg-primary-300 transition-colors ease-out duration-300"
           {...child.props}
         />
       ))}
@@ -21,7 +21,7 @@ export default function Portfolio() {
   return (
     <Layout title="Portfolio" description="A portfolio full of things I've built">
       <aside>A selection of things I've built. Most of these aren't actively maintained.</aside>
-      <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200 text-lg leading-8">
+      <ul className="flex flex-col mx-0 list-none divide-y divide-primary-200 text-lg leading-8 border-b-1 border-primary-200">
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/opgraph/opgraph.png"

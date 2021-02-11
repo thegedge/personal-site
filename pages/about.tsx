@@ -32,11 +32,10 @@ export default function About() {
         </p>
         <p className="my-6">
           <FontAwesomeIcon icon={faRunning} size="3x" className="float-right ml-4 mt-2" />
-          Outside of school and work, I also enjoy <em>composing music</em> and{" "}
-          <em>playing guitar</em>. In 2015 I became interested in maintaining{" "}
-          <strong>better health</strong>, so I became a runner. I've since ran many half-marathons,
-          and aim to exercise every other day. In the summer, I aim for at least 20km per week. I
-          grew up in the Canadian province of{" "}
+          Outside of work, I also enjoy <em>composing music</em> and <em>playing guitar</em>. In
+          2015 I became interested in maintaining <strong>better health</strong>, so I became a
+          runner. I've since ran many half-marathons, and aim to exercise every other day. In the
+          summer, I aim for at least 20km per week. I grew up in the Canadian province of{" "}
           <Link href="https://en.wikipedia.org/wiki/Newfoundland_and_Labrador">
             Newfoundland and Labrador
           </Link>
