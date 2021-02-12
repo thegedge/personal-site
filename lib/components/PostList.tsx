@@ -29,7 +29,9 @@ const PostListItem = (props: { post: PostData }) => {
       </div>
       <HorizontalList align="end" spacing={1} className="flex-0">
         {concat([], props.post.tags).map((tag) => (
-          <Tag key={index++}>{tag}</Tag>
+          <a href={`/blog/tag/${encodeURIComponent(tag)}`}>
+            <Tag key={index++}>{tag}</Tag>
+          </a>
         ))}
       </HorizontalList>
     </div>

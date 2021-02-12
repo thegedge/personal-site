@@ -57,7 +57,7 @@ export const Header = (props: { className?: string }) => {
           </a>
           <a
             className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
-            href="/"
+            href="/blog"
           >
             Blog
           </a>
