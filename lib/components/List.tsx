@@ -37,6 +37,7 @@ export const List = (props: ListProps) => {
     classes.push("divide-y divide-primary-200");
   }
 
+  classes.push("items-center");
   switch (align) {
     case "center":
       classes.push("justify-center");
@@ -52,7 +53,7 @@ export const List = (props: ListProps) => {
       break;
   }
 
-  const childClassNames = direction == "vertical" ? "w-full" : "h-full";
+  const childClassNames = direction == "vertical" ? "w-full" : "";
 
   let index = 0;
   return (
