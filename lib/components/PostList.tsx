@@ -1,11 +1,12 @@
-import { concat, groupBy, identity, orderBy } from "lodash";
+import { concat, flatMap, groupBy, identity, orderBy, uniq } from "lodash";
 import moment from "moment";
 import React from "react";
 import { PostData } from "../posts";
+import { Color, stableColors } from "../utils";
 import { HorizontalList, VerticalList } from "./List";
 import { Tag } from "./Tag";
 
-const PostListItem = (props: { post: PostData }) => {
+const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> }) => {
   let index = 0;
   return (
     <div
@@ -30,7 +31,9 @@ const PostListItem = (props: { post: PostData }) => {
       <HorizontalList align="end" spacing={1} className="flex-0">
         {concat([], props.post.tags).map((tag) => (
           <a href={`/blog/tag/${encodeURIComponent(tag)}`}>
-            <Tag key={index++}>{tag}</Tag>
+            <Tag key={index++} color={props.tagColors[tag]}>
+              {tag}
+            </Tag>
           </a>
         ))}
       </HorizontalList>
@@ -39,6 +42,7 @@ const PostListItem = (props: { post: PostData }) => {
 };
 
 export const PostList = (props: { posts: PostData[] }) => {
+  const tagColors = stableColors(uniq(flatMap(props.posts, "tags")));
   let index = 0;
   const posts = groupBy(props.posts, (post) => new Date(post.date).getFullYear());
   return (
@@ -48,7 +52,7 @@ export const PostList = (props: { posts: PostData[] }) => {
           <h2 className="text-center bg-primary-50 py-4">{year}</h2>
           <VerticalList border spacing={1}>
             {posts[year].map((post) => (
-              <PostListItem key={index++} post={post} />
+              <PostListItem key={index++} post={post} tagColors={tagColors} />
             ))}
           </VerticalList>
         </>

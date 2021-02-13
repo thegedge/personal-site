@@ -11,7 +11,7 @@ import { isExternalUrl } from "../utils";
 
 export const Link = (props: { href: string; className?: string; children: React.ReactNode }) => {
   const className =
-    "text-primary-700 border-primary-300 border-b-2 hover:text-primary-400 transition-colors duration-200 ease-out";
+    "text-primary-700 border-primary-300 border-b-2 hover:text-primary-400 ease-out-colors";
 
   let icon;
   if (props.href.includes("github.com")) {

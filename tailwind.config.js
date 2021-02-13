@@ -1,14 +1,27 @@
-const colors = require("tailwindcss/colors");
+const tailwindColors = require("tailwindcss/colors");
+
+const colors = {
+  primary: tailwindColors.blueGray,
+  secondary: tailwindColors.gray,
+  tertiary: tailwindColors.yellow,
+};
+
+let index = 0;
+for (const [name, color] of Object.entries(tailwindColors)) {
+  if (name != "black" && name != "white") {
+    colors[`tag${index}`] = color;
+    ++index;
+  }
+}
 
 module.exports = {
-  purge: ["./{pages,lib/components}/**/*.{ts,tsx}", "_posts/**/*.md"],
+  purge: {
+    content: ["./{pages,lib/components}/**/*.{ts,tsx}", "_posts/**/*.md"],
+    options: {},
+  },
   theme: {
     extend: {
-      colors: {
-        primary: colors.blueGray,
-        secondary: colors.gray,
-        tertiary: colors.yellow,
-      },
+      colors,
       gridTemplateColumns: {
         deflist: "8em minmax(0, 1fr)",
       },

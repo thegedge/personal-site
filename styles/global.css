@@ -17,41 +17,30 @@
   h4,
   h5,
   h6 {
-    @apply font-bold;
-    @apply text-primary-700;
+    @apply font-bold text-primary-700;
   }
 
   h1 {
-    @apply text-4xl;
-    @apply mb-8;
+    @apply text-4xl mb-8;
   }
 
   h2 {
-    @apply text-2xl;
-    @apply mt-4;
-    @apply mb-4;
+    @apply text-2xl mt-4 mb-4;
   }
 
   ul {
-    @apply list-disc;
-    @apply mx-16;
+    @apply list-disc mx-16;
   }
 
   ol {
-    @apply list-decimal;
-    @apply mx-16;
+    @apply list-decimal mx-16;
   }
 
   blockquote {
-    @apply mx-8;
-    @apply py-0.5;
-    @apply px-4;
-    @apply bg-primary-100;
-    @apply text-primary-600;
-    @apply border-l-base;
-    @apply border-primary-200;
+    @apply mx-8 py-0.5 px-4;
+    @apply bg-primary-100 text-primary-600;
+    @apply border-l-base border-primary-200 rounded-r-md;
     @apply italic;
-    @apply rounded-r-md;
   }
 
   blockquote > p {
@@ -68,6 +57,20 @@
 
   figure > figcaption {
     @apply text-sm;
+  }
+}
+
+@layer components {
+  .ease-out-colors {
+    @apply transition-colors ease-out duration-200;
+  }
+
+  .ease-out-colors-300 {
+    @apply transition-colors ease-out duration-300;
+  }
+
+  .ease-out-colors-500 {
+    @apply transition-colors ease-out duration-500;
   }
 }
 

@@ -1,4 +1,5 @@
-import { min, tail } from "lodash";
+import { keyBy, mapValues, min, tail } from "lodash";
+import tailwindColors from "tailwindcss/colors";
 
 export const externalUrlAccessible = async (url: string) => {
   const response = await fetch(url, { method: "HEAD", redirect: "manual" });
@@ -21,4 +22,31 @@ export const dedent = (strings: TemplateStringsArray, ...values: any[]) => {
   const minLeadingSpace = min(allStrings.map((s) => s.match(/^\s*/).length));
 
   return allStrings.map((s) => s.substr(minLeadingSpace)).join("\n");
+};
+
+export interface Color {
+  fg: string;
+  bg: string;
+}
+
+export const stableColors = (data: any[]): Record<string, Color> => {
+  let index = 0;
+  return mapValues(keyBy(data.sort()), () => {
+    const c = index++ % (Object.keys(tailwindColors).length - 2);
+    return {
+      bg: `bg-tag${c}-500 hover:bg-tag${c}-400`,
+      fg: `text-tag${c}-200 hover:text-tag${c}-100`,
+    };
+  });
+};
+
+/**
+ * Linear interpolation between two values.
+ *
+ * @param a value 1
+ * @param b value 2
+ * @param alpha the portion of `a` to contribute
+ */
+export const lerp = (a: number, b: number, alpha: number) => {
+  return a * alpha + (1 - alpha) * b;
 };

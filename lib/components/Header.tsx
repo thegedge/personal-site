@@ -12,7 +12,11 @@ export const Header = (props: { className?: string }) => {
     >
       <header className="sm:px-4 flex flex-col sm:flex-row lg:flex-col items-center sm:space-x-8 lg:space-x-0">
         <div className="flex-1"></div>
-        <img src="/img/me.jpg" className="rounded-full w-48 mx-auto mb-2 ring-primary-100 ring" />
+        <img
+          src="/img/me.jpg"
+          alt="me"
+          className="rounded-full w-48 mx-auto mb-2 ring-primary-100 ring"
+        />
         <div>
           <h1 className="mb-0">Jason Gedge</h1>
           <div className="pt-2 text-primary-600 text-xl">
@@ -48,25 +52,25 @@ export const Header = (props: { className?: string }) => {
       </header>
       <nav className="flex flex-row lg:flex-col sm:px-8 border-primary-200 lg:px-4 lg:border-t-1 lg:pt-4 lg:text-right">
         <a
-          className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/about"
         >
           About
         </a>
         <a
-          className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/blog"
         >
           Blog
         </a>
         <a
-          className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/portfolio"
         >
           Portfolio
         </a>
         <a
-          className="inline-block w-full p-2 cursor-pointer hover:bg-primary-100 hover:transition-colors duration-500 ease-out"
+          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/publications"
         >
           Publications
