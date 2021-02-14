@@ -12,6 +12,10 @@ export default function Blog(props: { posts: PostData[] }) {
   );
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export const getStaticProps: GetStaticProps = async (_context) => {
   const posts = await allPosts();
   return { props: { posts } };

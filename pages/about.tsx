@@ -58,3 +58,7 @@ export default function About() {
     </Layout>
   );
 }
+
+export const config = {
+  unstable_runtimeJS: false,
+};

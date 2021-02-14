@@ -14,6 +14,10 @@ export default function Home(props: { posts: PostData[] }) {
   );
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export const getStaticProps: GetStaticProps = async (_context) => {
   const posts = await allPosts();
   const rss = generateRssFeed(posts);

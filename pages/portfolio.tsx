@@ -187,3 +187,7 @@ export default function Portfolio() {
     </Layout>
   );
 }
+
+export const config = {
+  unstable_runtimeJS: false,
+};

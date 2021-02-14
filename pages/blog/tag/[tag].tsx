@@ -21,6 +21,10 @@ const posts = async (tag: string) => {
   return posts.filter((post) => post.tags.includes(tag));
 };
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export async function getStaticProps({ params }) {
   return { props: { tag: params.tag, posts: await posts(params.tag) } };
 }

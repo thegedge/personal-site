@@ -23,6 +23,10 @@ export default function Tags(props: { tags: Record<string, number> }) {
   );
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export const getStaticProps: GetStaticProps = async (_context) => {
   const posts = await allPosts();
   return { props: { tags: countBy(flatMap(posts, "tags")) } };

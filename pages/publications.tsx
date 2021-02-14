@@ -68,6 +68,10 @@ export default function Home(props: { posts: PostData[] }) {
   );
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export const getStaticProps: GetStaticProps = async (_context) => {
   const allPosts = orderBy(await posts(), "date", "desc");
   return { props: { posts: allPosts } };

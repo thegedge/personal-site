@@ -43,6 +43,10 @@ export default function Post(props: { post?: PostData; newer?: PostData; older?:
   );
 }
 
+export const config = {
+  unstable_runtimeJS: false,
+};
+
 export async function getStaticProps({ params }) {
   const allPosts = await posts();
   const postIndex = findIndex(allPosts, { slug: params.slug });
