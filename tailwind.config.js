@@ -17,7 +17,11 @@ for (const [name, color] of Object.entries(tailwindColors)) {
 module.exports = {
   purge: {
     content: ["./{pages,lib/components}/**/*.{ts,tsx}", "_posts/**/*.md"],
-    options: {},
+    options: {
+      safelist: {
+        // standard: [/(text|bg)-tag\d+-\d+/],
+      },
+    },
   },
   theme: {
     extend: {

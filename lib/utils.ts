@@ -33,9 +33,14 @@ export const stableColors = (data: any[]): Record<string, Color> => {
   let index = 0;
   return mapValues(keyBy(data.sort()), () => {
     const c = index++ % (Object.keys(tailwindColors).length - 2);
+    // Too colorful right now
+    // return {
+    // bg: `bg-tag${c}-500 hover:bg-tag${c}-400`,
+    // fg: `text-tag${c}-200 hover:text-tag${c}-100`,
+    // };
     return {
-      bg: `bg-tag${c}-500 hover:bg-tag${c}-400`,
-      fg: `text-tag${c}-200 hover:text-tag${c}-100`,
+      bg: `bg-primary-500 hover:bg-primary-400`,
+      fg: `text-primary-200 hover:text-primary-100`,
     };
   });
 };

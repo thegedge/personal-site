@@ -49,7 +49,7 @@ export const PostList = (props: { posts: PostData[] }) => {
     <VerticalList spacing={0}>
       {orderBy(Object.keys(posts), identity, "desc").map((year) => (
         <>
-          <h2 className="text-center bg-primary-50 py-4">{year}</h2>
+          <h2 className="text-center bg-primary-100 py-4">{year}</h2>
           <VerticalList border spacing={1}>
             {posts[year].map((post) => (
               <PostListItem key={index++} post={post} tagColors={tagColors} />
