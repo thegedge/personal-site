@@ -60,7 +60,7 @@
   }
 }
 
-@layer components {
+@layer utilities {
   .ease-out-colors {
     @apply transition-colors ease-out duration-200;
   }
