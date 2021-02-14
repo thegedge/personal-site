@@ -15,9 +15,6 @@ import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
 import sh from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
 import { prism as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 //
-import deflist from "remark-deflist";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
 import { Link } from "./Link";
 
 SyntaxHighlighter.registerLanguage("sh", sh);
@@ -112,7 +109,9 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
       let node = props.children[index];
       while (React.isValidElement(node)) {
         if (node.props.children[0].type == MarkdownImage) {
-          images.push(...node.props.children.filter((ch) => ch.type == MarkdownImage));
+          images.push(
+            ...node.props.children.filter((ch: React.ReactElement) => ch.type == MarkdownImage)
+          );
           node = props.children[++index];
         } else {
           break;
@@ -239,7 +238,6 @@ export default function Markdown(props: { children: string }) {
     <ReactMarkdown
       className={`text-lg leading-8 ${additionalClasses}`}
       renderers={renderers}
-      plugins={[remarkGfm, remarkMath, deflist]}
       allowDangerousHtml
     >
       {props.children}
