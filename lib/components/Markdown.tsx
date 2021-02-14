@@ -134,6 +134,7 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
             <div className={gridClassName}>
               {images.map((img) => (
                 <MarkdownImage
+                  key={img.props.src}
                   className={`${imgClassName} ${img.props.className}`}
                   {...pick(img.props, "alt", "src")}
                 />

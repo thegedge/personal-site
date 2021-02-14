@@ -30,7 +30,7 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
       </div>
       <HorizontalList align="end" spacing={1} className="flex-0">
         {concat([], props.post.tags).map((tag) => (
-          <a href={`/blog/tag/${encodeURIComponent(tag)}`}>
+          <a key={tag} href={`/blog/tag/${encodeURIComponent(tag)}`}>
             <Tag key={index++} color={props.tagColors[tag]}>
               {tag}
             </Tag>
@@ -43,7 +43,6 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
 
 export const PostList = (props: { posts: PostData[] }) => {
   const tagColors = stableColors(uniq(flatMap(props.posts, "tags")));
-  let index = 0;
   const posts = groupBy(props.posts, (post) => new Date(post.date).getFullYear());
   return (
     <VerticalList spacing={0}>
@@ -52,7 +51,7 @@ export const PostList = (props: { posts: PostData[] }) => {
           <h2 className="text-center bg-primary-100 py-4">{year}</h2>
           <VerticalList border spacing={1}>
             {posts[year].map((post) => (
-              <PostListItem key={index++} post={post} tagColors={tagColors} />
+              <PostListItem post={post} tagColors={tagColors} />
             ))}
           </VerticalList>
         </>
