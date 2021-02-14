@@ -54,10 +54,6 @@
   figure > img {
     @apply mx-auto;
   }
-
-  figure > figcaption {
-    @apply text-sm;
-  }
 }
 
 @layer utilities {

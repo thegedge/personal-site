@@ -141,7 +141,7 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
               ))}
             </div>
             {caption.length > 0 && (
-              <figcaption className="font-semibold text-sm italic">{caption}</figcaption>
+              <figcaption className="text-base text-gray-400">{caption}</figcaption>
             )}
           </figure>
         );
