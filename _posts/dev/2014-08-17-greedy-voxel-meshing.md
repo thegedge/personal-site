@@ -34,26 +34,27 @@ can extend that quad in height, we do so as much as possible.
 
 That's all fairly hand-wavy, so here's an animation to help explain:
 
+<!-- prettier-ignore-start -->
 <script src="/js/greedy_anim.js"></script>
-
 <style type="text/css" scoped>
   #greedy_anim { stroke-width: 2px; stroke-opacity: 0.8; }
   .grid rect { stroke: none; }
   .faces rect { fill: url(#quad); stroke: black; }
 </style>
-<svg id="greedy_anim" width="802" height="252" viewBox="-1 -1 802 252" shape-rendering="crispEdges" class="mx-auto">
+<svg id="greedy_anim" viewBox="-1 -1 752 252" shape-rendering="crispEdges" class="mx-auto">
   <defs>
     <pattern id="emptyPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
       <rect x="0" y="0" width="5" height="5" fill="#eeeeee" />
       <rect x="5" y="5" width="5" height="5" fill="#eeeeee" />
     </pattern>
     <pattern id="quad" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-      <line x1="-1" y1="1" x2="1" y2="-1" stroke="black" stroke-opacity="0.25" />
-      <line x1="9" y1="11" x2="11" y2="9" stroke="black" stroke-opacity="0.25" />
-      <line x1="0" y1="10" x2="10" y2="0" stroke="black" stroke-opacity="0.25" />
+      <line x1="-1" y1="1" x2="1" y2="-1" stroke="black" stroke-opacity="0.1" />
+      <line x1="9" y1="11" x2="11" y2="9" stroke="black" stroke-opacity="0.1" />
+      <line x1="0" y1="10" x2="10" y2="0" stroke="black" stroke-opacity="0.1" />
     </pattern>
   </defs>
 </svg>
+<!-- prettier-ignore-end -->
 
 Here's a result from my own engine:
 

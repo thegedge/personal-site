@@ -29,11 +29,27 @@
   }
 
   ul {
-    @apply list-disc mx-16;
+    @apply list-disc;
   }
 
   ol {
-    @apply list-decimal mx-16;
+    @apply list-decimal;
+  }
+
+  li {
+    @apply pl-4;
+  }
+
+  ::marker {
+    @apply text-primary-400;
+  }
+
+  li > p:first-child {
+    margin-top: 0;
+  }
+
+  li > p:last-child {
+    margin-bottom: 0;
   }
 
   blockquote {

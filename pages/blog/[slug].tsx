@@ -21,23 +21,23 @@ export default function Post(props: { post?: PostData; newer?: PostData; older?:
       </time>
       <h1>{props.post.title}</h1>
       <Markdown>{props.post.markdown}</Markdown>
-      <div className="flex mt-6 px-8 pt-4 border-t-1">
+      <div className="flex mt-6 px-8 pt-4 border-t-1 gap-x-4">
         {props.newer && (
-          <>
+          <div>
             <Head>
               <link rel="next" href={`/blog/${props.newer.slug}`} />
             </Head>
             <Link href={`/blog/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
-          </>
+          </div>
         )}
         <div className="flex-1"></div>
         {props.older && (
-          <>
+          <div>
             <Head>
               <link rel="prev" href={`/blog/${props.older.slug}`} />
             </Head>
             <Link href={`/blog/${props.older.slug}`}>Older: {props.older.title} ›</Link>
-          </>
+          </div>
         )}
       </div>
     </Layout>

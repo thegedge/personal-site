@@ -41,16 +41,19 @@ const tailwindAlignment = (align?: "left" | "right" | "center") => {
 };
 
 const MarkdownParagraph = (props: { children: React.ReactNode }) => {
-  return <p className="px-4 my-4">{props.children}</p>;
+  return <p className="my-4">{props.children}</p>;
 };
 
 const MarkdownCode = (props: { language: string; value: string }) => {
   return (
-    <div className="mx-4 md:mx-12 text-sm font-mono">
-      <SyntaxHighlighter language={props.language} style={syntaxTheme} showLineNumbers>
-        {props.value}
-      </SyntaxHighlighter>
-    </div>
+    <SyntaxHighlighter
+      language={props.language}
+      style={syntaxTheme}
+      showLineNumbers
+      codeTagProps={{ className: "text-base leading-4" }}
+    >
+      {props.value}
+    </SyntaxHighlighter>
   );
 };
 
@@ -125,11 +128,12 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
               ? "grid md:grid-cols-2 gap-2 items-center justify-items-center auto-rows-fr"
               : "";
 
-          // TODO better way of making images line up nicely
-          const imgClassName = images.length > 1 ? "max-h-64" : "";
+          // TODO better way of making images line up nicely. I want the images to fill out the width, but
+          //      I don't want one being taller than others.
+          const imgClassName = ""; // images.length > 1 ? "max-h-92" : "";
 
           return (
-            <figure className="mx-8 lg:mx-16">
+            <figure>
               <div className={gridClassName}>
                 {images.map((img) => (
                   <MarkdownImage
@@ -140,7 +144,9 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
                 ))}
               </div>
               {caption.length > 0 && (
-                <figcaption className="text-base text-gray-400">{caption}</figcaption>
+                <figcaption className="text-base leading-none text-primary-400">
+                  {caption}
+                </figcaption>
               )}
             </figure>
           );
@@ -157,9 +163,7 @@ const MarkdownLink = (props: { href: string; children: React.ReactNode }) => {
 };
 
 const MarkdownDescriptionList = (props: { children: React.ReactNode }) => {
-  return (
-    <dl className="grid grid-cols-deflist gap-x-4 gap-y-4 ml-8 mr-16 px-4">{props.children}</dl>
-  );
+  return <dl className="grid grid-cols-deflist gap-x-4 gap-y-4 ml-8 mr-16">{props.children}</dl>;
 };
 
 const MarkdownDescriptionTerm = (props: { children: React.ReactNode }) => {
@@ -186,7 +190,7 @@ const MarkdownTableCell = (props: {
   align?: "left" | "right" | "center";
   children: React.ReactNode;
 }) => {
-  return <td className={`py-2 px-4 ${tailwindAlignment(props.align)}`}>{props.children}</td>;
+  return <td className={`py-2 ${tailwindAlignment(props.align)}`}>{props.children}</td>;
 };
 
 const MarkdownInlineMath = (props: { value: string }) => {
@@ -194,12 +198,11 @@ const MarkdownInlineMath = (props: { value: string }) => {
   return <Latex className="border-black">{value}</Latex>;
 };
 
-const MarkdownList = (props: { depth: number; ordered?: boolean; children: React.ReactNode }) => {
-  const className = props.depth == 0 ? "my-4" : "";
+const MarkdownList = (props: { ordered?: boolean; children: React.ReactNode }) => {
   if (props.ordered) {
-    return <ol className={className}>{props.children}</ol>;
+    return <ol className="mx-8 my-4">{props.children}</ol>;
   } else {
-    return <ul className={className}>{props.children}</ul>;
+    return <ul className="mx-8 my-4">{props.children}</ul>;
   }
 };
 
@@ -218,7 +221,11 @@ const MarkdownMath = (props: { value: string }) => {
 
 const MarkdownRoot = (props: { hasNotes: boolean; children: React.ReactNode }) => {
   const additionalClasses = props.hasNotes ? "pr-48" : "";
-  return <div className={`text-lg leading-8 ${additionalClasses}`}>{props.children}</div>;
+  return (
+    <article className={`text-lg leading-8 md:text-xl md:leading-10 ${additionalClasses}`}>
+      {props.children}
+    </article>
+  );
 };
 
 function astToReact(node: MarkdownNode, fullSource: string): React.ReactNode {

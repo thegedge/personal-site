@@ -10,7 +10,7 @@ thought it would be neat to have a way of seeing how performant my systems were 
 
 The result looks something like this:
 
-> ![benchmark graph](/img/voxels/2014_05_24.png)
+![benchmark graph](/img/voxels/2014_05_24.png)
 
 I know, I know. It's not particularly sexy, but it gets the job done. It's also poorly implemented,
 but I wanted to stop taking so much care in everything I do and start getting things done. The only

@@ -86,7 +86,6 @@ export interface MarkdownList {
   ordered: boolean;
   start: number;
   spread: boolean;
-  depth?: number;
 }
 
 export interface MarkdownListItem {
