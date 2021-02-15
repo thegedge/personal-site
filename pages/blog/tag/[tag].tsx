@@ -25,11 +25,11 @@ export const config = {
   unstable_runtimeJS: false,
 };
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   return { props: { tag: params.tag, posts: await posts(params.tag) } };
 }
 
-export async function getStaticPaths(_context) {
+export async function getStaticPaths(_context: any) {
   const tags = uniq(flatMap(await allPosts(), "tags"));
   const paths = tags.map((tag) => ({ params: { tag: tag } }));
   return { paths, fallback: false };

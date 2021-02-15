@@ -1,5 +1,6 @@
 import { findIndex, isNil } from "lodash";
 import moment from "moment";
+import { GetStaticPathsContext, GetStaticPropsContext } from "next";
 import Error from "next/error";
 import Head from "next/head";
 import React from "react";
@@ -47,25 +48,20 @@ export const config = {
   unstable_runtimeJS: false,
 };
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: GetStaticPropsContext) {
   const allPosts = await posts();
-  const postIndex = findIndex(allPosts, { slug: params.slug });
-
-  let post: PostData;
-  if (postIndex != -1) {
-    post = allPosts[postIndex];
-  }
+  const postIndex = findIndex(allPosts, { slug: params?.slug?.toString() });
 
   return {
     props: {
-      post,
+      post: allPosts[postIndex] || null,
       newer: allPosts[postIndex - 1] || null,
       older: allPosts[postIndex + 1] || null,
     },
   };
 }
 
-export async function getStaticPaths(_context) {
+export async function getStaticPaths(_context: GetStaticPathsContext) {
   const allPosts = await posts();
   const paths = allPosts.map((post) => ({
     params: {

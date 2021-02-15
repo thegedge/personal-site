@@ -3,15 +3,22 @@ import fs from "fs";
 import glob from "glob";
 import { filter, memoize, orderBy } from "lodash";
 import path from "path";
+import remarkDeflist from "remark-deflist";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkParse from "remark-parse";
+import unified from "unified";
+import { MarkdownData, MarkdownNode } from "./markdown";
+
 export interface PostData {
   fullPath: string;
   parent: string;
   slug: string;
   date: string;
-  markdown: string;
+  markdown: MarkdownData;
   title: string;
   tags: string[];
-  description: string | null;
+  description?: string;
   published: boolean;
 }
 
@@ -42,8 +49,19 @@ export default memoize(async function (): Promise<PostData[]> {
         return this.frontMatter.tags;
       },
 
-      get markdown(): string {
-        return this.contents.content;
+      get markdown(): MarkdownData {
+        const contents = this.contents.content;
+        const markdown = frontmatter(contents.toString()).content;
+        const processor = unified()
+          .use(remarkParse)
+          .use(remarkGfm)
+          .use(remarkMath)
+          .use(remarkDeflist);
+
+        return {
+          node: processor.runSync(processor.parse(markdown)) as MarkdownNode,
+          source: contents,
+        };
       },
 
       get frontMatter(): Record<string, any> {

@@ -19,7 +19,7 @@ export const dedent = (strings: TemplateStringsArray, ...values: any[]) => {
   if (allStrings[0].length == 0) allStrings.shift();
   if (tail(allStrings).length == 0) allStrings.pop();
 
-  const minLeadingSpace = min(allStrings.map((s) => s.match(/^\s*/).length));
+  const minLeadingSpace = min(allStrings.map((s) => s.match(/^\s*/)?.length || 0)) || 0;
 
   return allStrings.map((s) => s.substr(minLeadingSpace)).join("\n");
 };
