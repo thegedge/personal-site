@@ -1,6 +1,7 @@
 import { concat } from "lodash";
 import React from "react";
 import { Layout } from "../lib/components/Layout";
+import { Link } from "../lib/components/Link";
 import { HorizontalList } from "../lib/components/List";
 
 const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }) => {
@@ -8,7 +9,7 @@ const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }
   return (
     <HorizontalList className="text-sm px-4" spacing={1} align="end">
       {children.map((child) => (
-        <a
+        <Link
           className="inline-block py-2 px-4 bg-primary-200 hover:bg-primary-300 ease-out-colors-300"
           {...child.props}
         />

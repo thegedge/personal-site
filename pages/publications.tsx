@@ -10,8 +10,23 @@ export default function Home(props: { posts: PostData[] }) {
     <Layout title="Publications" description="Things I've published">
       <VerticalList border className="text-md leading-8">
         <div className="px-4">
+          <h2>Theses</h2>
+          <ul className="mx-4">
+            <li>
+              Gedge, J. (2011) <em>Underwater Stereo Matching and its Calibration</em>. Department
+              of Computing Science, University of Alberta. <em>Master of Science</em>.
+            </li>
+            <li>
+              Gedge, J. (2008){" "}
+              <em>Automatic Panorama Construction: An In-Depth Look Into Image Stitching</em>.
+              Department of Computer Science, Memorial University of Newfoundland.{" "}
+              <em>Bachelor of Science (Honours)</em>.
+            </li>
+          </ul>
+        </div>
+        <div className="px-4">
           <h2>Refereed Conference Publications</h2>
-          <ul>
+          <ul className="mx-4">
             <li>
               Gedge, J., Gong, M., and Yang, Y-H. (2011){" "}
               <em>Refractive Epipolar Geometry For Underwater Stereo Matching</em>. Proceedings of
@@ -36,7 +51,7 @@ export default function Home(props: { posts: PostData[] }) {
         </div>
         <div className="px-4">
           <h2>Technical Reports</h2>
-          <ul>
+          <ul className="mx-4">
             <li>
               Evans, P., Gedge, J., Muller, M., van Rooij, I., and Wareham, T. (2008){" "}
               <em>
@@ -45,21 +60,6 @@ export default function Home(props: { posts: PostData[] }) {
               </em>
               . Technical Report 2008-03, Department of Computer Science, Memorial University of
               Newfoundland.
-            </li>
-          </ul>
-        </div>
-        <div className="px-4">
-          <h2>Theses</h2>
-          <ul>
-            <li>
-              Gedge, J. (2011) <em>Underwater Stereo Matching and its Calibration</em>. Department
-              of Computing Science, University of Alberta. <em>Master of Science</em>.
-            </li>
-            <li>
-              Gedge, J. (2008){" "}
-              <em>Automatic Panorama Construction: An In-Depth Look Into Image Stitching</em>.
-              Department of Computer Science, Memorial University of Newfoundland.{" "}
-              <em>Bachelor of Science (Honours)</em>.
             </li>
           </ul>
         </div>

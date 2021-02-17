@@ -1,12 +1,6 @@
-import {
-  faBitbucket,
-  faGithub,
-  faTwitter,
-  faWikipediaW,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { FaBitbucket, FaGithub, FaTwitter, FaWikipediaW } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 import { isExternalUrl } from "../utils";
 
 export const Link = (props: { href: string; className?: string; children: React.ReactNode }) => {
@@ -14,20 +8,18 @@ export const Link = (props: { href: string; className?: string; children: React.
     "text-primary-700 border-primary-300 border-b-2 hover:text-primary-400 ease-out-colors";
 
   let icon;
-  if (props.href.includes("github.com")) {
-    icon = <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faGithub} size="xs" />;
+  if (props.href.includes("://github.com")) {
+    icon = <FaGithub className="align-baseline" />;
   } else if (props.href.includes("wikipedia.org")) {
-    icon = <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faWikipediaW} size="xs" />;
+    icon = <FaWikipediaW className="align-text-bottom" size="1.15em" />;
   } else if (props.href.includes("youtube.com")) {
-    icon = <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faYoutube} size="sm" />;
+    icon = <AiOutlineYoutube size="1.25em" className="align-text-bottom" />;
   } else if (props.href.includes("twitter.com")) {
-    icon = <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faTwitter} size="xs" />;
+    icon = <FaTwitter className="align-text-bottom" />;
   } else if (props.href.includes("bitbucket.org")) {
-    icon = <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faBitbucket} size="xs" />;
+    icon = <FaBitbucket size="0.8em" />;
   } else if (isExternalUrl(props.href)) {
-    icon = (
-      <FontAwesomeIcon style={{ marginBottom: "0.15em" }} icon={faExternalLinkAlt} size="xs" />
-    );
+    icon = <FiExternalLink className="align-baseline" size="0.8em" />;
   }
 
   // TODO Verify no 404s if process.env.CHECK_LINKS

@@ -1,6 +1,4 @@
-import { faGithub, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faRss } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaGithub, FaLinkedin, FaRss, FaTwitter } from "react-icons/fa";
 import { HorizontalList } from "./List";
 
 export const Header = (props: { className?: string }) => {
@@ -25,25 +23,25 @@ export const Header = (props: { className?: string }) => {
                 href="https://www.twitter.com/thegedge"
                 className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
               >
-                <FontAwesomeIcon icon={faTwitter} />
+                <FaTwitter />
               </a>
               <a
                 href="https://www.github.com/thegedge"
                 className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
               >
-                <FontAwesomeIcon icon={faGithub} />
+                <FaGithub />
               </a>
               <a
                 href="https://www.linkedin.com/pub/jason-gedge/32/484/863"
                 className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
               >
-                <FontAwesomeIcon icon={faLinkedin} />
+                <FaLinkedin />
               </a>
               <a
                 href="/feed.xml"
                 className="opacity-40 hover:opacity-100 transition-opacity ease-in-out duration-250"
               >
-                <FontAwesomeIcon icon={faRss} />
+                <FaRss />
               </a>
             </HorizontalList>
           </div>

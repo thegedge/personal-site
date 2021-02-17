@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2020"
-    ],
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,18 +15,6 @@
     "module": "esnext",
     "resolveJsonModule": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "postcss.config.js",
-    "tailwind.config.js"
-  ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "_posts",
-    "out",
-    "build"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.js", "tailwind.config.js"],
+  "exclude": ["node_modules", ".next", "_posts", "out", "build"]
 }

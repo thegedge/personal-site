@@ -7,7 +7,7 @@ export const Tag = (props: { children: string | string[]; color?: Color }) => {
   };
   return (
     <span
-      className={`inline-block text-sm sm:text-base ease-out-colors rounded py-1 px-2 lg:py-2 ${bg} ${fg}`}
+      className={`inline-block text-sm sm:text-base ease-out-colors rounded py-1 px-2 ${bg} ${fg}`}
     >
       {props.children}
     </span>
