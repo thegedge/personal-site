@@ -8,7 +8,8 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import unified from "unified";
-import { MarkdownData, MarkdownNode } from "./markdown";
+import { MarkdownData } from "./markdown";
+import readingTimes from "./unified-plugins/reading-times";
 
 export interface PostData {
   fullPath: string;
@@ -56,10 +57,11 @@ export default memoize(async function (): Promise<PostData[]> {
           .use(remarkParse)
           .use(remarkGfm)
           .use(remarkMath)
-          .use(remarkDeflist);
+          .use(remarkDeflist)
+          .use(readingTimes);
 
         return {
-          node: processor.runSync(processor.parse(markdown)) as MarkdownNode,
+          node: processor.runSync(processor.parse(markdown)),
           source: contents,
         };
       },

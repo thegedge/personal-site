@@ -13,8 +13,9 @@ import ruby from "react-syntax-highlighter/dist/cjs/languages/prism/ruby";
 import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
 import sh from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
 import { prism as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { MarkdownData, MarkdownNode } from "../markdown";
 //
+import { Node } from "unist";
+import { MarkdownData, MarkdownNodes } from "../markdown";
 import { Link } from "./Link";
 
 SyntaxHighlighter.registerLanguage("sh", sh);
@@ -228,10 +229,11 @@ const MarkdownRoot = (props: { hasNotes: boolean; children: React.ReactNode }) =
   );
 };
 
-function astToReact(node: MarkdownNode, fullSource: string): React.ReactNode {
-  const children = ((node.children || []) as MarkdownNode[]).map((c: MarkdownNode) =>
-    astToReact(c, fullSource)
-  );
+function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
+  let children: React.ReactNode = [];
+  if ("children" in node && isArray(node.children)) {
+    children = (node.children || []).map((c: Node) => astToReact(c, fullSource));
+  }
 
   switch (node.type) {
     case "blockquote":
@@ -260,11 +262,7 @@ function astToReact(node: MarkdownNode, fullSource: string): React.ReactNode {
     case "link":
       return <MarkdownLink href={node.url}>{children}</MarkdownLink>;
     case "list":
-      return (
-        <MarkdownList depth={node.depth || 0} ordered={node.ordered}>
-          {children}
-        </MarkdownList>
-      );
+      return <MarkdownList ordered={node.ordered}>{children}</MarkdownList>;
     case "listItem":
       return <MarkdownListItem>{children}</MarkdownListItem>;
     case "math":
@@ -272,6 +270,7 @@ function astToReact(node: MarkdownNode, fullSource: string): React.ReactNode {
     case "paragraph":
       return <MarkdownParagraph>{children}</MarkdownParagraph>;
     case "root":
+      console.log(node.readingTime);
       const hasNotes = !!fullSource.match(/^> (?:note|aside): /m);
       return <MarkdownRoot hasNotes={hasNotes}>{children}</MarkdownRoot>;
     case "strong":

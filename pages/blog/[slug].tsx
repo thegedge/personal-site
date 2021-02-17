@@ -1,11 +1,13 @@
-import { findIndex, isNil } from "lodash";
+import { ceil, findIndex, isNil } from "lodash";
 import moment from "moment";
 import { GetStaticPathsContext, GetStaticPropsContext } from "next";
 import Error from "next/error";
 import Head from "next/head";
 import React from "react";
+import { BsCalendar, BsClock } from "react-icons/bs";
 import { Layout } from "../../lib/components/Layout";
 import { Link } from "../../lib/components/Link";
+import { HorizontalList } from "../../lib/components/List";
 import Markdown from "../../lib/components/Markdown";
 import posts, { PostData } from "../../lib/posts";
 
@@ -14,12 +16,21 @@ export default function Post(props: { post?: PostData; newer?: PostData; older?:
     return <Error statusCode={404} />;
   }
 
+  const readingTime = props.post.markdown.node.readingTime as number | undefined;
   return (
     <Layout title={props.post.title} description={props.post.description}>
-      <time dateTime={props.post.date} className="font-thin italic text-gray-400">
-        {moment(props.post.date).format("LL")}
-      </time>
-      <h1>{props.post.title}</h1>
+      <h1 className="mb-2">{props.post.title}</h1>
+      <HorizontalList border>
+        <p className="text-lg text-primary-400">
+          <BsCalendar />{" "}
+          <time dateTime={props.post.date}>{moment(props.post.date).format("LL")}</time>
+        </p>
+        {readingTime && (
+          <p className="text-lg font-thin text-primary-400 pl-4">
+            <BsClock /> {ceil(readingTime)} minute read
+          </p>
+        )}
+      </HorizontalList>
       <Markdown>{props.post.markdown}</Markdown>
       <div className="flex mt-6 px-8 pt-4 border-t-1 gap-x-4">
         {props.newer && (

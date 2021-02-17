@@ -1,11 +1,9 @@
-import { concat } from "lodash";
-
 type Alignment = "start" | "center" | "end" | "stretch";
 
 interface ListProps {
   className?: string;
   childClassName?: string;
-  spacing?: number;
+  spacing?: 0 | 1 | 2 | undefined;
   align?: Alignment;
   border?: boolean;
   direction?: "vertical" | "horizontal";
@@ -28,13 +26,17 @@ export const List = (props: ListProps) => {
     case 1:
       classes.push(isVertical ? "space-y-1" : "space-x-1");
       break;
+    case 2:
+      classes.push(isVertical ? "space-y-2" : "space-x-2");
+      break;
     default:
       classes.push(isVertical ? "space-y-4" : "space-x-4");
       break;
   }
 
   if (props.border) {
-    classes.push("divide-y divide-primary-200");
+    classes.push("divide-primary-200");
+    classes.push(isVertical ? "divide-y" : "divide-x");
   }
 
   classes.push("items-center");
@@ -53,17 +55,10 @@ export const List = (props: ListProps) => {
       break;
   }
 
-  const childClassNames = direction == "vertical" ? "w-full" : "";
-
-  let index = 0;
   return (
-    <ul className={`list-none flex mx-0 ${props.className || ""} ${classes.join(" ")}`}>
-      {concat([], props.children).map((c) => (
-        <li className={`block ${props.childClassName || ""} ${childClassNames}`} key={index++}>
-          {c}
-        </li>
-      ))}
-    </ul>
+    <div className={`flex mx-0 ${props.className || ""} ${classes.join(" ")}`}>
+      {props.children}
+    </div>
   );
 };
 

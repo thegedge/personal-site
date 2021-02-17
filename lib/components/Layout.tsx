@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import { IconContext } from "react-icons";
 import { Body } from "./Body";
 import Footer from "./Footer";
 import { Header } from "./Header";
@@ -10,7 +11,7 @@ export const Layout = (props: {
   description?: string;
 }) => {
   return (
-    <>
+    <IconContext.Provider value={{ className: "inline align-baseline" }}>
       <Head>
         <title key="title">Jason Gedge{props.title && ` - ${props.title}`}</title>
         {props.description && <meta name="description" content={props.description} />}
@@ -23,6 +24,6 @@ export const Layout = (props: {
         </div>
         <Footer className="flex-0 text-center text-sm text-primary-400 mx-auto py-4 bg-primary-100 w-full" />
       </div>
-    </>
+    </IconContext.Provider>
   );
 };

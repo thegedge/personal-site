@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import unified from "unified";
+import readingTimes from "../lib/unified-plugins/reading-times";
 
 function dropPositions(node: any) {
   return mapValues(node, (value, key) => {
@@ -22,6 +23,11 @@ function dropPositions(node: any) {
 
 const contents = fs.readFileSync("/dev/stdin");
 const markdown = frontmatter(contents.toString()).content;
-const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath).use(remarkDeflist);
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkMath)
+  .use(remarkDeflist)
+  .use(readingTimes);
 const tree = processor.runSync(processor.parse(markdown));
 console.log(JSON.stringify(dropPositions(tree), null, 2));
