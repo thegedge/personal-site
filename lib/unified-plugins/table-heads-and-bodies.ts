@@ -12,7 +12,9 @@ function addAlignToCells(node: MarkdownTableCell, index: number, parent?: Parent
 }
 
 function addAlignToRows(node: MarkdownTableRow, _index: number, parent?: Parent) {
-  node.align = parent?.align;
+  if (parent && parent.type == "tableRow") {
+    node.align = (parent as MarkdownTableRow).align;
+  }
 }
 
 function addTheadAndTbody(node: MarkdownTable) {
