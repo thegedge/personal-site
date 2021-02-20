@@ -1,16 +1,8 @@
-import frontmatter from "@github-docs/frontmatter";
 import fs from "fs";
 import glob from "glob";
 import { filter, memoize, orderBy } from "lodash";
 import path from "path";
-import remarkDeflist from "remark-deflist";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
-import remarkParse from "remark-parse";
-import unified from "unified";
-import { MarkdownData, MarkdownNodes } from "./markdown";
-import readingTimes from "./unified-plugins/reading-times";
-import tableHeadsAndBodies from "./unified-plugins/table-heads-and-bodies";
+import { MarkdownData, parse } from "./markdown";
 
 export interface PostData {
   fullPath: string;
@@ -29,6 +21,11 @@ export default memoize(async function (): Promise<PostData[]> {
   const posts = matches.map((match) => {
     const slug = path.parse(match).name;
     const date = slug.substr(0, 10);
+    const data = memoize(() => {
+      const contents = fs.readFileSync(match);
+      return parse(contents.toString());
+    });
+
     return {
       fullPath: path.normalize(match),
       parent: path.relative("_posts", path.dirname(match)),
@@ -36,45 +33,23 @@ export default memoize(async function (): Promise<PostData[]> {
       slug,
 
       get published(): boolean {
-        return this.frontMatter.published ?? true;
+        return data().frontmatter.published ?? true;
       },
 
       get description(): string {
-        return this.frontMatter.description ?? null;
+        return data().frontmatter.description ?? null;
       },
 
       get title(): string {
-        return this.frontMatter.title;
+        return data().frontmatter.title;
       },
 
       get tags(): string[] {
-        return this.frontMatter.tags;
+        return data().frontmatter.tags;
       },
 
       get markdown(): MarkdownData {
-        const contents = this.contents.content;
-        const markdown = frontmatter(contents.toString()).content;
-        const processor = unified()
-          .use(remarkParse)
-          .use(remarkGfm)
-          .use(remarkMath)
-          .use(remarkDeflist)
-          .use(tableHeadsAndBodies)
-          .use(readingTimes);
-
-        return {
-          node: processor.runSync(processor.parse(markdown)) as MarkdownNodes,
-          source: contents,
-        };
-      },
-
-      get frontMatter(): Record<string, any> {
-        return this.contents.data;
-      },
-
-      get contents(): Record<string, any> {
-        const contents = fs.readFileSync(match);
-        return frontmatter(contents.toString());
+        return data();
       },
     };
   });

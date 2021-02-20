@@ -40,6 +40,7 @@ module.exports = {
       },
       minHeight: {
         32: "8rem",
+        128: "32rem",
       },
       zIndex: {
         behind: "-1000",

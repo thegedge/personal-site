@@ -1,8 +1,8 @@
 import fs from "fs";
 import { GetStaticProps } from "next";
 import React from "react";
-import { Layout } from "../lib/components/Layout";
 import { PostList } from "../lib/components/PostList";
+import { Layout } from "../lib/layouts/Layout";
 import allPosts, { PostData } from "../lib/posts";
 import generateRssFeed from "../lib/rss";
 

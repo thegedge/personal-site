@@ -1,14 +1,14 @@
-import { keyBy, mapValues, min, tail } from "lodash";
+import { isNil, keyBy, mapValues, min, tail } from "lodash";
 import tailwindColors from "tailwindcss/colors";
 
-export const externalUrlAccessible = async (url: string) => {
+export async function externalUrlAccessible(url: string) {
   const response = await fetch(url, { method: "HEAD", redirect: "manual" });
   return response.status >= 200 && response.status < 400;
-};
+}
 
-export const isExternalUrl = (url: string) => {
+export function isExternalUrl(url: string) {
   return url.startsWith("http") || url.startsWith("//");
-};
+}
 
 export const dedent = (strings: TemplateStringsArray, ...values: any[]) => {
   const allStrings = strings
@@ -29,7 +29,7 @@ export interface Color {
   bg: string;
 }
 
-export const stableColors = (data: any[]): Record<string, Color> => {
+export function stableColors(data: any[]): Record<string, Color> {
   let index = 0;
   return mapValues(keyBy(data.sort()), () => {
     const c = index++ % (Object.keys(tailwindColors).length - 2);
@@ -43,7 +43,7 @@ export const stableColors = (data: any[]): Record<string, Color> => {
       fg: `text-primary-200 hover:text-primary-100`,
     };
   });
-};
+}
 
 /**
  * Linear interpolation between two values.
@@ -52,6 +52,14 @@ export const stableColors = (data: any[]): Record<string, Color> => {
  * @param b value 2
  * @param alpha the portion of `a` to contribute
  */
-export const lerp = (a: number, b: number, alpha: number) => {
+export function lerp(a: number, b: number, alpha: number) {
   return a * alpha + (1 - alpha) * b;
-};
+}
+
+export function assert<T>(value: T | undefined | null): T {
+  if (isNil(value)) {
+    throw new Error("nil value found");
+  }
+
+  return value;
+}

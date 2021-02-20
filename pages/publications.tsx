@@ -1,8 +1,8 @@
 import { orderBy } from "lodash";
 import { GetStaticProps } from "next";
 import React from "react";
-import { Layout } from "../lib/components/Layout";
 import { VerticalList } from "../lib/components/List";
+import { Layout } from "../lib/layouts/Layout";
 import posts, { PostData } from "../lib/posts";
 
 export default function Home(props: { posts: PostData[] }) {

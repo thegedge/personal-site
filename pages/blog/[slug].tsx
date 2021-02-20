@@ -3,10 +3,10 @@ import { GetStaticPathsContext, GetStaticPropsContext } from "next";
 import Error from "next/error";
 import Head from "next/head";
 import React from "react";
-import { Layout } from "../../lib/components/Layout";
 import { Link } from "../../lib/components/Link";
 import Markdown from "../../lib/components/Markdown";
 import { PostPublishedAndMetadata } from "../../lib/components/PostList";
+import { Layout } from "../../lib/layouts/Layout";
 import posts, { PostData } from "../../lib/posts";
 
 export default function Post(props: { post?: PostData; newer?: PostData; older?: PostData }) {
@@ -18,7 +18,9 @@ export default function Post(props: { post?: PostData; newer?: PostData; older?:
     <Layout title={props.post.title} description={props.post.description}>
       <h1 className="mb-2">{props.post.title}</h1>
       <PostPublishedAndMetadata post={props.post} />
-      <Markdown>{props.post.markdown}</Markdown>
+      <article className="text-lg leading-8 md:text-xl md:leading-10">
+        <Markdown>{props.post.markdown}</Markdown>
+      </article>
       <div className="flex mt-6 px-8 pt-4 border-t-1 gap-x-4">
         {props.newer && (
           <div>

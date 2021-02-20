@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import { IconContext } from "react-icons";
-import { Body } from "./Body";
-import Footer from "./Footer";
-import { Header } from "./Header";
+import { Body } from "../components/Body";
+import Footer from "../components/Footer";
+import { Header } from "../components/Header";
 
 export const Layout = (props: {
   children: React.ReactNode;

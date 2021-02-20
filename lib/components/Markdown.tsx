@@ -59,9 +59,7 @@ const MarkdownCode = (props: { language: string; value: string }) => {
 };
 
 const MarkdownInlineCode = (props: { children: React.ReactNode }) => {
-  return (
-    <code className="inline-block px-2 bg-primary-100 rounded-lg text-base">{props.children}</code>
-  );
+  return <code className="inline-block px-2 bg-primary-100 rounded-lg">{props.children}</code>;
 };
 
 const MarkdownImage = (props: { className?: string; alt: string; src: string }) => {
@@ -220,13 +218,8 @@ const MarkdownMath = (props: { value: string }) => {
   );
 };
 
-const MarkdownRoot = (props: { hasNotes: boolean; children: React.ReactNode }) => {
-  const additionalClasses = props.hasNotes ? "pr-48" : "";
-  return (
-    <article className={`text-lg leading-8 md:text-xl md:leading-10 ${additionalClasses}`}>
-      {props.children}
-    </article>
-  );
+const MarkdownRoot = (props: { children: React.ReactNode }) => {
+  return <>{props.children}</>;
 };
 
 function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
@@ -270,8 +263,7 @@ function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
     case "paragraph":
       return <MarkdownParagraph>{children}</MarkdownParagraph>;
     case "root":
-      const hasNotes = !!fullSource.match(/^> (?:note|aside): /m);
-      return <MarkdownRoot hasNotes={hasNotes}>{children}</MarkdownRoot>;
+      return <MarkdownRoot>{children}</MarkdownRoot>;
     case "strong":
       return <strong>{children}</strong>;
     case "table":
@@ -290,6 +282,8 @@ function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
       return <MarkdownTableRow isHeader={node.isHeader}>{children}</MarkdownTableRow>;
     case "text":
       return node.value;
+    case "thematicBreak":
+      return <hr className="my-4" />;
     default:
       throw new Error(JSON.stringify(node, null, 2));
   }

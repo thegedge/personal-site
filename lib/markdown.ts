@@ -1,7 +1,16 @@
+import frontmatter from "@github-docs/frontmatter";
+import remarkDeflist from "remark-deflist";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkParse from "remark-parse";
+import unified from "unified";
 import { Parent as Node } from "unist";
+import readingTimes from "./unified-plugins/reading-times";
+import tableHeadsAndBodies from "./unified-plugins/table-heads-and-bodies";
 
 export interface MarkdownData {
   node: MarkdownNodes;
+  frontmatter: Record<string, any>;
   source: string;
 }
 
@@ -29,7 +38,8 @@ export type MarkdownNodes =
   | MarkdownTableCell
   | MarkdownTableHead
   | MarkdownTableRow
-  | MarkdownText;
+  | MarkdownText
+  | MarkdownThematicBreak;
 
 // Standard markdown elements
 
@@ -142,6 +152,10 @@ export interface MarkdownText extends Node {
   value: string;
 }
 
+export interface MarkdownThematicBreak extends Node {
+  type: "thematicBreak";
+}
+
 // From remark-deflist
 
 export interface MarkdownDescriptionDetails extends Node {
@@ -154,4 +168,22 @@ export interface MarkdownDescriptionList extends Node {
 
 export interface MarkdownDescriptionTerm extends Node {
   type: "descriptionterm";
+}
+
+export function parse(source: string): MarkdownData {
+  const fm = frontmatter(source);
+  const markdown = fm.content;
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkMath)
+    .use(remarkDeflist)
+    .use(tableHeadsAndBodies)
+    .use(readingTimes);
+
+  return {
+    node: processor.runSync(processor.parse(markdown)) as MarkdownNodes,
+    frontmatter: fm.data,
+    source,
+  };
 }

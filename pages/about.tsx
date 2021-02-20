@@ -1,8 +1,8 @@
 import React from "react";
 import { FaBrain, FaGraduationCap, FaLaptopCode, FaRunning } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
-import { Layout } from "../lib/components/Layout";
 import { Link } from "../lib/components/Link";
+import { Layout } from "../lib/layouts/Layout";
 
 export default function About() {
   return (

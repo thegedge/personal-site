@@ -1,8 +1,8 @@
 import { concat } from "lodash";
 import React from "react";
-import { Layout } from "../lib/components/Layout";
 import { Link } from "../lib/components/Link";
 import { HorizontalList } from "../lib/components/List";
+import { Layout } from "../lib/layouts/Layout";
 
 const LinkList = (props: { children: React.ReactElement | React.ReactElement[] }) => {
   const children = concat([], props.children);

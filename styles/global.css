@@ -21,7 +21,7 @@
   }
 
   h1 {
-    @apply text-4xl mb-8;
+    @apply text-4xl my-8;
   }
 
   h2 {
@@ -45,15 +45,15 @@
   }
 
   li > p:first-child {
-    margin-top: 0;
+    @apply mt-0;
   }
 
   li > p:last-child {
-    margin-bottom: 0;
+    @apply mb-0;
   }
 
   blockquote {
-    @apply mx-8 py-0.5 px-4;
+    @apply my-4 mx-8 py-0.5 px-4;
     @apply bg-primary-100 text-primary-600;
     @apply border-l-base border-primary-200 rounded-r-md;
     @apply italic;
