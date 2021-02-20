@@ -1,3 +1,3 @@
-module.exports = {
-  reactStrictMode: true,
-}
+require("ts-node").register(require("./tsconfig.json"));
+
+module.exports = require("./next.config.ts");

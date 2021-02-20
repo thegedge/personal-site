@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "module": "CommonJS",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -12,7 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "sourceMap": true,
-    "module": "esnext",
     "resolveJsonModule": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "postcss.config.js", "tailwind.config.js"],
