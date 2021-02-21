@@ -184,6 +184,6 @@ export function parse(source: string): MarkdownData {
   return {
     node: processor.runSync(processor.parse(markdown)) as MarkdownNodes,
     frontmatter: fm.data,
-    source,
+    source: fm.content,
   };
 }

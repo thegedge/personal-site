@@ -8,7 +8,7 @@ import { HorizontalList, VerticalList } from "./List";
 import { Tag } from "./Tag";
 
 export const PostPublishedAndMetadata = (props: { post: PostData }) => {
-  const readingTime = props.post.markdown.node.readingTime as number | undefined;
+  const readingTime = props.post.markdown.node.readingTime as number | null | undefined;
   return (
     <HorizontalList border spacing={2}>
       <p className="text-primary-400">
@@ -46,7 +46,7 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
       </div>
       <HorizontalList align="end" spacing={1} className="flex-0">
         {concat([], props.post.tags).map((tag) => (
-          <a key={tag} href={`/blog/tags/${encodeURIComponent(tag)}`}>
+          <a key={tag} href={`/blog/tags/${encodeURIComponent(tag)}`} onClick={() => alert("test")}>
             <Tag key={index++} color={props.tagColors[tag]}>
               {tag}
             </Tag>

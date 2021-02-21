@@ -9,7 +9,11 @@ import { PostPublishedAndMetadata } from "../../lib/components/PostList";
 import { Layout } from "../../lib/layouts/Layout";
 import posts, { PostData } from "../../lib/posts";
 
-export default function Post(props: { post?: PostData; newer?: PostData; older?: PostData }) {
+export default function Post(props: {
+  post?: PostData | null;
+  newer?: PostData | null;
+  older?: PostData | null;
+}) {
   if (isNil(props.post)) {
     return <Error statusCode={404} />;
   }

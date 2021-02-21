@@ -1,20 +1,10 @@
 ---
-title: Terraforming the AWS Landscape
-category: presentations
-presentation:
-  background: background.png
-  date: "2016-03-16"
-  presenter:
-    name: Jason Gedge
-    position: Software Developer
-    company: Shopify
-    social:
-      website: https://www.gedge.ca
-      twitter: "@thegedge"
-      github: thegedge
+title: Terraforming the AWS landscape
+presented: "2016-03-16"
+presented_at: DevOps Ottawa Meetup
+position: Software Developer
+company: Shopify
 ---
-
-# Terraforming the AWS Landscape
 
 ## Outline
 

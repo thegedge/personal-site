@@ -7,8 +7,8 @@ import { Header } from "../components/Header";
 
 export const Layout = (props: {
   children: React.ReactNode;
-  title?: string;
-  description?: string;
+  title?: string | null;
+  description?: string | null;
 }) => {
   return (
     <IconContext.Provider value={{ className: "inline", size: "1em" }}>

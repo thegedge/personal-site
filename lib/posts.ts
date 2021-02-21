@@ -5,14 +5,12 @@ import path from "path";
 import { MarkdownData, parse } from "./markdown";
 
 export interface PostData {
-  fullPath: string;
-  parent: string;
   slug: string;
   date: string;
   markdown: MarkdownData;
   title: string;
   tags: string[];
-  description?: string;
+  description: string | null;
   published: boolean;
 }
 
@@ -27,8 +25,6 @@ export default memoize(async function (): Promise<PostData[]> {
     });
 
     return {
-      fullPath: path.normalize(match),
-      parent: path.relative("_posts", path.dirname(match)),
       date,
       slug,
 
@@ -36,7 +32,7 @@ export default memoize(async function (): Promise<PostData[]> {
         return data().frontmatter.published ?? true;
       },
 
-      get description(): string {
+      get description(): string | null {
         return data().frontmatter.description ?? null;
       },
 

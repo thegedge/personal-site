@@ -1,4 +1,13 @@
-# TracePoint
+---
+title: "Tracepoint: examining the execution flow of your code"
+presented: "2018-03-16"
+presented_at: Ottawa Ruby Meetup
+event: https://www.meetup.com/OttawaRuby/events/rpgwfqyxnbwb/
+position: Software Developer
+company: Shopify
+---
+
+## TracePoint
 
 Examining the execution flow of your code
 
