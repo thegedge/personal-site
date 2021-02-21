@@ -48,6 +48,11 @@ module.exports = {
       flex: {
         0: "0 0 content",
       },
+      screens: {
+        print: {
+          raw: "print",
+        },
+      },
     },
   },
   variants: {
