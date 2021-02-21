@@ -1,0 +1,10 @@
+#
+# Beginning - Jan 31, 2021
+#
+
+/index.html            /blog
+/publications.html     /publications
+/portfolio.html        /portfolio
+
+/dev/:year/:month/:day/:slug       /blog/:year-:month-:day-:slug
+/me/:year/:month/:day/:slug        /blog/:year-:month-:day-:slug
