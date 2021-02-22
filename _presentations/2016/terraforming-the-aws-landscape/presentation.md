@@ -4,6 +4,7 @@ presented: "2016-03-16"
 presented_at: DevOps Ottawa Meetup
 position: Software Developer
 company: Shopify
+event: https://www.meetup.com/Ottawa-AWS-User-Group/events/228292903/
 ---
 
 ## Outline

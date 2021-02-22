@@ -38,6 +38,7 @@ export default memoize(async function (): Promise<PresentationData[]> {
       },
 
       get presented(): string {
+        console.log(data().frontmatter.presented);
         return data().frontmatter.presented;
       },
 

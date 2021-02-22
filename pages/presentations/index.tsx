@@ -23,7 +23,7 @@ export default function Presentations(props: { presentations: PresentationData[]
                 href={`/presentations/${presentation.year}/${encodeURIComponent(
                   presentation.slug
                 )}`}
-                className="text-2xl font-light"
+                className="text-xl"
               >
                 {presentation.title}
               </a>

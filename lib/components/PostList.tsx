@@ -67,7 +67,7 @@ export const PostList = (props: { posts: PostData[] }) => {
           <h2 className="text-center bg-primary-100 py-4">{year}</h2>
           <VerticalList border spacing={1}>
             {posts[year].map((post) => (
-              <PostListItem post={post} tagColors={tagColors} />
+              <PostListItem key={post.slug} post={post} tagColors={tagColors} />
             ))}
           </VerticalList>
         </div>
