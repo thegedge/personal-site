@@ -15,6 +15,7 @@ import sh from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session"
 import { prism as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 //
 import { Node } from "unist";
+import { KeyCounter, useCounter } from "../counter";
 import { MarkdownData, MarkdownNodes } from "../markdown";
 import { Link } from "./Link";
 
@@ -162,26 +163,49 @@ const MarkdownLink = (props: { href: string; children: React.ReactNode }) => {
 };
 
 const MarkdownDescriptionList = (props: { children: React.ReactNode }) => {
-  return <dl className="grid grid-cols-deflist gap-x-4 gap-y-4 ml-8 mr-16">{props.children}</dl>;
+  return (
+    <KeyCounter>
+      <dl className="grid grid-cols-deflist gap-x-4 gap-y-4 ml-8 mr-16">{props.children}</dl>
+    </KeyCounter>
+  );
 };
 
 const MarkdownDescriptionTerm = (props: { children: React.ReactNode }) => {
-  return <dt className="font-bold text-right">{props.children}</dt>;
+  const key = useCounter();
+  return (
+    <dt key={key} className="font-bold text-right">
+      {props.children}
+    </dt>
+  );
 };
 
 const MarkdownDescriptionDetails = (props: { children: React.ReactNode }) => {
-  return <dd>{props.children}</dd>;
+  const key = useCounter();
+  return <dd key={key}>{props.children}</dd>;
 };
 
 const MarkdownTable = (props: { children: React.ReactNode }) => {
-  return <table className="mx-auto border-1 border-primary-50">{props.children}</table>;
+  return (
+    <KeyCounter>
+      <table className="mx-auto border-1 border-primary-50">{props.children}</table>
+    </KeyCounter>
+  );
 };
 
 const MarkdownTableRow = (props: { isHeader?: boolean; children: React.ReactNode }) => {
+  let className = "even:bg-primary-50";
   if (props.isHeader) {
-    return <tr className="font-bold bg-primary-200">{props.children}</tr>;
+    className = "font-bold bg-primary-200";
   }
-  return <tr className="even:bg-primary-50">{props.children}</tr>;
+
+  const key = useCounter();
+  return (
+    <KeyCounter>
+      <tr key={key} className={className}>
+        {props.children}
+      </tr>
+    </KeyCounter>
+  );
 };
 
 const MarkdownTableCell = (props: {
@@ -189,7 +213,12 @@ const MarkdownTableCell = (props: {
   align?: "left" | "right" | "center";
   children: React.ReactNode;
 }) => {
-  return <td className={`px-4 py-2 ${tailwindAlignment(props.align)}`}>{props.children}</td>;
+  const key = useCounter();
+  return (
+    <td key={key} className={`px-4 py-2 ${tailwindAlignment(props.align)}`}>
+      {props.children}
+    </td>
+  );
 };
 
 const MarkdownInlineMath = (props: { value: string }) => {
@@ -198,15 +227,20 @@ const MarkdownInlineMath = (props: { value: string }) => {
 };
 
 const MarkdownList = (props: { ordered?: boolean; children: React.ReactNode }) => {
+  let listType;
   if (props.ordered) {
-    return <ol className="mx-8 my-4">{props.children}</ol>;
+    listType = "ol";
   } else {
-    return <ul className="mx-8 my-4">{props.children}</ul>;
+    listType = "ul";
   }
+
+  const list = createElement(listType, { className: "mx-8 my-4", children: props.children });
+  return <KeyCounter>{list}</KeyCounter>;
 };
 
 const MarkdownListItem = (props: { children: React.ReactNode }) => {
-  return <li>{props.children}</li>;
+  const key = useCounter();
+  return <li key={key}>{props.children}</li>;
 };
 
 const MarkdownMath = (props: { value: string }) => {

@@ -69,6 +69,12 @@ export const Header = (props: { className?: string }) => {
         </a>
         <a
           className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
+          href="/presentations"
+        >
+          Presentations
+        </a>
+        <a
+          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/publications"
         >
           Publications
