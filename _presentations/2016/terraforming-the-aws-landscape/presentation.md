@@ -326,7 +326,7 @@ resource "null_resource" "deploy" {
 
 > Speaker notes:
 >
-> ```sh
+> ```sh--nolines
 > $ vim user_data.sh
 > $ vim terraform.tfvars
 > $ terraform plan --out=foo.plan

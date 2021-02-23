@@ -47,11 +47,12 @@ const MarkdownParagraph = (props: { children: React.ReactNode }) => {
 };
 
 const MarkdownCode = (props: { language: string; value: string }) => {
+  const [language, nolines] = props.language.split("--", 2);
   return (
     <SyntaxHighlighter
-      language={props.language}
+      language={language}
       style={syntaxTheme}
-      showLineNumbers
+      showLineNumbers={nolines !== "nolines"}
       codeTagProps={{ className: "text-base leading-4" }}
     >
       {props.value}

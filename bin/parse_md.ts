@@ -29,5 +29,6 @@ const processor = unified()
   .use(remarkMath)
   .use(remarkDeflist)
   .use(readingTimes);
+
 const tree = processor.runSync(processor.parse(markdown));
 console.log(JSON.stringify(dropPositions(tree), null, 2));
