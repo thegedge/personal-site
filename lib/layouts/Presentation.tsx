@@ -12,9 +12,14 @@ export const Presentation = (props: { presentation: PresentationData }) => {
         but "flattened", so it lacks progressive disclosure. <IoWarningOutline size={32} />
       </div>
       <article className="text-lg leading-8 md:text-xl md:leading-10">
-        {props.presentation.slides.map((slide) => (
-          <section className="block px-4 my-4 bg-gray-50 border-gray-200 border-1 rounded min-h-128">
-            <Markdown>{slide}</Markdown>
+        {props.presentation.slides.map((slide, index) => (
+          <section className="flex flex-col px-4 my-4 bg-gray-50 border-gray-200 border-1 rounded min-h-128">
+            <div className="flex-1">
+              <Markdown>{slide}</Markdown>
+            </div>
+            <div className="flex-0 text-base text-right py-2 text-primary-400">
+              {index + 1} / {props.presentation.slides.length}
+            </div>
           </section>
         ))}
       </article>

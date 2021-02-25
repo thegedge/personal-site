@@ -1,4 +1,4 @@
-import { isArray, isString, pick } from "lodash";
+import { isArray, isNil, isString, pick } from "lodash";
 import React, { createElement } from "react";
 import Latex from "react-latex";
 //
@@ -47,13 +47,18 @@ const MarkdownParagraph = (props: { children: React.ReactNode }) => {
 };
 
 const MarkdownCode = (props: { language: string; value: string }) => {
+  const className = "text-base leading-4";
+  if (isNil(props.language)) {
+    return <code className={className}>{props.value}</code>;
+  }
+
   const [language, nolines] = props.language.split("--", 2);
   return (
     <SyntaxHighlighter
       language={language}
       style={syntaxTheme}
       showLineNumbers={nolines !== "nolines"}
-      codeTagProps={{ className: "text-base leading-4" }}
+      codeTagProps={{ className }}
     >
       {props.value}
     </SyntaxHighlighter>
