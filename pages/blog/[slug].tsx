@@ -20,23 +20,24 @@ export default function Post(props: {
 
   return (
     <Layout title={props.post.title} description={props.post.description}>
-      <h1 className="mb-2">{props.post.title}</h1>
-      <PostPublishedAndMetadata post={props.post} />
-      <article className="text-lg leading-8 md:text-xl md:leading-10">
-        <Markdown>{props.post.markdown}</Markdown>
-      </article>
-      <div className="flex mt-6 px-8 pt-4 border-t-1 gap-x-4">
+      <div className="px-4">
+        <h1 className="my-2">{props.post.title}</h1>
+        <PostPublishedAndMetadata post={props.post} />
+        <article className="text-lg leading-8 md:text-xl md:leading-10">
+          <Markdown>{props.post.markdown}</Markdown>
+        </article>
+      </div>
+      <div className="flex mt-6 px-4 pt-4 border-t-1 gap-x-4">
         {props.newer && (
-          <div>
+          <div className="flex-1">
             <Head>
               <link rel="next" href={`/blog/${props.newer.slug}`} />
             </Head>
             <Link href={`/blog/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
           </div>
         )}
-        <div className="flex-1"></div>
         {props.older && (
-          <div>
+          <div className="flex-1 text-right">
             <Head>
               <link rel="prev" href={`/blog/${props.older.slug}`} />
             </Head>

@@ -27,7 +27,7 @@ export default function Portfolio() {
           <img
             src="/img/portfolio/opgraph/opgraph.png"
             alt="opgraph background"
-            className="absolute w-full h-auto left-0 top-0 z-behind opacity-10"
+            className="absolute h-full w-auto object-cover md:w-full md:h-auto left-0 top-0 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>OpGraph Framework</h2>
@@ -49,15 +49,15 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://thegedge.github.com/opgraph">View Project Page</a>
-            <a href="https://github.com/thegedge/opgraph">View GitHub Page</a>
+            <a href="https://thegedge.github.com/opgraph">Project Page</a>
+            <a href="https://github.com/thegedge/opgraph">Source</a>
           </LinkList>
         </li>
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/voxel_iterator/voxel_iterator.png"
             alt="voxel iterator background"
-            className="absolute w-1/2 h-auto left-1/4 top-0 z-behind opacity-10"
+            className="absolute object-cover w-full md:w-1/2 h-auto md:left-1/4 top-0 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>Voxel (grid-based) Iterator</h2>
@@ -66,14 +66,14 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://github.com/thegedge/voxel_iterator">View GitHub Page</a>
+            <a href="https://github.com/thegedge/voxel_iterator">Source</a>
           </LinkList>
         </li>
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/radix_tree/radix_tree.png"
             alt="radix tree background"
-            className="absolute w-2/3 h-auto left-32 -top-8 z-behind opacity-10"
+            className="absolute object-cover w-full md:w-2/3 h-auto md:left-32 top-8 md:-top-8 z-behind opacity-10"
           />
           <div className="px-4 min-h-32">
             <h2>Radix Tree</h2>
@@ -86,14 +86,14 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://github.com/thegedge/radix_tree">View GitHub Page</a>
+            <a href="https://github.com/thegedge/radix_tree">Source</a>
           </LinkList>
         </li>
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/stereo/stereo.png"
             alt="stereo vision background"
-            className="absolute w-1/2 h-auto left-1/2 top-24 z-behind opacity-20"
+            className="absolute object-cover md:w-1/2 md:h-auto md:left-1/2 top-24 z-behind opacity-20"
           />
           <div className="px-4 min-h-32">
             <h2>Stereo Reconstruction</h2>
@@ -106,7 +106,7 @@ export default function Portfolio() {
                 <ul>
                   <li>a simple XML project format,</li>
                   <li>
-                    basic two-view stereo implementation using method in cooperation with
+                    basic two-stereo implementation using method in cooperation with
                     <a href="https://dl.acm.org/citation.cfm?id=1819315">
                       geodesic support weights
                     </a>
@@ -115,7 +115,7 @@ export default function Portfolio() {
                   <li>
                     partial implementation of{" "}
                     <a href="https://portal.acm.org/citation.cfm?id=1478454">this</a>
-                    multi-view stereo method,
+                    multi-stereo method,
                   </li>
                   <li>rendering of point (basic and splats) and mesh models,</li>
                   <li>
@@ -137,7 +137,7 @@ export default function Portfolio() {
                   src="/img/portfolio/stereo/stereo2.png"
                   alt="Visualizing the positions and orientations of cameras"
                 />
-                <img src="/img/portfolio/stereo/stereo3.png" alt="Stereo view window" />
+                <img src="/img/portfolio/stereo/stereo3.png" alt="Stereo window" />
                 <img src="/img/portfolio/stereo/stereo4.png" alt="Features have been detected" />
                 <img
                   src="/img/portfolio/stereo/stereo5.png"
@@ -147,7 +147,7 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://github.com/thegedge/StereoReconstruction">View GitHub Page</a>
+            <a href="https://github.com/thegedge/StereoReconstruction">Source</a>
           </LinkList>
         </li>
         <li className="relative overflow-hidden">
@@ -164,14 +164,14 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://github.com/thegedge/manatee">View GitHub Page</a>
+            <a href="https://github.com/thegedge/manatee">Source</a>
           </LinkList>
         </li>
         <li className="relative overflow-hidden">
           <img
             src="/img/portfolio/jype/jype.png"
             alt="jype background"
-            className="absolute w-full h-auto left-0 top-0 z-behind opacity-20"
+            className="absolute object-cover md:w-full h-full md:h-auto left-0 top-0 z-behind opacity-20"
           />
           <div className="px-4 min-h-32">
             <h2>Jype</h2>
@@ -181,7 +181,7 @@ export default function Portfolio() {
             </div>
           </div>
           <LinkList>
-            <a href="https://github.com/thegedge/jype">View GitHub Page</a>
+            <a href="https://github.com/thegedge/jype">Source</a>
           </LinkList>
         </li>
       </ul>

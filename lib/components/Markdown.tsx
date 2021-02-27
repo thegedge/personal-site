@@ -47,26 +47,27 @@ const MarkdownParagraph = (props: { children: React.ReactNode }) => {
 };
 
 const MarkdownCode = (props: { language: string; value: string }) => {
-  const className = "text-base leading-4";
+  const className = "text-sm my-4 leading-0 md:text-base md:leading-4";
   if (isNil(props.language)) {
-    return <code className={className}>{props.value}</code>;
+    return <code className={`${className}`}>{props.value}</code>;
   }
 
   const [language, nolines] = props.language.split("--", 2);
   return (
-    <SyntaxHighlighter
-      language={language}
-      style={syntaxTheme}
-      showLineNumbers={nolines !== "nolines"}
-      codeTagProps={{ className }}
-    >
-      {props.value}
-    </SyntaxHighlighter>
+    <div className={className}>
+      <SyntaxHighlighter
+        language={language}
+        style={syntaxTheme}
+        showLineNumbers={nolines !== "nolines"}
+      >
+        {props.value}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 
 const MarkdownInlineCode = (props: { children: React.ReactNode }) => {
-  return <code className="inline-block px-2 bg-primary-100 rounded-lg">{props.children}</code>;
+  return <code className="inline p-1 bg-primary-100 rounded-lg">{props.children}</code>;
 };
 
 const MarkdownImage = (props: { className?: string; alt: string; src: string }) => {
@@ -83,7 +84,9 @@ const MarkdownImage = (props: { className?: string; alt: string; src: string }) 
       <img
         src={props.src}
         alt={props.alt}
-        className={`mx-auto text-center italic text-primary-500 ${props.className}`}
+        className={`mx-auto text-center italic text-primary-500 ${
+          props.className || "my-4 w-full"
+        }`}
       />
     </a>
   );
@@ -142,12 +145,10 @@ const MarkdownBlockQuote = (props: { children: React.ReactNode }) => {
               ? "grid md:grid-cols-2 gap-2 items-center justify-items-center auto-rows-fr"
               : "";
 
-          // TODO better way of making images line up nicely. I want the images to fill out the width, but
-          //      I don't want one being taller than others.
-          const imgClassName = ""; // images.length > 1 ? "max-h-92" : "";
+          const imgClassName = images.length > 1 ? "" : "w-full";
 
           return (
-            <figure>
+            <figure className="my-4">
               <div className={gridClassName}>
                 {images.map((img) => (
                   <MarkdownImage
@@ -248,7 +249,10 @@ const MarkdownList = (props: { ordered?: boolean; children: React.ReactNode }) =
     listType = "ul";
   }
 
-  const list = createElement(listType, { className: "mx-8 my-4", children: props.children });
+  const list = createElement(listType, {
+    className: "mx-8 my-4",
+    children: props.children,
+  });
   return <KeyCounter>{list}</KeyCounter>;
 };
 

@@ -53,7 +53,7 @@
   }
 
   blockquote {
-    @apply my-4 mx-8 py-0.5 px-4;
+    @apply my-4 mx-4 md:mx-8 py-0.5 px-4;
     @apply bg-primary-100 text-primary-600;
     @apply border-l-base border-primary-200 rounded-r-md;
     @apply italic;

@@ -10,14 +10,16 @@ export const Header = (props: { className?: string }) => {
     >
       <header className="sm:px-4 flex flex-col sm:flex-row lg:flex-col items-center sm:space-x-8 lg:space-x-0">
         <div className="flex-1"></div>
-        <img
-          src="/img/me.jpg"
-          alt="me"
-          className="rounded-full w-48 mx-auto mb-2 ring-primary-100 ring"
-        />
+        <a href="/about">
+          <img
+            src="/img/me.jpg"
+            alt="me"
+            className="rounded-full w-48 mx-auto mb-2 ring-primary-100 ring"
+          />
+        </a>
         <div>
-          <h1 className="mb-0">Jason Gedge</h1>
-          <div className="pt-2 text-primary-600 text-xl">
+          <h1 className="my-2">Jason Gedge</h1>
+          <div className="pt-2 text-primary-600 text-xl my-2">
             <HorizontalList align="center">
               <a
                 href="https://www.twitter.com/thegedge"
@@ -48,33 +50,21 @@ export const Header = (props: { className?: string }) => {
         </div>
         <div className="flex-1"></div>
       </header>
-      <nav className="flex flex-row lg:flex-col sm:px-8 border-primary-200 lg:px-4 lg:border-t-1 lg:pt-4 lg:text-right">
-        <a
-          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
-          href="/about"
-        >
-          About
-        </a>
-        <a
-          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
-          href="/blog"
-        >
+      <nav className="flex flex-row justify-center lg:flex-col sm:text-xl sm:px-8 border-primary-200 lg:px-4 lg:border-t-1 lg:pt-4 lg:text-right w-full">
+        <a className="inline-block p-2 hover:bg-primary-100 ease-out-colors-500" href="/blog">
           Blog
         </a>
-        <a
-          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
-          href="/portfolio"
-        >
+        <a className="inline-block p-2 hover:bg-primary-100 ease-out-colors-500" href="/portfolio">
           Portfolio
         </a>
         <a
-          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
+          className="inline-block p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/presentations"
         >
           Presentations
         </a>
         <a
-          className="inline-block w-full p-2 hover:bg-primary-100 ease-out-colors-500"
+          className="inline-block p-2 hover:bg-primary-100 ease-out-colors-500"
           href="/publications"
         >
           Publications

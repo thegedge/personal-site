@@ -9,11 +9,11 @@ export const Link = (props: { href: string; className?: string; children: React.
 
   let icon;
   if (props.href.includes("://github.com")) {
-    icon = <FaGithub className="align-baseline" />;
+    icon = <FaGithub className="align-baseline" size="0.8em" />;
   } else if (props.href.includes("wikipedia.org")) {
     icon = <FaWikipediaW className="align-text-bottom" size="1.15em" />;
   } else if (props.href.includes("youtube.com")) {
-    icon = <AiOutlineYoutube size="1.25em" className="align-text-bottom" />;
+    icon = <AiOutlineYoutube className="align-text-bottom" size="1.25em" />;
   } else if (props.href.includes("twitter.com")) {
     icon = <FaTwitter className="align-text-bottom" />;
   } else if (props.href.includes("bitbucket.org")) {

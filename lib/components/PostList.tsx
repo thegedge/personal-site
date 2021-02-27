@@ -44,7 +44,7 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
           <PostPublishedAndMetadata post={props.post} />
         </p>
       </div>
-      <HorizontalList align="end" spacing={1} className="flex-0">
+      <HorizontalList align="end" spacing={1} className="mt-2 sm:m-0 flex-0">
         {concat([], props.post.tags).map((tag) => (
           <a key={tag} href={`/blog/tags/${encodeURIComponent(tag)}`} onClick={() => alert("test")}>
             <Tag key={index++} color={props.tagColors[tag]}>
