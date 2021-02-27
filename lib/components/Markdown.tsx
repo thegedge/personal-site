@@ -70,6 +70,14 @@ const MarkdownInlineCode = (props: { children: React.ReactNode }) => {
 };
 
 const MarkdownImage = (props: { className?: string; alt: string; src: string }) => {
+  if (props.src.match(/https:\/\/www.youtube.com\/embed\/\w+/)) {
+    return (
+      <div className="embed-container">
+        <iframe src={props.src} frameBorder="0" allowFullScreen></iframe>
+      </div>
+    );
+  }
+
   return (
     <a href={props.src}>
       <img

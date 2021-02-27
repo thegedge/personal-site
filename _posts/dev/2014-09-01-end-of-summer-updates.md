@@ -62,7 +62,4 @@ the video below for your viewing pleasure, but first I'll summarize some of his 
   ADL. Note that if you really want a free function to be extensible (think, `std::swap`) then stick
   to a free function.
 
-<p>
-  <iframe class="mx-auto" width="853" height="480" src="https://www.youtube.com/embed/zgOF4NrQllo" frameborder="0" allowfullscreen>
-  </iframe>
-</p>
+![C++11 library design](https://www.youtube.com/embed/zgOF4NrQllo)

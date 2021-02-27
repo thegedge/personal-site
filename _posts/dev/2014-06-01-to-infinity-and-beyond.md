@@ -32,7 +32,7 @@ it gets the job done. All of the work happens in the main loop, but eventually I
 loading off the main thread. I actually modified my chunk code this week to lazily construct the
 vertex buffer/array, so moving this off the main thread should be straightforward.
 
-<iframe class="mx-auto" width="720" height="540" src="//www.youtube.com/embed/OWC8R2P4TH4" frameborder="0" allowfullscreen></iframe>
+![Infinite voxel terrain](https://www.youtube.com/embed/OWC8R2P4TH4)
 
 ## Performance Boost
 

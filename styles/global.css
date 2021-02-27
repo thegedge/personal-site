@@ -84,6 +84,17 @@
   .ease-out-colors-500 {
     @apply transition-colors ease-out duration-500;
   }
+
+  .embed-container {
+    @apply relative h-0 overflow-hidden max-w-full;
+    padding-bottom: 56.25%;
+  }
+
+  .embed-container > iframe,
+  .embed-container > object,
+  .embed-container > embed {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
 }
 
 /* overrides for latex stuff */
