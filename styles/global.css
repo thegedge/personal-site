@@ -28,6 +28,14 @@
     @apply text-3xl mt-8 mb-4;
   }
 
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
   ul {
     @apply list-disc;
   }

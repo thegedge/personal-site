@@ -40,6 +40,36 @@ const tailwindAlignment = (align?: Alignment) => {
   }
 };
 
+const MarkdownHeading = (props: { offset: number; level: number; children: React.ReactNode }) => {
+  let className = "flex place-items-center -mx-6";
+  let ruleClassName = "bg-primary-100";
+  switch (props.level) {
+    case 1:
+      className += " mt-8";
+      ruleClassName += " h-1";
+      break;
+    case 2:
+      className += " mt-8";
+      ruleClassName += " h-0.5";
+      break;
+    case 3:
+      ruleClassName += " h-px";
+      break;
+    case 4:
+      ruleClassName = "hidden";
+      break;
+  }
+
+  const children = [
+    <div className={`w-4 mr-2 ${ruleClassName}`} />,
+    <div className="flex-initial">{props.children}</div>,
+    <div className={`flex-1 mx-2 ${ruleClassName}`} />,
+  ];
+
+  const headings = ["h1", "h2", "h3", "h4", "h5", "h6"].slice(props.offset);
+  return createElement(headings[props.level - 1], { className }, children);
+};
+
 const MarkdownParagraph = (props: { children: React.ReactNode }) => {
   return <p className="my-4">{props.children}</p>;
 };
@@ -177,7 +207,7 @@ const MarkdownLink = (props: { href: string; children: React.ReactNode }) => {
 
 const MarkdownDescriptionList = (props: { children: React.ReactNode }) => {
   return (
-    <KeyCounter>
+    <KeyCounter prefix="dl">
       <dl className="grid grid-cols-deflist gap-x-4 gap-y-4 ml-8 mr-16">{props.children}</dl>
     </KeyCounter>
   );
@@ -199,7 +229,7 @@ const MarkdownDescriptionDetails = (props: { children: React.ReactNode }) => {
 
 const MarkdownTable = (props: { children: React.ReactNode }) => {
   return (
-    <KeyCounter>
+    <KeyCounter prefix="table">
       <table className="mx-auto border-1 border-primary-50">{props.children}</table>
     </KeyCounter>
   );
@@ -213,7 +243,7 @@ const MarkdownTableRow = (props: { isHeader?: boolean; children: React.ReactNode
 
   const key = useCounter();
   return (
-    <KeyCounter>
+    <KeyCounter prefix="row">
       <tr key={key} className={className}>
         {props.children}
       </tr>
@@ -247,13 +277,13 @@ const MarkdownList = (props: { nested: boolean; ordered?: boolean; children: Rea
     listType = "ul";
   }
 
-  const className = props.nested ? "mx-8" : "mx-8 my-4";
+  const className = props.nested ? "ml-8" : "ml-8 my-4";
 
   const list = createElement(listType, {
     className,
     children: props.children,
   });
-  return <KeyCounter>{list}</KeyCounter>;
+  return <KeyCounter prefix={listType}>{list}</KeyCounter>;
 };
 
 const MarkdownListItem = (props: { children: React.ReactNode }) => {
@@ -300,13 +330,11 @@ function astToReact(
     case "emphasis":
       return <em>{children}</em>;
     case "heading":
-      let className = "";
-      if (node.depth < 2) {
-        className = "mt-8";
-      }
-
-      const headings = ["h1", "h2", "h3", "h4", "h5", "h6"].slice(offsetHeadings);
-      return createElement(headings[node.depth - 1], { className }, children);
+      return (
+        <MarkdownHeading offset={offsetHeadings} level={node.depth}>
+          {children}
+        </MarkdownHeading>
+      );
     case "html":
       return <div dangerouslySetInnerHTML={{ __html: node.value }} />;
     case "image":

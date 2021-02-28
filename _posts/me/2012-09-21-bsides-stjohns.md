@@ -9,8 +9,6 @@ Today I attended the [BSides](https://www.securitybsides.com/w/page/51753351/BSi
 security conference in St. John's, Newfoundland. Although it's not particularly an area of interest
 or an area pertinent to my current position, there were some interesting talks.
 
-If you're interested in summaries of the talks, click "Read More".
-
 # Morning Talks
 
 ## The Basics & Other Things We're Probably Doing Wrong
