@@ -25,7 +25,7 @@ function addTheadAndTbody(node: MarkdownTable) {
     {
       type: "tableHead",
       align: node.align,
-      children: [children[0]],
+      children: [children[0] as MarkdownTableRow],
     },
   ];
 
@@ -33,7 +33,7 @@ function addTheadAndTbody(node: MarkdownTable) {
     node.children.push({
       type: "tableBody",
       align: node.align,
-      children: children.slice(1),
+      children: children.slice(1) as MarkdownTableRow[],
     });
   }
 }

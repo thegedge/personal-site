@@ -24,7 +24,7 @@ export default function Post(props: {
         <h1 className="my-2">{props.post.title}</h1>
         <PostPublishedAndMetadata post={props.post} />
         <article className="text-lg leading-8 md:text-xl md:leading-10">
-          <Markdown>{props.post.markdown}</Markdown>
+          <Markdown offsetHeadings={1}>{props.post.markdown}</Markdown>
         </article>
       </div>
       <div className="flex mt-6 px-4 pt-4 border-t-1 gap-x-4">

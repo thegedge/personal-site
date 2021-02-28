@@ -1,4 +1,5 @@
 import frontmatter from "@github-docs/frontmatter";
+import addListMetadata from "mdast-add-list-metadata";
 import remarkDeflist from "remark-deflist";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -42,11 +43,13 @@ export type MarkdownNodes =
   | MarkdownText
   | MarkdownThematicBreak;
 
-export interface MarkdownNode extends Node {
+export interface MarkdownNode<Children = MarkdownNodes> extends Node {
   data?: Data;
   position?: Position;
-  children: MarkdownNodes[];
+  children: Children[];
 }
+
+export type Alignment = "left" | "right" | "center" | null;
 
 // Standard markdown elements
 
@@ -96,11 +99,12 @@ export interface MarkdownLink extends MarkdownNode {
   title: string;
 }
 
-export interface MarkdownList extends MarkdownNode {
+export interface MarkdownList extends MarkdownNode<MarkdownListItem> {
   type: "list";
   ordered: boolean;
   start: number;
   spread: boolean;
+  depth: number;
 }
 
 export interface MarkdownListItem extends MarkdownNode {
@@ -108,6 +112,7 @@ export interface MarkdownListItem extends MarkdownNode {
   ordered: boolean;
   checked?: boolean;
   spread: boolean;
+  index: number;
 }
 
 export interface MarkdownMath extends MarkdownNode {
@@ -127,31 +132,32 @@ export interface MarkdownStrong extends MarkdownNode {
   type: "strong";
 }
 
-export interface MarkdownTable extends MarkdownNode {
+export interface MarkdownTable
+  extends MarkdownNode<MarkdownTableHead | MarkdownTableBody | MarkdownTableRow> {
   type: "table";
-  align: ("left" | "right" | "center" | null)[];
+  align: Alignment[];
 }
 
-export interface MarkdownTableBody extends MarkdownNode {
+export interface MarkdownTableBody extends MarkdownNode<MarkdownTableRow> {
   type: "tableBody";
-  align?: ("left" | "right" | "center")[];
+  align?: Alignment[];
 }
 
 export interface MarkdownTableCell extends MarkdownNode {
   type: "tableCell";
-  align?: "left" | "right" | "center";
+  align?: Alignment;
   isHeader?: boolean;
 }
 
-export interface MarkdownTableHead extends MarkdownNode {
+export interface MarkdownTableHead extends MarkdownNode<MarkdownTableRow> {
   type: "tableHead";
-  align?: ("left" | "right" | "center")[];
+  align?: Alignment[];
 }
 
-export interface MarkdownTableRow extends MarkdownNode {
+export interface MarkdownTableRow extends MarkdownNode<MarkdownTableCell> {
   type: "tableRow";
   isHeader?: boolean;
-  align?: ("left" | "right" | "center")[];
+  align?: Alignment[];
 }
 
 export interface MarkdownText extends MarkdownNode {
@@ -169,7 +175,8 @@ export interface MarkdownDescriptionDetails extends MarkdownNode {
   type: "descriptiondetails";
 }
 
-export interface MarkdownDescriptionList extends MarkdownNode {
+export interface MarkdownDescriptionList
+  extends MarkdownNode<MarkdownDescriptionDetails | MarkdownDescriptionTerm> {
   type: "descriptionlist";
 }
 
@@ -185,6 +192,7 @@ export function parse(source: string): MarkdownData {
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkDeflist)
+    .use(addListMetadata)
     .use(removeListParagraphs)
     .use(tableHeadsAndBodies)
     .use(readingTimes);

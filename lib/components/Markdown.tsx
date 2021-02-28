@@ -13,10 +13,8 @@ import ruby from "react-syntax-highlighter/dist/cjs/languages/prism/ruby";
 import rust from "react-syntax-highlighter/dist/cjs/languages/prism/rust";
 import sh from "react-syntax-highlighter/dist/cjs/languages/prism/shell-session";
 import { prism as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/prism";
-//
-import { Node } from "unist";
 import { KeyCounter, useCounter } from "../counter";
-import { MarkdownData, MarkdownNodes } from "../markdown";
+import { Alignment, MarkdownData, MarkdownNodes } from "../markdown";
 import { Link } from "./Link";
 
 SyntaxHighlighter.registerLanguage("sh", sh);
@@ -29,7 +27,7 @@ SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("ruby", ruby);
 SyntaxHighlighter.registerLanguage("rust", rust);
 
-const tailwindAlignment = (align?: "left" | "right" | "center") => {
+const tailwindAlignment = (align?: Alignment) => {
   switch (align) {
     case "left":
       return "text-left";
@@ -225,7 +223,7 @@ const MarkdownTableRow = (props: { isHeader?: boolean; children: React.ReactNode
 
 const MarkdownTableCell = (props: {
   isHeader?: boolean;
-  align?: "left" | "right" | "center";
+  align?: Alignment | null;
   children: React.ReactNode;
 }) => {
   const key = useCounter();
@@ -241,7 +239,7 @@ const MarkdownInlineMath = (props: { value: string }) => {
   return <Latex className="border-black">{value}</Latex>;
 };
 
-const MarkdownList = (props: { ordered?: boolean; children: React.ReactNode }) => {
+const MarkdownList = (props: { nested: boolean; ordered?: boolean; children: React.ReactNode }) => {
   let listType;
   if (props.ordered) {
     listType = "ol";
@@ -249,8 +247,10 @@ const MarkdownList = (props: { ordered?: boolean; children: React.ReactNode }) =
     listType = "ul";
   }
 
+  const className = props.nested ? "mx-8" : "mx-8 my-4";
+
   const list = createElement(listType, {
-    className: "mx-8 my-4",
+    className,
     children: props.children,
   });
   return <KeyCounter>{list}</KeyCounter>;
@@ -274,10 +274,16 @@ const MarkdownRoot = (props: { children: React.ReactNode }) => {
   return <>{props.children}</>;
 };
 
-function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
+function astToReact(
+  node: MarkdownNodes,
+  offsetHeadings: number,
+  fullSource: string
+): React.ReactNode {
   let children: React.ReactNode = [];
   if ("children" in node && isArray(node.children)) {
-    children = (node.children || []).map((c: Node) => astToReact(c as MarkdownNodes, fullSource));
+    children = (node.children as MarkdownNodes[]).map((c) =>
+      astToReact(c, offsetHeadings, fullSource)
+    );
   }
 
   switch (node.type) {
@@ -294,8 +300,13 @@ function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
     case "emphasis":
       return <em>{children}</em>;
     case "heading":
-      const headings = ["h1", "h2", "h3", "h4", "h5", "h6"];
-      return createElement(headings[node.depth - 1], {}, children);
+      let className = "";
+      if (node.depth < 2) {
+        className = "mt-8";
+      }
+
+      const headings = ["h1", "h2", "h3", "h4", "h5", "h6"].slice(offsetHeadings);
+      return createElement(headings[node.depth - 1], { className }, children);
     case "html":
       return <div dangerouslySetInnerHTML={{ __html: node.value }} />;
     case "image":
@@ -307,7 +318,11 @@ function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
     case "link":
       return <MarkdownLink href={node.url}>{children}</MarkdownLink>;
     case "list":
-      return <MarkdownList ordered={node.ordered}>{children}</MarkdownList>;
+      return (
+        <MarkdownList ordered={node.ordered} nested={node.depth > 0}>
+          {children}
+        </MarkdownList>
+      );
     case "listItem":
       return <MarkdownListItem>{children}</MarkdownListItem>;
     case "math":
@@ -341,6 +356,6 @@ function astToReact(node: MarkdownNodes, fullSource: string): React.ReactNode {
   }
 }
 
-export default function Markdown(props: { children: MarkdownData }) {
-  return <>{astToReact(props.children.node, props.children.source)}</>;
+export default function Markdown(props: { offsetHeadings?: number; children: MarkdownData }) {
+  return <>{astToReact(props.children.node, props.offsetHeadings || 0, props.children.source)}</>;
 }

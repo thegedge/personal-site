@@ -13,7 +13,7 @@ If you're interested in summaries of the talks, click "Read More".
 
 # Morning Talks
 
-### The Basics & Other Things We're Probably Doing Wrong
+## The Basics & Other Things We're Probably Doing Wrong
 
 **Mark Nunnikhoven** talks about three things he believes we should be using more (in ops):
 
@@ -31,7 +31,7 @@ If you're interested in summaries of the talks, click "Read More".
 
    - Engage **users** and integrate them into the flow.
 
-### Anatomy of an Apache vulnerability report, and Secure Release Management
+## Anatomy of an Apache vulnerability report, and Secure Release Management
 
 **Jamie Goodyear** introduces us to the process of submitting a vulnerability report to Apache
 whenever some exploit/vulnerability exists in an Apache project. Roughly, this process goes like the
@@ -49,7 +49,7 @@ This is followed with a section on secure release management. Apache focuses on 
 1. MD5 hashes for all artifacts released
 2. PGP signatures to verify the release came from a trusted source
 
-### Key Considerations in Securing Internet Access
+## Key Considerations in Securing Internet Access
 
 **Russ Doucet** talks about webfiltering and making the right web use policy in your company:
 
@@ -62,7 +62,7 @@ This is followed with a section on secure release management. Apache focuses on 
   - Webfiltering, so that action is being taken.
   - Monitoring, e.g., for referencing of multiple offences.
 
-### Command & Control And Data Exfiltration 2.9
+## Command & Control And Data Exfiltration 2.9
 
 **Karim Nathoo** introduces us to interesting of dealing with **C2 (command and control)**, a
 malicious piece of code or software that facilitates controlling and/or ex-filtrating data on a
@@ -71,18 +71,18 @@ examples using file sharing services (e.g., Box.net, DropBox) and DNS tunneling.
 
 # Afternoon Talks
 
-### How NOT To Do Security: Lessons Learned From the Galactic Empire
+## How NOT To Do Security: Lessons Learned From the Galactic Empire
 
 **Kellman Meghu** takes us on a whimsical journey into data loss incidents, using a "Star Wars"
 perspective on how to do security. The moral was simple: the most basic security policies are often
 the ones that mitigate issues.
 
-### Have Credentials. Will Travel... Literally.
+## Have Credentials. Will Travel... Literally.
 
 **Darryl MacLeod** gave his opinion on becoming a Certified Information Systems Security
 Professional (CISSP), and what he felt it has done for him. To sum up his opinion: "it's worth it."
 
-### Today's Threat Landscape – Facts, Figures, Myths and Perceptions
+## Today's Threat Landscape – Facts, Figures, Myths and Perceptions
 
 Symantec representative **Stefano Tiranardi** talks about the internet security threat report
 from 2011. Four trends were discovered:
@@ -92,7 +92,7 @@ from 2011. Four trends were discovered:
 3. Mobile threats expose all
 4. Data breaches on rise
 
-### Services defense in depth: an emerging paradigm for protecting the Data Center
+## Services defense in depth: an emerging paradigm for protecting the Data Center
 
 **Bruno Germain** focused on how he believes it's time for security to consider a different model
 for defending one's systems. He introduced a service-centric approach to security.

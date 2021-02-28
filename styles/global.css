@@ -21,11 +21,11 @@
   }
 
   h1 {
-    @apply text-4xl my-8;
+    @apply text-4xl mt-8 mb-4;
   }
 
   h2 {
-    @apply text-2xl mt-8 mb-4;
+    @apply text-3xl mt-8 mb-4;
   }
 
   ul {
