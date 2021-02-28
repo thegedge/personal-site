@@ -4,6 +4,8 @@ import { Parent } from "unist";
 import visit from "unist-util-visit";
 import { MarkdownTable, MarkdownTableCell, MarkdownTableRow } from "../markdown";
 
+// Add <thead> and <tbody> nodes
+
 function addAlignToCells(node: MarkdownTableCell, index: number, parent?: Parent) {
   const align = parent?.align;
   if (isArray(align)) {

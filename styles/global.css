@@ -25,7 +25,7 @@
   }
 
   h2 {
-    @apply text-2xl mt-4 mb-4;
+    @apply text-2xl mt-8 mb-4;
   }
 
   ul {
@@ -42,14 +42,6 @@
 
   ::marker {
     @apply text-primary-400;
-  }
-
-  li > p:first-child {
-    @apply mt-0;
-  }
-
-  li > p:last-child {
-    @apply mb-0;
   }
 
   blockquote {

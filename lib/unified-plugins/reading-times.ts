@@ -4,6 +4,8 @@ import { Node } from "unist";
 import is from "unist-util-is";
 import { MarkdownText } from "../markdown";
 
+// Attach an estimated reading time to every node, based on an estimated WPM reading time
+
 const READING_WORDS_PER_MINUTE = 175.0;
 
 function calculateReadingTime(node: Node) {

@@ -4,8 +4,9 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import unified from "unified";
-import { Parent as Node } from "unist";
+import { Data, Node, Position } from "unist";
 import readingTimes from "./unified-plugins/reading-times";
+import removeListParagraphs from "./unified-plugins/remove-list-paragraphs";
 import tableHeadsAndBodies from "./unified-plugins/table-heads-and-bodies";
 
 export interface MarkdownData {
@@ -41,132 +42,138 @@ export type MarkdownNodes =
   | MarkdownText
   | MarkdownThematicBreak;
 
+export interface MarkdownNode extends Node {
+  data?: Data;
+  position?: Position;
+  children: MarkdownNodes[];
+}
+
 // Standard markdown elements
 
-export interface MarkdownBlockquote extends Node {
+export interface MarkdownBlockquote extends MarkdownNode {
   type: "blockquote";
 }
 
-export interface MarkdownInlineCode extends Node {
+export interface MarkdownInlineCode extends MarkdownNode {
   type: "inlineCode";
   value: string;
 }
 
-export interface MarkdownCode extends Node {
+export interface MarkdownCode extends MarkdownNode {
   type: "code";
   lang: string;
   value: string;
 }
 
-export interface MarkdownEmphasis extends Node {
+export interface MarkdownEmphasis extends MarkdownNode {
   type: "emphasis";
 }
 
-export interface MarkdownHeading extends Node {
+export interface MarkdownHeading extends MarkdownNode {
   type: "heading";
   depth: number;
 }
 
-export interface MarkdownHtml extends Node {
+export interface MarkdownHtml extends MarkdownNode {
   type: "html";
   value: string;
 }
 
-export interface MarkdownInlineMath extends Node {
+export interface MarkdownInlineMath extends MarkdownNode {
   type: "inlineMath";
   value: string;
 }
 
-export interface MarkdownImage extends Node {
+export interface MarkdownImage extends MarkdownNode {
   type: "image";
   url: string;
   alt: string;
 }
 
-export interface MarkdownLink extends Node {
+export interface MarkdownLink extends MarkdownNode {
   type: "link";
   url: string;
   title: string;
 }
 
-export interface MarkdownList extends Node {
+export interface MarkdownList extends MarkdownNode {
   type: "list";
   ordered: boolean;
   start: number;
   spread: boolean;
 }
 
-export interface MarkdownListItem extends Node {
+export interface MarkdownListItem extends MarkdownNode {
   type: "listItem";
   ordered: boolean;
   checked?: boolean;
   spread: boolean;
 }
 
-export interface MarkdownMath extends Node {
+export interface MarkdownMath extends MarkdownNode {
   type: "math";
   value: string;
 }
 
-export interface MarkdownParagraph extends Node {
+export interface MarkdownParagraph extends MarkdownNode {
   type: "paragraph";
 }
 
-export interface MarkdownRoot extends Node {
+export interface MarkdownRoot extends MarkdownNode {
   type: "root";
 }
 
-export interface MarkdownStrong extends Node {
+export interface MarkdownStrong extends MarkdownNode {
   type: "strong";
 }
 
-export interface MarkdownTable extends Node {
+export interface MarkdownTable extends MarkdownNode {
   type: "table";
   align: ("left" | "right" | "center" | null)[];
 }
 
-export interface MarkdownTableBody extends Node {
+export interface MarkdownTableBody extends MarkdownNode {
   type: "tableBody";
   align?: ("left" | "right" | "center")[];
 }
 
-export interface MarkdownTableCell extends Node {
+export interface MarkdownTableCell extends MarkdownNode {
   type: "tableCell";
   align?: "left" | "right" | "center";
   isHeader?: boolean;
 }
 
-export interface MarkdownTableHead extends Node {
+export interface MarkdownTableHead extends MarkdownNode {
   type: "tableHead";
   align?: ("left" | "right" | "center")[];
 }
 
-export interface MarkdownTableRow extends Node {
+export interface MarkdownTableRow extends MarkdownNode {
   type: "tableRow";
   isHeader?: boolean;
   align?: ("left" | "right" | "center")[];
 }
 
-export interface MarkdownText extends Node {
+export interface MarkdownText extends MarkdownNode {
   type: "text";
   value: string;
 }
 
-export interface MarkdownThematicBreak extends Node {
+export interface MarkdownThematicBreak extends MarkdownNode {
   type: "thematicBreak";
 }
 
 // From remark-deflist
 
-export interface MarkdownDescriptionDetails extends Node {
+export interface MarkdownDescriptionDetails extends MarkdownNode {
   type: "descriptiondetails";
 }
 
-export interface MarkdownDescriptionList extends Node {
+export interface MarkdownDescriptionList extends MarkdownNode {
   type: "descriptionlist";
 }
 
-export interface MarkdownDescriptionTerm extends Node {
+export interface MarkdownDescriptionTerm extends MarkdownNode {
   type: "descriptionterm";
 }
 
@@ -178,6 +185,7 @@ export function parse(source: string): MarkdownData {
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkDeflist)
+    .use(removeListParagraphs)
     .use(tableHeadsAndBodies)
     .use(readingTimes);
 
