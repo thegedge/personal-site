@@ -25,7 +25,6 @@ export const PostPublishedAndMetadata = (props: { post: PostData }) => {
 };
 
 const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> }) => {
-  let index = 0;
   return (
     <div
       className={`flex flex-col sm:flex-row w-full p-4 ${!props.post.published && "bg-yellow-100"}`}
@@ -47,9 +46,7 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
       <HorizontalList align="end" spacing={1} className="mt-2 sm:m-0 flex-0">
         {concat([], props.post.tags).map((tag) => (
           <a key={tag} href={`/blog/tags/${encodeURIComponent(tag)}`}>
-            <Tag key={index++} color={props.tagColors[tag]}>
-              {tag}
-            </Tag>
+            <Tag color={props.tagColors[tag]}>{tag}</Tag>
           </a>
         ))}
       </HorizontalList>
@@ -63,7 +60,7 @@ export const PostList = (props: { posts: PostData[] }) => {
   return (
     <VerticalList spacing={0}>
       {orderBy(Object.keys(posts), identity, "desc").map((year) => (
-        <div className="w-full">
+        <div key={year} className="w-full">
           <h2 className="text-center bg-primary-100 py-4">{year}</h2>
           <VerticalList border spacing={1}>
             {posts[year].map((post) => (
