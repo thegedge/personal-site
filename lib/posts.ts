@@ -12,6 +12,7 @@ export interface PostData {
   tags: string[];
   description: string | null;
   published: boolean;
+  additionalScripts: string[];
 }
 
 export default memoize(async function (): Promise<PostData[]> {
@@ -27,6 +28,10 @@ export default memoize(async function (): Promise<PostData[]> {
     return {
       date,
       slug,
+
+      get additionalScripts(): string[] {
+        return data().frontmatter.additional_scripts ?? [];
+      },
 
       get published(): boolean {
         return data().frontmatter.published ?? true;

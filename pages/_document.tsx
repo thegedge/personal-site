@@ -2,6 +2,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
+    /*
     const gaScript = `
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-34893540-1']);
@@ -15,6 +16,7 @@ class MyDocument extends Document {
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     `;
+    */
 
     return (
       <Html lang="en">
@@ -41,7 +43,7 @@ class MyDocument extends Document {
           <script src="/vendor/js/jquery.min.js"></script>
           <script src="/vendor/js/snap.svg-min.js"></script>
 
-          <script type="text/javascript" dangerouslySetInnerHTML={{ __html: gaScript }}></script>
+          {/* <script type="text/javascript" dangerouslySetInnerHTML={{ __html: gaScript }}></script> */}
         </Head>
 
         <body className="h-screen max-h-screen min-h-screen font-sans">

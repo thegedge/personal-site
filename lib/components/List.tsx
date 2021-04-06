@@ -17,7 +17,6 @@ export const List = (props: ListProps) => {
   const isVertical = direction == "vertical";
   const classes = [];
   classes.push(isVertical ? "flex-col" : "flex-row");
-  classes.push(direction == "vertical" ? "h-full" : "w-full");
 
   switch (props.spacing) {
     case 0:

@@ -19,33 +19,41 @@ export default function Post(props: {
   }
 
   return (
-    <Layout title={props.post.title} description={props.post.description}>
-      <div className="px-4">
-        <h1 className="my-2">{props.post.title}</h1>
-        <PostPublishedAndMetadata post={props.post} />
-        <article className="text-lg leading-8 md:text-xl md:leading-10">
-          <Markdown offsetHeadings={1}>{props.post.markdown}</Markdown>
-        </article>
-      </div>
-      <div className="flex mt-6 px-4 pt-4 border-t-1 gap-x-4">
-        {props.newer && (
-          <div className="flex-1">
-            <Head>
-              <link rel="next" href={`/blog/${props.newer.slug}`} />
-            </Head>
-            <Link href={`/blog/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
-          </div>
-        )}
-        {props.older && (
-          <div className="flex-1 text-right">
-            <Head>
-              <link rel="prev" href={`/blog/${props.older.slug}`} />
-            </Head>
-            <Link href={`/blog/${props.older.slug}`}>Older: {props.older.title} ›</Link>
-          </div>
-        )}
-      </div>
-    </Layout>
+    <>
+      {props.post.additionalScripts.map((script) => (
+        <Head key={script}>
+          console.log({script});
+          <script src={script} />
+        </Head>
+      ))}
+      <Layout title={props.post.title} description={props.post.description}>
+        <div className="px-4">
+          <h1 className="my-2">{props.post.title}</h1>
+          <PostPublishedAndMetadata post={props.post} />
+          <article className="text-lg leading-8 md:text-xl md:leading-10">
+            <Markdown offsetHeadings={1}>{props.post.markdown}</Markdown>
+          </article>
+        </div>
+        <div className="flex mt-6 px-4 pt-4 border-t-1 gap-x-4">
+          {props.newer && (
+            <div className="flex-1">
+              <Head>
+                <link rel="next" href={`/blog/${props.newer.slug}`} />
+              </Head>
+              <Link href={`/blog/${props.newer.slug}`}>‹ Newer: {props.newer.title}</Link>
+            </div>
+          )}
+          {props.older && (
+            <div className="flex-1 text-right">
+              <Head>
+                <link rel="prev" href={`/blog/${props.older.slug}`} />
+              </Head>
+              <Link href={`/blog/${props.older.slug}`}>Older: {props.older.title} ›</Link>
+            </div>
+          )}
+        </div>
+      </Layout>
+    </>
   );
 }
 

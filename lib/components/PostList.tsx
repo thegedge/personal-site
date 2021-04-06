@@ -11,14 +11,14 @@ export const PostPublishedAndMetadata = (props: { post: PostData }) => {
   const readingTime = props.post.markdown.node.readingTime as number | null | undefined;
   return (
     <HorizontalList border spacing={2}>
-      <p className="text-primary-400">
+      <div className="text-primary-400">
         <BsCalendar className="align-baseline" />{" "}
         <time dateTime={props.post.date}>{moment(props.post.date).format("LL")}</time>
-      </p>
+      </div>
       {readingTime && (
-        <p className="font-thin text-primary-400 pl-2">
+        <div className="font-thin text-primary-400 pl-2">
           <BsClock className="align-baseline" /> {ceil(readingTime)} minute read
-        </p>
+        </div>
       )}
     </HorizontalList>
   );
@@ -39,11 +39,11 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
             </>
           )}
         </a>
-        <p className="text-sm">
+        <div className="text-sm">
           <PostPublishedAndMetadata post={props.post} />
-        </p>
+        </div>
       </div>
-      <HorizontalList align="end" spacing={1} className="mt-2 sm:m-0 flex-0">
+      <HorizontalList align="end" spacing={1} className="mt-2 sm:m-0 flex-initial">
         {concat([], props.post.tags).map((tag) => (
           <a key={tag} href={`/blog/tags/${encodeURIComponent(tag)}`}>
             <Tag color={props.tagColors[tag]}>{tag}</Tag>

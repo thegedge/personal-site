@@ -18,7 +18,7 @@ export default function Presentations(props: { presentations: PresentationData[]
           }
 
           return (
-            <p className="text-left w-full" key={`${presentation.year}-${presentation.slug}`}>
+            <div className="text-left w-full" key={`${presentation.year}-${presentation.slug}`}>
               <a
                 href={`/presentations/${presentation.year}/${encodeURIComponent(
                   presentation.slug
@@ -28,19 +28,19 @@ export default function Presentations(props: { presentations: PresentationData[]
                 {presentation.title}
               </a>
               <HorizontalList border spacing={2} className="my-0">
-                <p className="text-primary-400">
+                <div className="text-primary-400">
                   <BsCalendar className="align-baseline" />{" "}
                   <time dateTime={presentation.presented}>
                     {moment(presentation.presented).format("LL")}
                   </time>
-                </p>
+                </div>
                 {readingTime && (
-                  <p className="font-thin text-primary-400 pl-2">
+                  <div className="font-thin text-primary-400 pl-2">
                     <BsClock className="align-baseline" /> {ceil(readingTime)} minute read
-                  </p>
+                  </div>
                 )}
               </HorizontalList>
-            </p>
+            </div>
           );
         })}
       </VerticalList>
