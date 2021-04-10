@@ -29,6 +29,9 @@ module.exports = {
       gridTemplateColumns: {
         deflist: "8em minmax(0, 1fr)",
       },
+      listStyleType: {
+        summary: '"✏️️"',
+      },
       borderWidth: {
         1: "1px",
         base: "1em",

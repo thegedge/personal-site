@@ -4,9 +4,10 @@ import { Node } from "unist";
 import is from "unist-util-is";
 import { MarkdownText } from "../markdown";
 
-// Attach an estimated reading time to every node, based on an estimated WPM reading time
+// Attach an estimated reading time to every node, based on an estimated WPM reading time.
+// This value is purposefully lower than average reading speed of an adult, to accommodate "thinking time".
 
-const READING_WORDS_PER_MINUTE = 175.0;
+const READING_WORDS_PER_MINUTE = 75.0;
 
 function calculateReadingTime(node: Node) {
   let readingTime = 0;
