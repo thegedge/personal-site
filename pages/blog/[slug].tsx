@@ -3,6 +3,7 @@ import { GetStaticPathsContext, GetStaticPropsContext } from "next";
 import Error from "next/error";
 import Head from "next/head";
 import React from "react";
+import { IoWarningOutline } from "react-icons/io5";
 import { Link } from "../../lib/components/Link";
 import Markdown from "../../lib/components/Markdown";
 import { PostPublishedAndMetadata } from "../../lib/components/PostList";
@@ -31,6 +32,12 @@ export default function Post(props: {
           <h1 className="my-2">{props.post.title}</h1>
           <PostPublishedAndMetadata post={props.post} />
           <article className="text-lg leading-8 md:text-xl md:leading-10">
+            {!props.post.published && (
+              <div className="my-8 p-8 text-lg font-bold bg-yellow-100 rounded border-yellow-200 border-4 text-yellow-600">
+                <IoWarningOutline size={32} /> This post is currently unpublished, and hence may be
+                incomplete and a little unrefined. <IoWarningOutline size={32} />
+              </div>
+            )}
             <Markdown offsetHeadings={1}>{props.post.markdown}</Markdown>
           </article>
         </div>
