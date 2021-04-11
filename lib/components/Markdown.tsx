@@ -321,6 +321,8 @@ function astToReact(
       return <MarkdownBlockQuote>{children}</MarkdownBlockQuote>;
     case "code":
       return <MarkdownCode language={node.lang} value={node.value} />;
+    case "definition":
+      return <></>;
     case "descriptiondetails":
       return <MarkdownDescriptionDetails>{children}</MarkdownDescriptionDetails>;
     case "descriptionlist":

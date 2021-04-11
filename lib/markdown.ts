@@ -5,9 +5,10 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import unified from "unified";
-import { Data, Node, Position } from "unist";
+import { Node } from "unist";
 import readingTimes from "./unified-plugins/reading-times";
 import removeListParagraphs from "./unified-plugins/remove-list-paragraphs";
+import replaceLinkReferences from "./unified-plugins/replace-link-references";
 import tableHeadsAndBodies from "./unified-plugins/table-heads-and-bodies";
 
 export interface MarkdownData {
@@ -19,6 +20,7 @@ export interface MarkdownData {
 export type MarkdownNodes =
   | MarkdownBlockquote
   | MarkdownCode
+  | MarkdownDefinition
   | MarkdownDescriptionList
   | MarkdownDescriptionDetails
   | MarkdownDescriptionTerm
@@ -44,8 +46,6 @@ export type MarkdownNodes =
   | MarkdownThematicBreak;
 
 export interface MarkdownNode<Children = MarkdownNodes> extends Node {
-  data?: Data;
-  position?: Position;
   children: Children[];
 }
 
@@ -169,6 +169,14 @@ export interface MarkdownThematicBreak extends MarkdownNode {
   type: "thematicBreak";
 }
 
+export interface MarkdownDefinition extends MarkdownNode {
+  type: "definition";
+  identifier: string;
+  url: string;
+  label: string;
+  title: string | null;
+}
+
 // From remark-deflist
 
 export interface MarkdownDescriptionDetails extends MarkdownNode {
@@ -194,6 +202,7 @@ export function parse(source: string): MarkdownData {
     .use(remarkDeflist)
     .use(addListMetadata)
     .use(removeListParagraphs)
+    .use(replaceLinkReferences)
     .use(tableHeadsAndBodies)
     .use(readingTimes);
 

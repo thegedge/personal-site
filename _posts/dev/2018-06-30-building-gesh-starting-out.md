@@ -4,7 +4,9 @@ category: dev
 tags: [rust]
 series: Building gesh
 published: false
-description: First post in a series on building my own shell, gesh. A bit on what shells are, and what I've done so far.
+description: >-
+  First post in a series on building my own shell, gesh. A bit on what shells are, and what I've
+  done so far.
 ---
 
 I recently decided I wanted to do two things: learn a new language, and build a shell. I settled on
