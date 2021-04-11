@@ -1,6 +1,6 @@
 import fs from "fs";
 import glob from "glob";
-import { filter, memoize, orderBy } from "lodash";
+import { memoize, orderBy } from "lodash";
 import path from "path";
 import { MarkdownData, parse } from "./markdown";
 
@@ -55,9 +55,5 @@ export default memoize(async function (): Promise<PostData[]> {
     };
   });
 
-  const orderedPosts = orderBy(posts, "date", "desc");
-  if (process.env.NODE_ENV == "development") {
-    return orderedPosts;
-  }
-  return filter(orderedPosts, "published");
+  return orderBy(posts, "date", "desc");
 });

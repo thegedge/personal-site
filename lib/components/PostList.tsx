@@ -1,4 +1,4 @@
-import { ceil, concat, flatMap, groupBy, identity, orderBy, uniq } from "lodash";
+import { ceil, concat, filter, flatMap, groupBy, identity, orderBy, uniq } from "lodash";
 import moment from "moment";
 import React from "react";
 import { BsCalendar, BsClock } from "react-icons/bs";
@@ -56,14 +56,20 @@ const PostListItem = (props: { post: PostData; tagColors: Record<string, Color> 
 
 export const PostList = (props: { posts: PostData[] }) => {
   const tagColors = stableColors(uniq(flatMap(props.posts, "tags")));
-  const posts = groupBy(props.posts, (post) => new Date(post.date).getFullYear());
+
+  let posts = props.posts;
+  if (process.env.NODE_ENV !== "development") {
+    posts = filter(posts, "published");
+  }
+
+  const postsByYear = groupBy(posts, (post) => new Date(post.date).getFullYear());
   return (
     <VerticalList spacing={0}>
-      {orderBy(Object.keys(posts), identity, "desc").map((year) => (
+      {orderBy(Object.keys(postsByYear), identity, "desc").map((year) => (
         <div key={year} className="w-full">
           <h2 className="text-center bg-primary-100 py-4">{year}</h2>
           <VerticalList border spacing={1}>
-            {posts[year].map((post) => (
+            {postsByYear[year].map((post) => (
               <PostListItem key={post.slug} post={post} tagColors={tagColors} />
             ))}
           </VerticalList>
