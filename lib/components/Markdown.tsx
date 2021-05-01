@@ -61,9 +61,11 @@ const MarkdownHeading = (props: { offset: number; level: number; children: React
   }
 
   const children = [
-    <div className={`w-4 mr-2 ${ruleClassName}`} />,
-    <div className="flex-initial">{props.children}</div>,
-    <div className={`flex-1 mx-2 ${ruleClassName}`} />,
+    <div key={1} className={`w-4 mr-2 ${ruleClassName}`} />,
+    <div key={2} className="flex-initial">
+      {props.children}
+    </div>,
+    <div key={3} className={`flex-1 mx-2 ${ruleClassName}`} />,
   ];
 
   const headings = ["h1", "h2", "h3", "h4", "h5", "h6"].slice(props.offset);
@@ -304,88 +306,96 @@ const MarkdownRoot = (props: { children: React.ReactNode }) => {
   return <>{props.children}</>;
 };
 
-function astToReact(
-  node: MarkdownNodes,
-  offsetHeadings: number,
-  fullSource: string
-): React.ReactNode {
+function astToReact(node: MarkdownNodes, offsetHeadings: number, index = 0): React.ReactNode {
   let children: React.ReactNode = [];
   if ("children" in node && isArray(node.children)) {
-    children = (node.children as MarkdownNodes[]).map((c) =>
-      astToReact(c, offsetHeadings, fullSource)
+    children = (node.children as MarkdownNodes[]).map((c, index) =>
+      astToReact(c, offsetHeadings, index)
     );
   }
 
   switch (node.type) {
     case "blockquote":
-      return <MarkdownBlockQuote>{children}</MarkdownBlockQuote>;
+      return <MarkdownBlockQuote key={index}>{children}</MarkdownBlockQuote>;
     case "code":
-      return <MarkdownCode language={node.lang} value={node.value} />;
+      return <MarkdownCode key={index} language={node.lang} value={node.value} />;
     case "definition":
       return <></>;
     case "descriptiondetails":
-      return <MarkdownDescriptionDetails>{children}</MarkdownDescriptionDetails>;
+      return <MarkdownDescriptionDetails key={index}>{children}</MarkdownDescriptionDetails>;
     case "descriptionlist":
-      return <MarkdownDescriptionList>{children}</MarkdownDescriptionList>;
+      return <MarkdownDescriptionList key={index}>{children}</MarkdownDescriptionList>;
     case "descriptionterm":
-      return <MarkdownDescriptionTerm>{children}</MarkdownDescriptionTerm>;
+      return <MarkdownDescriptionTerm key={index}>{children}</MarkdownDescriptionTerm>;
     case "emphasis":
-      return <em>{children}</em>;
+      return <em key={index}>{children}</em>;
     case "heading":
       return (
-        <MarkdownHeading offset={offsetHeadings} level={node.depth}>
+        <MarkdownHeading key={index} offset={offsetHeadings} level={node.depth}>
           {children}
         </MarkdownHeading>
       );
     case "html":
-      return <div dangerouslySetInnerHTML={{ __html: node.value }} />;
+      return <div key={index} dangerouslySetInnerHTML={{ __html: node.value }} />;
     case "image":
-      return <MarkdownImage src={node.url} alt={node.alt} />;
+      return <MarkdownImage key={index} src={node.url} alt={node.alt} />;
     case "inlineCode":
       return <MarkdownInlineCode>{node.value}</MarkdownInlineCode>;
     case "inlineMath":
-      return <MarkdownInlineMath value={node.value} />;
+      return <MarkdownInlineMath key={index} value={node.value} />;
     case "link":
-      return <MarkdownLink href={node.url}>{children}</MarkdownLink>;
+      return (
+        <MarkdownLink key={index} href={node.url}>
+          {children}
+        </MarkdownLink>
+      );
     case "list":
       return (
-        <MarkdownList ordered={node.ordered} nested={node.depth > 0}>
+        <MarkdownList key={index} ordered={node.ordered} nested={node.depth > 0}>
           {children}
         </MarkdownList>
       );
     case "listItem":
-      return <MarkdownListItem>{children}</MarkdownListItem>;
+      return <MarkdownListItem key={index}>{children}</MarkdownListItem>;
     case "math":
-      return <MarkdownMath value={node.value} />;
+      return <MarkdownMath key={index} value={node.value} />;
     case "paragraph":
-      return <MarkdownParagraph>{children}</MarkdownParagraph>;
+      return <MarkdownParagraph key={index}>{children}</MarkdownParagraph>;
     case "root":
-      return <MarkdownRoot>{children}</MarkdownRoot>;
+      return <MarkdownRoot key={index}>{children}</MarkdownRoot>;
     case "strong":
-      return <strong>{children}</strong>;
+      return <strong key={index}>{children}</strong>;
     case "table":
-      return <MarkdownTable>{children}</MarkdownTable>;
+      return <MarkdownTable key={index}>{children}</MarkdownTable>;
     case "tableBody":
-      return <tbody>{children}</tbody>;
+      return <tbody key={index}>{children}</tbody>;
     case "tableCell":
       return (
-        <MarkdownTableCell align={node.align} isHeader={node.isHeader}>
+        <MarkdownTableCell key={index} align={node.align} isHeader={node.isHeader}>
           {children}
         </MarkdownTableCell>
       );
     case "tableHead":
-      return <thead className="bg-primary-200 font-bold">{children}</thead>;
+      return (
+        <thead key={index} className="bg-primary-200 font-bold">
+          {children}
+        </thead>
+      );
     case "tableRow":
-      return <MarkdownTableRow isHeader={node.isHeader}>{children}</MarkdownTableRow>;
+      return (
+        <MarkdownTableRow key={index} isHeader={node.isHeader}>
+          {children}
+        </MarkdownTableRow>
+      );
     case "text":
       return node.value;
     case "thematicBreak":
-      return <hr className="my-4" />;
+      return <hr key={index} className="my-4" />;
     default:
       throw new Error(JSON.stringify(node, null, 2));
   }
 }
 
 export default function Markdown(props: { offsetHeadings?: number; children: MarkdownData }) {
-  return <>{astToReact(props.children.node, props.offsetHeadings || 0, props.children.source)}</>;
+  return astToReact(props.children.node, props.offsetHeadings || 0);
 }
