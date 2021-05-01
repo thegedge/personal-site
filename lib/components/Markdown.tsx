@@ -397,5 +397,5 @@ function astToReact(node: MarkdownNodes, offsetHeadings: number, index = 0): Rea
 }
 
 export default function Markdown(props: { offsetHeadings?: number; children: MarkdownData }) {
-  return astToReact(props.children.node, props.offsetHeadings || 0);
+  return <>{astToReact(props.children.node, props.offsetHeadings || 0)}</>;
 }
